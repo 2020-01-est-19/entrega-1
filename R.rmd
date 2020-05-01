@@ -17,7 +17,7 @@ output:
 
 # Líder
 
--
+- Ricardo Atsuhiko Yamamoto Yamamoto
 
 
 # Integrantes
