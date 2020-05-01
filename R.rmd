@@ -10,7 +10,7 @@ output:
 # Temas
 
 - Relación entre los factores económicos y geográficos y el acceso a una educación de calidad.
-- Disminución de residuos en empresas Peruanas durante los últimos diez años
+- Aporte a la conservación del medio ambiente de empresas Peruanas durante los últimos diez años
 - Efectividad de las medidas de aislamiento del gobierno en respuesta al COVID-19 en Perú.
 
 # Líder
