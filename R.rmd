@@ -10,8 +10,7 @@ output:
 # Temas
 
 - Relación entre los factores económicos y geográficos y el acceso a una educación de calidad.
-- El deficiente desarrollo de habilidades analíticas, interpretativas,
-  juicio crítico de la información en los estudiantes de educación secundaria de Lima-Perú.
+- Disminución de residuos en empresas Peruanas durante los últimos diez años
 - Uso del software libre en el Perú.
 - Efectividad de las medidas de aislamiento del gobierno en respuesta al COVID-19 en Perú.
 
