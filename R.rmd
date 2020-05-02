@@ -7,17 +7,6 @@ output:
 
 [![GitHub forks](https://img.shields.io/github/forks/2020-01-est-19/proyecto.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/2020-01-est-19/proyecto)
 
-# Temas
-
-- Relación entre los factores económicos y geográficos y el acceso a una educación de calidad.
-- Conservación del medio ambiente de empresas Peruanas durante los últimos diez años
-- Efectividad de las medidas de aislamiento del gobierno en respuesta al COVID-19 en Perú.
-
-# Líder
-
-- Ricardo Atsuhiko Yamamoto Yamamoto
-
-
 # Integrantes
 
 - Génesis Flores Arroyo
@@ -25,3 +14,125 @@ output:
 - Esteban Villacorta Garcia
 - Alberto Oporto Ames
 - Ricardo Atsuhiko Yamamoto Yamamoto
+
+# Líder
+
+- Ricardo Atsuhiko Yamamoto Yamamoto
+
+# Temas
+
+- Relación entre los factores económicos y geográficos y el acceso a una educación de calidad.
+- Disminución de residuos en empresas Peruanas durante los últimos diez años
+- Efectividad de las medidas de aislamiento del gobierno en respuesta al COVID-19 en Perú.
+
+# Idea numero 1
+- Relación entre el acceso de los alumnos de UTEC a una educación escolar de alta calidad y los factores economicos y geograficos relacionados.
+- Influencia de los factores economicos y geograficos de los alumnos de UTEC en su acceso a una educación escolar de alta calidad.
+- Relación entre los factores económicos y el acceso a una educación de calidad. 
+
+(son las propuestas de títulos para esta investigación)
+
+El objetivo de esta posible temática sería analizar e informar acerca de los factores económicos (situación económica, inversión y gastos por alumno), así como el factor geográfico en el acceso a una educación de calidad. El tema es de interés para la audiencia. Más aún, porque buscamos responder la existencia de posibles tendencias, predecir el comportamiento correlativo entre dos variables, explorar interrogantes e inferir resultados. Todas estas interrogantes son factibles y específicas, además, por cada variable se ha optado por desarrollar preguntas que intenten abordarlas. Para esta primera tentativa, nos hemos asegurado de tener variedad de preguntas clasificadas según su tipo. 
+
+En cuanto a la población objetivo, esta sería alumnos de UTEC cuyo año de ingreso sea  2019. Una posible tentativa sobre la recolección de datos sería mediante encuesta y también datos del INEI. El tiempo que se tiene para su culminación se considera apropiado para cumplir con los objetivos que tiene esta línea de investigación. Por último, se quiere hacer referencia a las variables. Estas están clasificadas y las preguntas están distribuidas por cada una, lo que asegura su consistencia.
+
+Para llevar a cabo este trabajo tenemos que definir a qué nos referimos con educación de calidad. Cuando es que una educación deja de ser de “calidad”.
+Con respecto a esto último, hemos decidido utilizar los estándares del MINEDU para definir lo que es educación de calidad. El MINEDU relaciona mucho la educación de calidad con los factores económicos, de localidad y los logros de los estudiantes. Además, no vamos a tener un punto de referencia con respecto a lo que es una educación de alta y baja calidad, debido a que esto sería muy subjetivo. En vez de esto, hemos optado por sencillamente por usar los términos mayor y menor calidad al comparar dos o más colegios específicos.
+
+
+
+
+| N° | Pregunta                                                                                                                                               | Tipo         |   |   |
+|----|--------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|---|---|
+| 1  | ¿Cuál es la edad de los entrevistados?                                                                                                                 | Descriptiva  |   |   |
+| 2  | ¿Cuál es la región de procedencia de los entrevistados (estudiantes UTEC)?                                                                             | Descriptiva  |   |   |
+| 3  | ¿Ha estudiado en colegio público o privado?                                                                                                            | Descriptiva  |   |   |
+| 4  | ¿Cuánto se gastaban en la mensualidad escolar cada uno de los estudiantes (UTEC)?                                                                      | Descriptiva  |   |   |
+| 5  | ¿Cuánto gastaban en una lista de útiles estándar los estudiantes de UTEC?                                                                              | Descriptiva  |   |   |
+| 6  | ¿Qué material académico (útiles) compraban durante el transcurso del año escolar?                                                                      | Descriptiva  |   |   |
+| 7  | ¿Cuántas veces más compraron material académico durante el transcurso del año escolar?                                                                 | Descriptiva  |   |   |
+| 8  | Durante tu época escolar, ¿vivías en una zona rural o urbana?                                                                                          | Descriptiva  |   |   |
+| 9  | ¿Cuál era tu principal medio de transporte durante tu época escolar?                                                                                   | Descriptiva  |   |   |
+| 10 | ¿Existe una tendencia entre el acceso a la  calidad educativa para los estudiantes de y su región de procedencia (No Lima) y que son de zonas rurales? | Exploratoria |   |   |
+| 11 | ¿Qué equipos tecnológicos usaban durante su época escolar?                                                                                             | Descriptiva  |   |   |
+| 12 | ¿Existe alguna tendencia entre la inversión del estado y la calidad educativa?                                                                         | Exploratoria |   |   |
+| 13 | ¿A qué otros recursos podían acceder durante su época escolar los estudiantes del UTEC? (libros, revistas, programas, clases individuales, etc)        | Descriptiva  |   |   |
+| 14 | ¿Es posible predecir que aquellos que gastaban en transporte público les dificultaba la adquisición de material académico extra (útiles)?              | Predictiva   |   |   |
+| 15 | ¿Es posible predecir que los estudiantes que son procedentes de regiones (No Lima) y que cursan sus estudios universitarios es gracias a una beca?     | Predictiva   |   |   |
+| 16 | ¿Qué factores determinan que los estudiantes tengan un acceso a la educación de calidad?                                                               | Causal       |   |   |
+| 17 | ¿La inversión del Estado en la educación pública resultaría en un importante beneficio para la calidad educativa?                                      | Inferencial  |   |   |
+| 18 | ¿Los estudiantes de UTEC que cuentan con una buena situación económica tuvieron garantizada la continuación de sus estudios?                           | Inferencial  |   |   |
+| 19 | ¿Cómo ciertas condiciones determinan que los estudiantes tengan acceso a una educación de calidad? 
+------
+| Variable                                  | Relación con pregunta | Tipo de variable      |
+|-------------------------------------------|-----------------------|-----------------------|
+| Edad                                      | 1                     | Cuantitativa discreta |
+| Región de procedencia                     | 2,8,10,15             | Cualitativa nominal   |
+| Escuela privada o pública                 | 3                     | Cualitativa nominal   |
+| Pensión                                   | 4                     | Cuantitativa continua |
+| Gasto total en material académico (aprox) | 5,6,7,14              | Cuantitativa continua |
+| Equipos tecnológicos                      | 11                    | Cualitativa nominal   |
+| Inversión del estado                      | 12,17                 | Cuantitativa continua |
+| Acceso a recursos extra                   | 13                    | Cualitativa nominal   |
+| Transporte                                | 9,14                  | Cualitativa nominal   |
+| Otros factores                            | 16,18,19              | Cualitativa nominal   |
+
+
+# Idea numero 2
+Por normas estándares impuestas,  las empresas rigen sus actividades en base a ellas dependiendo al sector que pertenezcan. Sin embargo, muchas de ellas no han innovado sus propuestas de ayuda al medio ambiente, prevaleciendo así razones económicas u otras razones. De acuerdo a lo investigado, no hay un seguimiento sobre cuántas veces las empresas cambian sus políticas ambientales, cuán efectivas son y cuán progresivas son en el tiempo. La investigación pretende describir cuántas, cuáles empresas y cómo por sector están trabajando para la conservación ambiental. Posteriormente, se llevará a cabo un análisis progresivo en el tiempo de cuántas han cambiado, lo cual permitirá realizar inferencias que serán de mucho aporte para que las autoridades tomen las medidas necesarias y de esta manera garantizar la mejora en la preservación del medio ambiente en el país dentro del sector empresarial.
+
+Se considera viable el tema, dado que se encuentra disponible información respecto a las medidas de conservación del medio ambiente que realizan algunas empresas en el Perú. Asimismo, es de interés para toda la ciudadanía porque refleja las tendencias sobre la huella de carbono en el sector empresarial, lo cual es de suma importancia para el desarrollo del país. Además no hay un estudio a nivel inferencial respecto a la labor de empresas por sector, motivo por el cual se considera un estudio que proporcionará aporte a la comunidad.
+
+| N° | Pregunta                                                                                          | Tipo        |
+|----|---------------------------------------------------------------------------------------------------|-------------|
+| 1  |  ¿ Cuántas propuestas de mejora ambiental ha implementado la empresa?                             | Descriptiva |
+| 2  | ¿ A qué sector empresarial pertenece?                                                             | Descriptiva |
+| 3  | ¿ Cuántos  indicadores medioambientales presenta la empresa , para el cumplimiento de propuestas? | Descriptiva |
+| 4  | ¿Cuántos residuos ha generado la empresa?                                                         | Descriptiva |
+| 5  | ¿ Cuántos indicadores medioambientales han tenido buenos resultados ?                             | Descriptiva |
+| 6  | ¿ Cuántas  empresas cumplen con las políticas medioambientales?                                   | Descriptiva |
+| 7  | ¿ Cuáles son los  residuos más generados en la empresa?                                           | Descriptiva |
+| 8  | ¿ Cuál es es la relevancia que le da la empresa a las políticas ambientales?                      | Descriptiva |
+
+| Variable                                                        | Tipo de variable      |
+|-----------------------------------------------------------------|-----------------------|
+| N° propuestas de mejora ambiental                               | Cuantitativa discreta |
+| Sector empresarial                                              | Cualitativa nominal   |
+| N° indicadores medioambientales para cumplimiento de propuestas | Cuantitativa discreta |
+| N° residuos generados                                           | Cuantitativa continua |
+| N° indicadores medioambientales mejorados en el tiempo          | Cuantitativa discreta |
+| N° empresas que cumplen o no con las políticas ambientales      | Cuantitativa discreta |
+| Residuos generados                                              | Cualitativa nominal   |
+| Relevancia de políticas ambientales                             | Cualitativa nominal   |
+
+# Idea numero 3
+El objetivo de este trabajo es determinar en qué medida las diferentes acciones que ha aplicado el gobierno, desde el inicio del periodo de cuarentena hasta el tiempo del estudio, son o no efectivas para reducir la distancia social y/o el impacto del Covid-19 en el Perú.
+
+| N° | Pregunta                                                                                                                                                                                       | Tipo        |
+|----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| 1  | ¿Que edad tienen los miembros de la muestra?                                                                                                                                                   | Descriptiva |
+| 2  | ¿De qué género son?                                                                                                                                                                            | Descriptiva |
+| 3  | ¿Cuanto es su ingreso promedio?                                                                                                                                                                | Descriptiva |
+| 4  | ¿En qué distrito viven?                                                                                                                                                                        | Descriptiva |
+| 5  | ¿Cuál fue el último nivel educativo que cursaron?                                                                                                                                              | Descriptiva |
+| 6  | ¿Que tan frecuentemente se salía de casa previamente al comienzo de la cuarentena?                                                                                                             | Descriptiva |
+| 7  | ¿Que tan frecuentemente salió una población en una fecha determinada respecto al promedio?                                                                                                     | Descriptiva |
+| 8  | ¿Que lugares se frecuentan? ¿Con qué frecuencia acude la gente a estas ubicaciones?                                                                                                            | Descriptiva |
+| 9  | ¿De qué clase social suelen ser las personas que salen durante los períodos de cuarentena? ¿Qué razones existen para estos?                                                                    | Descriptiva |
+| 10 | ¿Qué medidas gubernamentales se constituyeron en estas fechas? ¿Qué  efectos se observan en la frecuencia de salida de una población tras instaurarse? ¿Por qué podrían suceder estos efectos? | Descriptiva |
+| 11 | ¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?                                                                        | Descriptiva |
+| 12 | ¿Qué poblaciones se ven más afectadas por la enfermedad durante las medidas de aislamiento? ¿Cómo varía esto respecto a periodos anteriores a su promulgación?                                 | Descriptiva |
+| 13 | ¿Se pueden definir ciertas características en las medidas que fomenten - reduzcan las cifras de personas que salen? ¿Son estas efectivas en reducir las tasas de infección?                    | Explorativa |
+| 14 | ¿Se pueden prevenir errores - proveer mejores opciones respecto a medidas preventivas a partir de estas características?                                                                       | Explorativa |
+
+
+| Variable                         | Tipo de variable      |
+|----------------------------------|-----------------------|
+| edad                             | cuantitativa discreta |
+| género                           | cualitativa nominal   |
+| Clase social                     | cualitativa ordinal   |
+|  Nivel educativo alcanzado	       | cualitativa ordinal   |
+| Tiempo transcurrido de inicio    | cuantitativa continua |
+| Medida gubernamental aplicada    | cualitativa nominal   |
+| Frecuencia de salida por persona | cuantitativa discreta |
+| Número de infecciones            | cuantitativa discreta |
