@@ -28,16 +28,46 @@ output:
 # Idea numero 1
 - Relación entre el acceso de los alumnos de UTEC a una educación escolar de alta calidad y los factores economicos y geograficos relacionados.
 - Influencia de los factores economicos y geograficos de los alumnos de UTEC en su acceso a una educación escolar de alta calidad.
-- Relación entre los factores económicos y el acceso a una educación de calidad. 
+- Relación entre los factores económicos y el acceso a una educación de calidad.
 
 (son las propuestas de títulos para esta investigación)
 
-El objetivo de esta posible temática sería analizar e informar acerca de los factores económicos (situación económica, inversión y gastos por alumno), así como el factor geográfico en el acceso a una educación de calidad. El tema es de interés para la audiencia. Más aún, porque buscamos responder la existencia de posibles tendencias, predecir el comportamiento correlativo entre dos variables, explorar interrogantes e inferir resultados. Todas estas interrogantes son factibles y específicas, además, por cada variable se ha optado por desarrollar preguntas que intenten abordarlas. Para esta primera tentativa, nos hemos asegurado de tener variedad de preguntas clasificadas según su tipo. 
+El objetivo de esta posible temática sería analizar e informar acerca de
+los factores económicos (situación económica, inversión y gastos por alumno),
+así como el factor geográfico en el acceso a una educación de calidad.
+El tema es de interés para la audiencia.
+Más aún, porque buscamos responder la existencia de posibles tendencias,
+predecir el comportamiento correlativo entre dos variables,
+explorar interrogantes e inferir resultados.
+Todas estas interrogantes son factibles y específicas, además,
+por cada variable se ha optado por desarrollar preguntas que intenten abordarlas.
+Para esta primera tentativa,
+nos hemos asegurado de tener variedad de preguntas clasificadas según su tipo.
 
-En cuanto a la población objetivo, esta sería alumnos de UTEC cuyo año de ingreso sea  2019. Una posible tentativa sobre la recolección de datos sería mediante encuesta y también datos del INEI. El tiempo que se tiene para su culminación se considera apropiado para cumplir con los objetivos que tiene esta línea de investigación. Por último, se quiere hacer referencia a las variables. Estas están clasificadas y las preguntas están distribuidas por cada una, lo que asegura su consistencia.
+En cuanto a la población objetivo,
+esta sería alumnos de UTEC cuyo año de ingreso sea  2019.
+Una posible tentativa sobre la recolección de datos sería mediante
+encuesta y también datos del INEI.
+El tiempo que se tiene para su culminación se considera apropiado
+para cumplir con los objetivos que tiene esta línea de investigación.
+Por último, se quiere hacer referencia a las variables.
+Estas están clasificadas y las preguntas están distribuidas por cada una,
+lo que asegura su consistencia.
 
-Para llevar a cabo este trabajo tenemos que definir a qué nos referimos con educación de calidad. Cuando es que una educación deja de ser de “calidad”.
-Con respecto a esto último, hemos decidido utilizar los estándares del MINEDU para definir lo que es educación de calidad. El MINEDU relaciona mucho la educación de calidad con los factores económicos, de localidad y los logros de los estudiantes. Además, no vamos a tener un punto de referencia con respecto a lo que es una educación de alta y baja calidad, debido a que esto sería muy subjetivo. En vez de esto, hemos optado por sencillamente por usar los términos mayor y menor calidad al comparar dos o más colegios específicos.
+Para llevar a cabo este trabajo tenemos que definir a qué
+nos referimos con educación de calidad.
+Cuando es que una educación deja de ser de “calidad”.
+Con respecto a esto último,
+hemos decidido utilizar los estándares del MINEDU para definir
+lo que es educación de calidad.
+El MINEDU relaciona mucho la educación de calidad con los factores económicos,
+de localidad y los logros de los estudiantes.
+Además,
+no vamos a tener un punto de referencia con respecto a lo que es
+una educación de alta y baja calidad, debido a que esto sería muy subjetivo.
+En vez de esto,
+hemos optado por sencillamente por usar los términos mayor y
+menor calidad al comparar dos o más colegios específicos.
 
 
 
@@ -62,7 +92,7 @@ Con respecto a esto último, hemos decidido utilizar los estándares del MINEDU 
 | 16 | ¿Qué factores determinan que los estudiantes tengan un acceso a la educación de calidad?                                                               | Causal       |   |   |
 | 17 | ¿La inversión del Estado en la educación pública resultaría en un importante beneficio para la calidad educativa?                                      | Inferencial  |   |   |
 | 18 | ¿Los estudiantes de UTEC que cuentan con una buena situación económica tuvieron garantizada la continuación de sus estudios?                           | Inferencial  |   |   |
-| 19 | ¿Cómo ciertas condiciones determinan que los estudiantes tengan acceso a una educación de calidad? 
+| 19 | ¿Cómo ciertas condiciones determinan que los estudiantes tengan acceso a una educación de calidad?
 ------
 | Variable                                  | Relación con pregunta | Tipo de variable      |
 |-------------------------------------------|-----------------------|-----------------------|
@@ -79,9 +109,32 @@ Con respecto a esto último, hemos decidido utilizar los estándares del MINEDU 
 
 
 # Idea numero 2
-Por normas estándares impuestas,  las empresas rigen sus actividades en base a ellas dependiendo al sector que pertenezcan. Sin embargo, muchas de ellas no han innovado sus propuestas de ayuda al medio ambiente, prevaleciendo así razones económicas u otras razones. De acuerdo a lo investigado, no hay un seguimiento sobre cuántas veces las empresas cambian sus políticas ambientales, cuán efectivas son y cuán progresivas son en el tiempo. La investigación pretende describir cuántas, cuáles empresas y cómo por sector están trabajando para la conservación ambiental. Posteriormente, se llevará a cabo un análisis progresivo en el tiempo de cuántas han cambiado, lo cual permitirá realizar inferencias que serán de mucho aporte para que las autoridades tomen las medidas necesarias y de esta manera garantizar la mejora en la preservación del medio ambiente en el país dentro del sector empresarial.
+Por normas estándares impuestas,
+las empresas rigen sus actividades en base a ellas dependiendo
+al sector que pertenezcan.
+Sin embargo,
+muchas de ellas no han innovado sus propuestas de ayuda al medio ambiente,
+prevaleciendo así razones económicas u otras razones.
+De acuerdo a lo investigado,
+no hay un seguimiento sobre cuántas veces las empresas cambian sus
+políticas ambientales, cuán efectivas son y cuán progresivas son en el tiempo.
+La investigación pretende describir cuántas,
+cuáles empresas y cómo por sector están trabajando para la conservación ambiental.
+Posteriormente,
+se llevará a cabo un análisis progresivo en el tiempo de cuántas han cambiado,
+lo cual permitirá realizar inferencias que serán de mucho aporte para
+que las autoridades tomen las medidas necesarias y de esta manera garantizar
+la mejora en la preservación del medio ambiente en el país dentro
+del sector empresarial.
 
-Se considera viable el tema, dado que se encuentra disponible información respecto a las medidas de conservación del medio ambiente que realizan algunas empresas en el Perú. Asimismo, es de interés para toda la ciudadanía porque refleja las tendencias sobre la huella de carbono en el sector empresarial, lo cual es de suma importancia para el desarrollo del país. Además no hay un estudio a nivel inferencial respecto a la labor de empresas por sector, motivo por el cual se considera un estudio que proporcionará aporte a la comunidad.
+Se considera viable el tema, dado que se encuentra disponible información respecto a las medidas de conservación del medio ambiente que realizan
+algunas empresas en el Perú.
+Asimismo, es de interés para toda la ciudadanía porque refleja
+las tendencias sobre la huella de carbono en el sector empresarial,
+lo cual es de suma importancia para el desarrollo del país.
+Además no hay un estudio a nivel inferencial respecto a la labor de empresas
+por sector, motivo por el cual se considera un estudio
+que proporcionará aporte a la comunidad.
 
 | N° | Pregunta                                                                                          | Tipo        |
 |----|---------------------------------------------------------------------------------------------------|-------------|
