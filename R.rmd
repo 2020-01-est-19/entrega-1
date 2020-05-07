@@ -5,4 +5,88 @@ output:
       theme: darkly
 ---
 
+> Justificación
+
+<style> body {text-align: justify} </style>
+
+
 [![GitHub forks](https://img.shields.io/github/forks/2020-01-est-19/proyecto.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/2020-01-est-19/proyecto)
+
+# TÍTULO DE TEMA
+
+- Curso:
+Estadística y Probabilidades
+
+- Profesor:
+Renom José Miguel
+
+- Integrantes:
+
+## Trabajo de campo
+
+### Introducción:
+El cáncer es una enfermedad que genera gran producción de células malignas,
+las cuales se dividen sin control y dañan los tejidos corporales.
+En el Perú, cada año se registra 46,000 casos de cáncer,
+aproximadamente (MINSA, 2015, p.12).
+Sin embargo, gracias a la existencia de seguros de salud,
+como el Seguro Integral de Salud (SIS),
+las personas presentan las facilidades de recibir atención oncológica.
+Como ejemplo 130,000 pacientes, afiliados al seguro mencionado anteriormente,
+pudieron ser atendidos (MINSA, 2015, p.18).
+Pero cabe mencionar, que este no es el único seguro de salud que existe en el país.
+Es por ello, que en nuestro presente estudio de campo,
+tenemos como propósito determinar si existe alguna relación entre el diagnóstico de
+cáncer, y factores económicos y geográficos,
+que afectan de manera positiva o negativa el desarrollo de dicha problemática.
+
+### Objetivos:
+La importancia de este estudio estadístico radica en reconocer cuán accesible es el
+tratamiento del cáncer, de acuerdo a la economía de cada población.
+De este modo, se podrá estimar el ingreso económico adecuado que debe ostentar una
+persona para poder cubrir los tratamientos.
+De igual forma, podremos estimar cuáles son las poblaciones más vulnerables,
+así como cuán beneficioso son los distintos tipos de seguros de salud para
+estas regiones.
+
+#### Preguntas propuestas para estudio
+
+Tabla con preguntas clasificadas de acuerdo al tipo de variable
+
+#### Objetivo general:
+- Determinar la relación entre los casos registrados de personas con diagnóstico de cáncer, y factores económicos y geográficos para el desarrollo de dicho registro.
+
+#### Objetivos específicos:
+- Establecer una relación entre los casos registrados de personas con diagnóstico
+de cáncer y el número de médicos según departamento (2010-2017)
+- Establecer una relación entre los casos registrados de personas con diagnóstico
+de cáncer y el número de habitantes por cada médico (2010-2017)
+- Establecer una relación entre los casos registrados de personas con diagnóstico
+de cáncer y el nivel socioeconómico en el Perú (2011)
+- Establecer una relación entre los casos registrados de personas con diagnóstico
+de cáncer y el índice de vulnerabilidad según departamento (2013)
+- Estimar el número de casos de personas con diagnóstico de cáncer hasta el año 2025.
+
+
+##  Marco Teórico
+
+### Población objetivo:
+
+### Unidad muestral:
+
+### Muestreo
+- Tipo de muestreo
+- Accesibilidad de unidades muestrales
+- (fuentes)
+- Metodología
+
+- Tamaño de la muestra
+
+### Variables
+Tabla con clasificación de variables
+
+## Planificación
+Diagrama de Gant
+
+## Bibliografía
+
