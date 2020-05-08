@@ -1,13 +1,19 @@
-SOURCE = $(wildcard *.rmd)
+SOURCE = $(wildcard *.rmd) $(wildcard *.png)
 TARGET = $(SOURCE:%.rmd=%.nb.html)
 
-default: $(TARGET)
+PNGSOURCE = $(wildcard *.svg)
+PNGTARGET = $(SOURCE:%.svg=%.png)
+
+default: $(TARGET) $(PNGTARGET)
 
 %.nb.html: %.rmd
 	Rscript -e 'library(rmarkdown); render("$<")'
 
+%.png: %.svg
+	inkscape --export-type=png $<
+
 zip: proyecto.zip
 .PHONY: zip
 
-proyecto.zip: $(TARGET) $(SOURCE) $(wildcard *.png)
+proyecto.zip: $(TARGET) $(SOURCE) $(PNGTARGET)
 	zip $@  $^

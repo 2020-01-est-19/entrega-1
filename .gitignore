@@ -1,4 +1,5 @@
 *.pdf
+*.png
 *.html
 *.zip
 .Rproj.user
