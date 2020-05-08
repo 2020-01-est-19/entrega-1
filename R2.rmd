@@ -1,0 +1,254 @@
+---
+title: "Efecto de las medidas tomadas por el gobierno peruano frente al COVID-19"
+output:
+   html_notebook:
+      theme: darkly
+---
+
+
+<style> body {text-align: justify} </style>
+
+
+[![GitHub forks](https://img.shields.io/github/forks/2020-01-est-19/proyecto.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/2020-01-est-19/proyecto)
+
+# Profesor:
+* Jose Miguel Renom
+
+# Curso:
+* Estadística y Probabilidades
+
+# Integrantes
+* Génesis Flores Arroyo
+* Angel Salvador Calleja Castillo
+* Esteban Villacorta Garcia
+* Alberto Oporto Ames
+* Ricardo Atsuhiko Yamamoto Yamamoto
+
+# Líder
+* Ricardo Atsuhiko Yamamoto Yamamoto
+
+# Introducción
+El COVID-19 ha tenido un gran impacto alrededor del mundo y hoy en dia es fácilmente
+el tema del que más se habla.
+Todos los países han tomado medidas con respecto a esta pandemia,
+sin embargo unos las han tomado muy tarde y esto se ha visto afectado en la expansión
+del virus en ellos.
+En Perú, las medidas se empezaron a tomar rápidamente,
+pero una cantidad considerable de la población no ha cumplido con las inmovilizaciones
+sociales y esto se ha visto reflejado en la expansión del virus en el país.
+¿Cómo podemos saber cuáles han sido las medidas más respetadas y por qué?
+La respuesta a esta pregunta le sería de mucha ayuda al gobierno peruano,
+ya que con esta información se podría saber que tipo de medidas debería tomar y en qué
+momentos para que se cumplan de manera satisfactoria.
+Es por ello que nuestro grupo ha decidido investigar acerca de la efectividad de las
+medidas tomadas y su relación con la movilización social de los ciudadanos.
+
+# Factibilidad
+Este trabajo es factible, debido a que la mayor parte de la información la podemos
+conseguir de gráficos ya existentes con relación al COVID-19 en Perú y la información
+faltante la podemos adquirir a través de encuestas.
+Además, los efectos de las medidas tomadas por el gobierno en la movilización social ya
+se pueden analizar, debido a que su información se obtiene solamente días después de
+implementarlas.
+Finalmente, esta investigación se puede llevar a cabo en el tiempo dado,
+debido a que no es un trabajo que requiera tiempo de espera para llegar a concretarse.
+Esto quiere decir que lo podemos empezar inmediatamente.
+
+# Objetivos
+La importancia de este estudio estadístico radica en el análisis de algunas de las
+medidas que el gobierno ha declarado ante la coyuntura del Covid-19.
+Es importante estudiar su efectividad en la movilización social,
+puesto que podría otorgar un panorama más holístico y verídico sobre las medidas que
+generan un impacto positivo en la desaceleración de la propagación del
+nuevo virus Sars-CoV-2.
+
+## Objectivos generales
+* El objetivo de este trabajo es determinar en qué medida las diferentes acciones
+que ha aplicado el gobierno, desde el inicio del periodo de cuarentena hasta el
+tiempo del estudio, son o no efectivas para reducir el impacto y expansión
+del Covid-19 en el Perú.
+Queremos averiguar el efecto de estas medidas en 2 diferentes aspectos.
+Estos son: la movilización social y
+de qué manera afectan la curva de aumento de infectados por coronavirus en Perú.
+
+## Objetivos específicos
+* Establecer las medidas a estudiar y que estas se encuentren alineadas a
+la inmovilización social.
+* Analizar la situación de la ciudad de Lima en el caso hipotético de
+“Declaración de emergencia fuera de tiempo”.
+* Establecer la medida con mayor efectividad ante la propagación del
+nuevo virus Sars-CoV-2.
+* Establecer los factores que determinan la prestación de servicios públicos y
+su relación con la propagación del virus.
+* Establecer una relación entre el bono subsidio y
+el desacato a la inmovilización social.
+* Establecer las principales razones de las personas para
+desobedecer la inmovilización social.
+
+# Marco Teórico
+
+## Población objetivo
+La población de interés son los ciudadanos peruanos.
+Para lograr que nuestras unidades muestrales sean los más representativa posible,
+hemos decidido delimitar nuestra población objetivo al área de Lima.
+Esto se debe a que nuestros encuestados se encuentran en esta zona y
+la mayor cantidad de población se encuentra aquí.
+
+## Unidad muestral
+* Ciudadanos limeños con edad adulta [18 - 50]
+* Accederemos a las observaciones y/o mediciones de las unidades muestrales mediante
+fuentes de internet que presentan fiabilidad, respaldo del gobierno.
+Del mismo modo, se realizarán encuestas a los alumnos de UTEC y sus familiares
+a través de preguntas relacionadas con su movilización social antes y durante la
+cuarentena.
+Ello con el propósito de encontrar las razones de movilización y cuán
+diferente hubiera sido la curva de contagiados si las medidas correspondientes
+se hubiesen establecido después.
+
+## Muestreo
+Tipo de muestreo
+
+El tipo de muestreo es aleatorio simple estratificado para ciudadanos con edades
+entre 18-50 años.
+Ello, dado que todos los individuos de subconjunto de la población objetivo
+tienen la misma probabilidad de ser seleccionados.
+
+## Tamaño de la muestra
+* Finita
+
+# Proveniencia de los datos
+Existen varias fuentes de la que es posible extraer la información necesaria
+para responder las preguntas.
+
+* Compendio de normas emitidas por el Estado Peruano para afrontar la propagación
+  del Covid-19. (1 de febrero de 2020 al 7 de mayo de 2020)
+* Normativa sobre Estado de Emergencia por Coronavirus.
+* Acciones adoptadas por el gobierno ante COVID-19 (2020)
+* COVID-19 Community Mobility Report (2020).
+
+*Nota: Todas se encuentran citadas en bibliografía.*
+
+La información contenida en estas direcciones son originales,
+además de confiables, dado que se presenta cada medida con su respectivo decreto
+legislativo.
+Asimismo, los datos estadísticos cuentan con sustento de fuentes oficiales.
+
+# Uso de datos
+
+Con respecto al uso de los datos obtenidos de fuentes, tenemos claro cómo utilizar cada uno de ellos.
+La fuente de la que adquirimos la información respecto a las medidas tomadas nos es de
+mucha ayuda, ya que junto a ellas están las fechas en las que se llevaron a cabo.
+Esto nos permite analizar la población antes y después de que se implementarán
+estas medidas.
+
+Las fuentes de las que adquirimos las gráficas de inmovilización social también nos
+son de gran ayuda porque nos permiten relacionar las fechas en las que se llevaron
+a cabo las medidas gubernamentales con el flujo de gente en las calles.
+Esta relación es muy importante, ya que nos permitirá analizar la efectividad de
+los decretos y nos ayudará a lograr nuestros objetivos.
+El procesamiento de la data obtenida en las fuentes es muy importante,
+debido a que por sí solas nos muestran información “cruda” que todo el mundo ya conoce.
+Al procesar esta data y relacionarla con otra/s, la investigación se vuelve más
+interesante, ya que las relaciones entre diferentes estadísticas son
+posiblemente desconocidas y le brindan información mucho más útil al lector.
+
+# Medidas elegidas
+
+1. Decreto de estado de emergencia.
+    - ¿Qué tan grave hubiera sido declarar el estado de emergencia días después? (Exploratoria)
+    - ¿Cuál fue el efecto que tuvo el decreto de estado de emergencia en
+    la población emocionalmente? (Exploratoria)
+
+2. Decreto de Urgencia que dicta medidas extraordinarias con la finalidad de
+adquirir bienes y servicios necesarios para el alojamiento en cuarentena y
+alimentación de las personas que deban desplazarse dentro del país a
+consecuencia de la declaración del Estado de Emergencia Nacional por el COVID-19 (380)
+    - ¿La cantidad de personas que se vieron beneficiadas por este decreto fue
+    suficiente para que se reduzca considerablemente el tránsito de gente? (Inferencial)
+
+3. Aprueban Disposiciones para evitar la propagación del Coronavirus (COVID-19)
+durante la prestación del servicio público de transporte de personas(29)
+   - ¿La restricción en la prestación del servicio de transporte resultaría en una
+   importante medida efectiva? (Exploratoria)
+   - ¿Qué factores determinan que la prestación de servicios de transporte no sean
+   enemigos para la salud? (Causal)
+
+4. Aprueban el Padrón de los hogares en condición de pobreza o pobreza extrema
+beneficiarios del subsidio monetario de acuerdo al Sistema de Focalización de
+Hogares (SISFOH) que se encuentren en los ámbitos geográficos con mayor
+vulnerabilidad sanitaria en el marco del D.U. N° 027-2020 (68)
+    - ¿La tasa de personas que reciben la bonificación por día fue alcanzable a la
+    mayoría de personas del sector vulnerable? (Descriptiva)
+    - ¿Es representativo el número de personas que reciben la bonificación respecto
+    al total de personas vulnerables? (Descriptiva)
+    - ¿Es posible predecir un saqueo en caso no se haya aprobado el subsidio?
+
+5. Disposición presidencial que permite la salida de hombres y mujeres en días
+complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
+    - ¿Qué diferencia hubo en el tránsito de personas entre los días para hombres y
+    para mujeres? (Descriptiva)
+    - ¿A dónde se dirige la mayor parte del flujo de personas?
+    ¿Qué razón explicaría esto? (Exploratoria)
+
+6. Restricción de salida generalizada durante Semana Santa.
+
+7. Retiro del 25% de fondos AFP para todas las personas afiliadas
+    - ¿Cuántas personas se ven beneficiadas, es representativa respecto a la
+    oblación vulnerable? (Descriptiva)
+    - ¿El retiro, abastece completamente las necesidades de los peruanos? (Exploratoria)
+
+##  Preguntas propuestas para estudio (para los encuestados)
+
+|N° | Pregunta | Tipo |
+|---|----------|------|
+|1  |¿Qué edad tienen los miembros de la muestra?| Descriptiva|
+|2  |¿De qué género son?| Descriptiva|
+|3  |¿Cuánto es su ingreso promedio?| Descriptiva|
+|4  |¿En qué distrito vives?| Descriptiva|
+|5  |¿Cuál fue el último nivel educativo que cursaron?| Descriptiva|
+|6  |¿Es su tipo de empleo uno formal o informal?| Descriptiva|
+|6  |¿Qué tan frecuentemente salía de casa previamente al comienzo de la cuarentena?| Descriptiva|
+|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva|
+
+
+##  Preguntas propuestas para estudio (para la data)
+
+
+|N° | Pregunta | Tipo |
+|---|----------|------|
+|1  |¿Quá tan frecuentemente salía la población en una fecha determinada respecto al promedio?| Inferencial|
+|2  |¿Qué lugares se frecuentan? ¿Con qué frecuencia acude la gente a estas ubicaciones?| Inferencial|
+|3  |¿De qué clase social suelen ser las personas que salen durante los períodos de cuarentena? ¿Qué razones existen para estos?| Exploratoria|
+|4  |¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?| Descriptiva|
+|5  |¿Qué poblaciones se ven más afectadas por la enfermedad durante las medidas de aislamiento? ¿Cómo varía esto respecto a periodos anteriores a su promulgación?| Exploratoria|
+|6  |¿Se pueden prevenir errores - proveer mejores opciones respecto a medidas preventivas a partir de estas características? | Explorativa|
+|7  |¿Como se vio afectado el tránsito en los días previos a la implementación?| Descriptiva|
+|8  |¿Cómo ciertas condiciones determinan que el Covid-19  se propague?| Causal|
+|9  |¿Cuáles han sido las medidas que han tenido mayor impacto en la población?| Inferencial|
+
+
+# Variables
+
+|Variable| Tipo de variable|
+|--------|-----------------|
+|Edad| Cuantitativa discreta|
+|Género| Cualitativa nominal|
+|Clase social| Cualitativa ordinal|
+|Nivel educativo alcanzado| Cualitativa ordinal|
+|Tiempo transcurrido de inicio| Cuantitativa continua|
+|Tipo de trabajo| Cualitativa nominal|
+|Frecuencia de salida | Cuantitativa discreta|
+|Lugar donde vive (departamento)| Cualitativa nominal|
+|Cantidad de infectados| Cuantitativa discreta|
+|Cantidad de personas que no siguen la inmovilización social| Cuantitativa discreta|
+
+# Planificación
+
+![](gantt.png)
+
+# Bibliografía
+
+- Google LLC. (2020). Google COVID-19 Community Mobility Reports Peru.. Recuperado el 7 de mayo de 2020, de Google LLC Sitio Web: https://www.gstatic.com/covid19/mobility/2020-04-11_PE_Mobility_Report_en.pdf
+- Anónimo (2020). Acciones adoptadas por el gobierno ante COVID-19. Recuperado el 7 de mayo de 2020, de Velose Sitio Web: https://www.velose.pe/noticias/acciones-adoptadas-por-el-gobierno-ante-covid-19/
+- Gobierno del Perú (2020). Normativa sobre Estado de Emergencia por Coronavirus. Recuperado el 7 de mayo de 2020 de Plataforma digital del Estado Peruano Sitio Web: https://www.gob.pe/institucion/pcm/colecciones/787-normativa-sobre-estado-de-emergencia-por-coronavirus
+- Defensoría del Pueblo (2020). COMPENDIO DE NORMAS EMITIDAS POR EL ESTADO PERUANO PARA AFRONTAR LA PROPAGACIÓN DEL COVID-19. Recuperado el 7 de mayo de 2020 de Defensoria del Pueblo Sitio Web: https://www.defensoria.gob.pe/wp-content/uploads/2020/05/Compendio-de-Normas-COVID19-07.05.2020.pdf
