@@ -9,5 +9,5 @@ default: $(TARGET)
 zip: proyecto.zip
 .PHONY: zip
 
-proyecto.zip: $(TARGET) $(SOURCE)
+proyecto.zip: $(TARGET) $(SOURCE) $(wildcard *.png)
 	zip $@  $^
