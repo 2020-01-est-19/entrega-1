@@ -2,11 +2,11 @@ SOURCE = $(wildcard *.rmd) $(wildcard *.png)
 TARGET = $(SOURCE:%.rmd=%.nb.html)
 
 PNGSOURCE = $(wildcard *.svg)
-PNGTARGET = $(SOURCE:%.svg=%.png)
+PNGTARGET = $(PNGSOURCE:%.svg=%.png)
 
-default: $(TARGET) $(PNGTARGET)
+default: $(TARGET)
 
-%.nb.html: %.rmd
+%.nb.html: %.rmd $(PNGTARGET)
 	Rscript -e 'library(rmarkdown); render("$<")'
 
 %.png: %.svg
