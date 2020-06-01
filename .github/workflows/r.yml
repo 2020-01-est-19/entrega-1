@@ -15,7 +15,12 @@ jobs:
     - uses: r-lib/actions/setup-r@v1
 
     - name: deps
-      run: sudo apt-get install inkscape
+      run: sudo apt install inkscape
+
+    - name: r deps
+      run: sudo apt install
+        r-cran-rmarkdown
+        r-cran-tidyverse
 
     - name: build
       run: make
