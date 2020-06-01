@@ -17,3 +17,7 @@ zip: proyecto.zip
 
 proyecto.zip: $(TARGET) $(SOURCE) $(PNGTARGET)
 	zip $@  $^
+
+install: $(TARGET) $(SOURCE) $(PNGTARGET)
+	install -d $(DESTDIR)
+	cp $^ $(DESTDIR)
