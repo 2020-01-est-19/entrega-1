@@ -10,7 +10,7 @@ default: $(TARGET)
 	Rscript -e 'library(rmarkdown); render("$<")'
 
 %.png: %.svg
-	inkscape --export-type=png $<
+	inkscape --export-type=png $< || inkscape $< -e $@
 
 zip: proyecto.zip
 .PHONY: zip
