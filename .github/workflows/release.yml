@@ -17,10 +17,10 @@ jobs:
 
     - uses: dawidd6/action-download-artifact@v2
       with:
-        github_token: ${{secrets.GITHUB_TOKEN}}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         workflow: r.yml
         name: proyecto
-        commit: ${{github.event.push.head.sha}}
+        commit: ${{ GITHUB_SHA }}
 
     - name: Rezip
       run: zip proyecto.zip *
