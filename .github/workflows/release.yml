@@ -9,6 +9,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+    - name: Get sha
+      run: echo ::set-output name=sha::$GITHUB_SHA
+      id: sha
+
     - name: Wait build
       uses: fountainhead/action-wait-for-check@v1.0.0
       with:
@@ -20,7 +24,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         workflow: r.yml
         name: proyecto
-        commit: ${GITHUB_SHA}
+        commit: ${{ steps.sha.outputs.sha }}
 
     - name: Rezip
       run: zip proyecto.zip *
