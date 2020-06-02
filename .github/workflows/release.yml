@@ -20,6 +20,7 @@ jobs:
         github_token: ${{secrets.GITHUB_TOKEN}}
         workflow: r.yml
         name: proyecto
+        commit: ${{github.event.push.head.sha}}
 
     - name: Rezip
       run: zip proyecto.zip *
