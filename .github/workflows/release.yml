@@ -65,9 +65,10 @@ jobs:
         commit: ${{ github.sha }}
 
     - name: Only html
+      shell: bash
       run: |
-          "rm -rf !(*.html)"
-          "mv *.html index.html"
+          rm -rf !(*.html)
+          mv *.html index.html
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
