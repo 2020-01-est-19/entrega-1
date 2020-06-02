@@ -46,3 +46,32 @@ jobs:
         asset_path: ./proyecto.zip
         asset_name: proyecto.zip
         asset_content_type: application/zip
+
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Wait build
+      uses: fountainhead/action-wait-for-check@v1.0.0
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: "ubuntu"
+
+    - uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        workflow: r.yml
+        name: proyecto
+        commit: ${{ github.sha }}
+
+    - name: Only html
+      run: |
+          rm -rf !(*.html)
+          mv *.html index.html
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: .
