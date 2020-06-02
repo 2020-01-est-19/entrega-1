@@ -51,11 +51,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+
     - name: Wait build
       uses: fountainhead/action-wait-for-check@v1.0.0
       with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          checkName: "ubuntu"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        checkName: "ubuntu"
 
     - uses: dawidd6/action-download-artifact@v2
       with:
@@ -64,15 +69,14 @@ jobs:
         name: proyecto
         commit: ${{ github.sha }}
 
-    # https://alvinalexander.com/linux-unix/linux-find-files-not-matching-filename-pattern-dont-match/
-    - name: Only html
+    - name: Install
       run: |
-          find . -type f -not -name "*.html" -exec rm -rf {} \;
-          mv *.html index.html
+          mkdir build
+          mv *.html build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: .
+        FOLDER: build
