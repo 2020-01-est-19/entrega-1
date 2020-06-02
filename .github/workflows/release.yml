@@ -15,13 +15,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           checkName: "ubuntu"
 
-    - uses: actions/download-artifact@v2
+    - uses: dawidd6/action-download-artifact@v2
       with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: r.yml
         name: proyecto
 
     - name: Rezip
       run: zip proyecto.zip *
-
 
     - name: Create Release
       id: create_release
