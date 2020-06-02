@@ -12,10 +12,6 @@ output:
 [![R CI](https://github.com/2020-01-est-19/proyecto/workflows/R%20CI/badge.svg)](https://github.com/2020-01-est-19/proyecto/actions?query=workflow%3A%22R+CI%22)
 [![GitHub forks](https://img.shields.io/github/forks/2020-01-est-19/proyecto.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/2020-01-est-19/proyecto)
 
-```{bash}
-fortune | cowsay
-```
-
 # Profesor:
 * Jose Miguel Renom
 
