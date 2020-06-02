@@ -64,10 +64,10 @@ jobs:
         name: proyecto
         commit: ${{ github.sha }}
 
+    # https://alvinalexander.com/linux-unix/linux-find-files-not-matching-filename-pattern-dont-match/
     - name: Only html
-      shell: bash
       run: |
-          rm -rf !(*.html)
+          find . -type f -not -name "*.html" -exec rm -rf {} \;
           mv *.html index.html
 
     - name: Deploy
