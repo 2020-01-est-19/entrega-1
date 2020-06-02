@@ -9,6 +9,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+    - name: Wait build
+      uses: fountainhead/action-wait-for-check@v1.0.0
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: "R CI"
+
     - uses: actions/download-artifact@v2
       with:
         name: proyecto
