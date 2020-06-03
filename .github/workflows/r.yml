@@ -8,11 +8,26 @@ on:
 
 jobs:
   ubuntu:
-    runs-on: ubuntu-latest
-    container: docker.pkg.github.com/2020-01-est-19/proyecto/arch-env:latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: deps
+      run: sudo apt-get install inkscape r-base pandoc
+
+    - name: Makevars
+      run: |
+        mkdir ~/.R
+        echo "MAKEFLAGS = -j2" > ~/.R/Makevars
+        echo "CXXFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
+        echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
+
+    - name: rmarkdown
+      run: RUN R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+
+    - name: tidyverse
+      run: RUN R -e "install.packages('tidyverse', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
     - name: build
       run: make install DESTDIR=dest -j$(nproc)
