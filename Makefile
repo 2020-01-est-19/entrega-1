@@ -8,7 +8,7 @@ default: $(TARGET)
 
 %.html: %.rmd $(PNGTARGET)
 	Rscript -e 'library(rmarkdown); render("$<")'
-	mv $(@:%.html=%.nb.html) $@
+	mv $(@:%.html=%.nb.html) $@ || true
 
 %.png: %.svg
 	inkscape --export-type=png $< || inkscape $< -e $@
