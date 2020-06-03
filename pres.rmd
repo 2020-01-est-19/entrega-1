@@ -1,0 +1,13 @@
+---
+title: "Covid"
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: true
+---
+
+## Header:
+* Bullet 1
+* Bullet 2
+* Bullet 3
+* Bullet 4
