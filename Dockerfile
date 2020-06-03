@@ -18,6 +18,7 @@ RUN echo "MAKEFLAGS = -j2" >> ~/.R/Makevars
 RUN echo "CXXFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
 RUN echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
 
-RUN Rscript -e 'install.packages("rmarkdown")'
+# https://stackoverflow.com/questions/45289764/install-r-packages-using-docker-file
+RUN R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
-RUN Rscript -e 'install.packages("tidyverse")'
+RUN R -e "install.packages('tidyverse', dependencies=TRUE, repos='http://cran.rstudio.com/')"
