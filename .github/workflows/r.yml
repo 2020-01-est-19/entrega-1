@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+
+    - name: chmod lib-r
+      run: sudo chmod -R 777 /usr/local/lib/R/site-library
+
     - name: Cache R packages
       id: cache-r
       uses: actions/cache@v2
