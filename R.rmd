@@ -77,8 +77,6 @@ de qué manera afectan la curva de aumento de infectados por coronavirus en Per�
 la inmovilización social.
 * Analizar la situación de la ciudad de Lima en el caso hipotético de
 “Declaración de emergencia fuera de tiempo”.
-* Establecer la medida con mayor efectividad ante la propagación del
-nuevo virus Sars-CoV-2.
 * Establecer los factores que determinan la prestación de servicios públicos y
 su relación con la propagación del virus.
 * Establecer una relación entre el bono subsidio y
@@ -96,15 +94,14 @@ Esto se debe a que nuestros encuestados se encuentran en esta zona y
 la mayor cantidad de población se encuentra aquí.
 
 ## Unidad muestral
-* Ciudadanos limeños con edad adulta [18 - 50]
+* Para las encuestas nuestra unidad muestral son los alumnos de la Universidad UTEC y sus familias [18 - 50 años]
+* Con respecto a los datos y gráficos brindados por la web, nuestra unidad muestral es la ciudad de Lima.
 * Accederemos a las observaciones y/o mediciones de las unidades muestrales mediante
 fuentes de internet que presentan fiabilidad, respaldo del gobierno.
 Del mismo modo, se realizarán encuestas a los alumnos de UTEC y sus familiares
 a través de preguntas relacionadas con su movilización social antes y durante la
 cuarentena.
-Ello con el propósito de encontrar las razones de movilización y cuán
-diferente hubiera sido la curva de contagiados si las medidas correspondientes
-se hubiesen establecido después.
+Ello con el propósito de encontrar las razones de movilización
 
 ## Muestreo
 Tipo de muestreo
@@ -156,7 +153,6 @@ posiblemente desconocidas y le brindan información mucho más útil al lector.
 # Medidas elegidas
 
 1. Decreto de estado de emergencia.
-    - ¿Qué tan grave hubiera sido declarar el estado de emergencia días después? (Exploratoria)
     - ¿Cuál fue el efecto que tuvo el decreto de estado de emergencia en
     la población emocionalmente? (Exploratoria)
 
