@@ -72,7 +72,8 @@ jobs:
     - name: Install
       run: |
           mkdir build
-          mv *.html build/index.html
+          mv R.nb.html index.html
+          mv *.html build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
