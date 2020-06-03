@@ -24,6 +24,7 @@ jobs:
     - name: build
       run: |
           export MAKEFLAGS=-j$(nproc)
+          Rscript -e 'library(rmarkdown); render("pres.rmd")'
           make install DESTDIR=dest
 
     - uses: actions/upload-artifact@v2
