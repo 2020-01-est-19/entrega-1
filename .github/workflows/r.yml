@@ -15,7 +15,7 @@ jobs:
     - name: chmod lib-r
       run: |
           sudo mkdir -p /usr/local/lib/R/site-library
-          sudo chmod -R 777 /usr/local/lib/R
+          sudo chmod -R 777 /usr/local/lib/R/site-library
 
     - name: Cache R packages
       id: cache-r
