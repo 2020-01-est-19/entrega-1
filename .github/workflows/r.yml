@@ -24,10 +24,10 @@ jobs:
         echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
 
     - name: rmarkdown
-      run: RUN R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+      run: R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
     - name: tidyverse
-      run: RUN R -e "install.packages('tidyverse', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+      run: R -e "install.packages('tidyverse', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
     - name: build
       run: make install DESTDIR=dest -j$(nproc)
