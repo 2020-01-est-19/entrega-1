@@ -72,7 +72,7 @@ jobs:
     - name: Install
       run: |
           mkdir build
-          mv R.nb.html index.html
+          mv R.html index.html
           mv *.html build
 
     - name: Deploy

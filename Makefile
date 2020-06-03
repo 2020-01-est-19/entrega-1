@@ -1,13 +1,14 @@
 SOURCE = $(wildcard *.rmd) $(wildcard *.png)
-TARGET = $(SOURCE:%.rmd=%.nb.html)
+TARGET = $(SOURCE:%.rmd=%.html)
 
 PNGSOURCE = $(wildcard *.svg)
 PNGTARGET = $(PNGSOURCE:%.svg=%.png)
 
 default: $(TARGET)
 
-%.nb.html: %.rmd $(PNGTARGET)
+%.html: %.rmd $(PNGTARGET)
 	Rscript -e 'library(rmarkdown); render("$<")'
+	mv $(@:%.html=%.nb.html) $@
 
 %.png: %.svg
 	inkscape --export-type=png $< || inkscape $< -e $@
