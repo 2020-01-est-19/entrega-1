@@ -8,24 +8,14 @@ on:
 
 jobs:
   ubuntu:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    container: docker.pkg.github.com/2020-01-est-19/proyecto/arch-env:latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: deps
-      run: sudo apt-get install inkscape
-
-    - name: r deps
-      run: sudo apt-get install
-        r-cran-rmarkdown
-        r-cran-tidyverse
-
     - name: build
-      run: |
-          export MAKEFLAGS=-j$(nproc)
-          Rscript -e 'library(rmarkdown); render("pres.rmd")'
-          make install DESTDIR=dest
+      run: make install DESTDIR=dest -j$(nproc)
 
     - uses: actions/upload-artifact@v2
       with:
