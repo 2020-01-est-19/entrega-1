@@ -25,10 +25,11 @@ jobs:
 
     - name: Makevars
       run: |
-        sudo mkdir ~/.R
-        sudo echo "MAKEFLAGS = -j2" > ~/.R/Makevars
-        sudo echo "CXXFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
-        sudo echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> ~/.R/Makevars
+        sudo chmod -R 775 /root
+        sudo mkdir /root/.R
+        sudo echo "MAKEFLAGS = -j2" > /root/.R/Makevars
+        sudo echo "CXXFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> /root/.R/Makevars
+        sudo echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> /root/.R/Makevars
 
     - name: rmarkdown
       run: sudo R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
