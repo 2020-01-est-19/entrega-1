@@ -33,12 +33,16 @@ jobs:
         mkdir ~/.R
         mv Makevars ~/.R
 
-
-# https://github.com/inSileco/inSileco.github.io/blob/dev/.github/workflows/main.yml
-    - name: Install R packages with renv
+    - name: Make writeable
       run: |
-          Rscript -e "install.packages('renv', repos = 'https://muug.ca/mirror/cran/')"
-          Rscript -e "renv::restore()"
+        mkdir -p /usr/local/lib/R/site-library
+        sudo chmod 777 /usr/local/lib/R/site-library
+
+    - name: Restore packages
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
 
     - name: build
       run: make install DESTDIR=dest -j$(nproc)
