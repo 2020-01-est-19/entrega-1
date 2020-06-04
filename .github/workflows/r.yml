@@ -9,8 +9,8 @@ on:
 jobs:
   ubuntu:
     runs-on: ubuntu-20.04
-
     steps:
+    - uses: actions/checkout@v2
 
     - uses: actions/cache@v2
       id: renv-cache
@@ -19,8 +19,6 @@ jobs:
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
           ${{ runner.os }}-renv-
-
-    - uses: actions/checkout@v2
 
     - name: deps
       run: sudo apt-get install inkscape r-base pandoc libcurl4-gnutls-dev
