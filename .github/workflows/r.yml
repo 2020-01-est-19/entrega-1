@@ -42,6 +42,7 @@ jobs:
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::consent(TRUE)
         renv::restore()
+        renv::install("tidyverse")
 
     - name: build
       run: make install DESTDIR=dest -j$(nproc)
