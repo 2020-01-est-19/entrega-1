@@ -12,17 +12,13 @@ jobs:
 
     steps:
 
-    - name: chmod lib-r
-      run: |
-          sudo mkdir -p /usr/local/lib/R/site-library
-          sudo chmod -R 777 /usr/local/lib/R/site-library
-
-    - name: Cache R packages
-      id: cache-r
-      uses: actions/cache@v2
+    - uses: actions/cache@v2
       with:
-        path: /usr/local/lib/R/site-library
-        key: ${{ runner.os }}-r-pkgs
+        id: renv-cache
+        path: ~/.local/share/renv
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
 
     - uses: actions/checkout@v2
 
@@ -34,17 +30,15 @@ jobs:
         echo "MAKEFLAGS = -j2" > Makevars
         echo "CXXFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> Makevars
         echo "CFLAGS = -O3 -pipe -fno-plt -flto -fno-fat-lto-objects" >> Makevars
-        sudo mkdir /root/.R
-        sudo mv Makevars /root/.R
+        mkdir ~/.R
+        mv Makevars ~/.R
 
-    - name: rmarkdown
-      run: sudo R -e "install.packages('rmarkdown', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+    - name: renv
+      if: steps.renv-cache.outputs.cache-hit != 'true'
+      run: sudo R -e "install.packages('renv', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
-    - name: tidyverse
-      run: sudo R -e "install.packages('tidyverse', dependencies=TRUE, repos='http://cran.rstudio.com/')"
-
-    - name: curl
-      run: sudo R -e "install.packages('curl', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+    - name: r packages
+      run: ./renv.r
 
     - name: build
       run: make install DESTDIR=dest -j$(nproc)
