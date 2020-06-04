@@ -26,7 +26,7 @@ output:
 * Ricardo Atsuhiko Yamamoto Yamamoto
 
 # Líder
-* Ricardo Atsuhiko Yamamoto Yamamoto
+* Génesis Flores Arroyo
 
 # Introducción
 El COVID-19 ha tenido un gran impacto alrededor del mundo y hoy en dia es fácilmente
@@ -163,14 +163,7 @@ consecuencia de la declaración del Estado de Emergencia Nacional por el COVID-1
     - ¿La cantidad de personas que se vieron beneficiadas por este decreto fue
     suficiente para que se reduzca considerablemente el tránsito de gente? (Inferencial)
 
-3. Aprueban Disposiciones para evitar la propagación del Coronavirus (COVID-19)
-durante la prestación del servicio público de transporte de personas(29)
-   - ¿La restricción en la prestación del servicio de transporte resultaría en una
-   importante medida efectiva? (Exploratoria)
-   - ¿Qué factores determinan que la prestación de servicios de transporte no sean
-   enemigos para la salud? (Causal)
-
-4. Aprueban el Padrón de los hogares en condición de pobreza o pobreza extrema
+3. Aprueban el Padrón de los hogares en condición de pobreza o pobreza extrema
 beneficiarios del subsidio monetario de acuerdo al Sistema de Focalización de
 Hogares (SISFOH) que se encuentren en los ámbitos geográficos con mayor
 vulnerabilidad sanitaria en el marco del D.U. N° 027-2020 (68)
@@ -180,19 +173,12 @@ vulnerabilidad sanitaria en el marco del D.U. N° 027-2020 (68)
     al total de personas vulnerables? (Descriptiva)
     - ¿Es posible predecir un saqueo en caso no se haya aprobado el subsidio?
 
-5. Disposición presidencial que permite la salida de hombres y mujeres en días
+4. Disposición presidencial que permite la salida de hombres y mujeres en días
 complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
     - ¿Qué diferencia hubo en el tránsito de personas entre los días para hombres y
     para mujeres? (Descriptiva)
     - ¿A dónde se dirige la mayor parte del flujo de personas?
     ¿Qué razón explicaría esto? (Exploratoria)
-
-6. Restricción de salida generalizada durante Semana Santa.
-
-7. Retiro del 25% de fondos AFP para todas las personas afiliadas
-    - ¿Cuántas personas se ven beneficiadas, es representativa respecto a la
-    oblación vulnerable? (Descriptiva)
-    - ¿El retiro, abastece completamente las necesidades de los peruanos? (Exploratoria)
 
 ##  Preguntas propuestas para estudio (para los encuestados)
 
