@@ -6,26 +6,37 @@ output:
     smaller: true
 ---
 
-## Header:
-* Bullet 1
-* Bullet 2
-* Bullet 3
-* Bullet 4
-
-## Data:
+## Librerías:
 
 ```{r, message=FALSE, warning=FALSE}
 library(curl)
 library(tidyverse)
+```
+
+## Datos:
+
+### Casos de Covid en el Perú
+```{r, message=FALSE, warning=FALSE}
 tmp <- tempfile()
 curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
 df <- read_csv(tmp) # En df la unidad muestral es un caso de COVID
 ```
 
+---
+
+### Datos de movilización en Perú
+```{r, message=FALSE, warning=FALSE}
+tmp <- tempfile()
+curl_download("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", tmp)
+read_csv(tmp, col_types = "ccccDdddddd") %>%
+    filter(country_region_code == "PE") -> df_mov
+```
+
+---
+
 ### Cantidad de infectados y nuevas infecciones por día
 ```{r, message=FALSE, warning=FALSE}
 df %>%
-    filter(PROVINCIA == "LIMA") %>%
     group_by(FECHA_RESULTADO) %>%
     summarise(N = n()) %>%
     mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) %>%
@@ -47,3 +58,11 @@ df_infec %>%
 plot(df_infec$FECHA_RESULTADO, df_infec$NSUM)
 ```
 
+## Movilización recreacional por día
+```{r}
+df_mov %>%
+    group_by(date) %>%
+    summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) %>%
+    #filter(date >= "2020-04-10" & date ) %>%
+    plot()
+```
