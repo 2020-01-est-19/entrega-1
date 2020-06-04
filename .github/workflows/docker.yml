@@ -1,9 +1,14 @@
 name: Docker
 
+#on:
+#  push:
+#    paths:
+#    - 'Dockerfile'
+
 on:
   push:
     paths:
-    - 'Dockerfile'
+    - 'no'
 
 env:
   IMAGE_NAME: arch-env
