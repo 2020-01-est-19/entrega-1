@@ -46,6 +46,8 @@ df %>%
 
 ---
 
+## Funciones
+
 ### Función para graficar un rango de los nuevos casos por día
 
 ```{r}
@@ -100,7 +102,13 @@ cat_function <- function(f_name, min_day, max_day) {
 
 ```{r}
 cat_title <- function(f_title, min_day, max_day) {
-    cat("##", f_title, min_day, "->", max_day, "\n")
+    cat("##",
+        f_title,
+        format(as.Date(min_day), "%m-%d"),
+        "->",
+        format(as.Date(max_day), "%m-%d"),
+        "\n"
+    )
 }
 ```
 
