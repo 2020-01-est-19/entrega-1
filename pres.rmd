@@ -115,20 +115,23 @@ cat_title <- function(f_title, min_day, max_day) {
 ---
 
 ```{r}
-repeat_plots <- function(min_day, max_day) {
+repeat_plots <- function(min_day, max_day, text1 = "", text2 = "", text3 = "") {
     cat_title("Nuevos casos", min_day, max_day)
     cat_function("plot_new_cases", min_day, max_day)
     plot_new_cases(min_day, max_day)
+    cat(text1)
     cat(".\n\n\n")
 
     cat_title("Casos totales", min_day, max_day)
     cat_function("plot_sum_cases", min_day, max_day)
     plot_sum_cases(min_day, max_day)
+    cat(text2)
     cat(".\n\n\n")
 
     cat_title("Movilización recreacional", min_day, max_day)
     cat_function("plot_rmoves", min_day, max_day)
     plot_rmoves(min_day, max_day)
+    cat(text3)
     cat(".\n\n\n")
 }
 ```
