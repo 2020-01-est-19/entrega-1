@@ -16,14 +16,34 @@ output:
 
 ```{r, message=FALSE, warning=FALSE}
 library(curl)
-library(readr)
+library(tidyverse)
 tmp <- tempfile()
 curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
-df <- read_csv(tmp)
+df <- read_csv(tmp) # En df la unidad muestral es un caso de COVID
 ```
 
----
+### Cantidad de infectados y nuevas infecciones por día
+```{r, message=FALSE, warning=FALSE}
+df %>%
+    filter(PROVINCIA == "LIMA") %>%
+    group_by(FECHA_RESULTADO) %>%
+    summarise(N = n()) %>%
+    mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) %>%
+    arrange(FECHA_RESULTADO) %>%
+    mutate(NSUM = cumsum(N)) -> df_infec
+```
+
+## Nuevos casos por día
 
 ```{r}
-df
+df_infec %>%
+    filter(FECHA_RESULTADO >= "2020-04-10" & FECHA_RESULTADO <= "2020-04-30") %>%
+    plot(N~FECHA_RESULTADO, data = .)
 ```
+
+## Casos totales por día
+
+```{r}
+plot(df_infec$FECHA_RESULTADO, df_infec$NSUM)
+```
+
