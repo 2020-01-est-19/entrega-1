@@ -13,8 +13,8 @@ jobs:
     steps:
 
     - uses: actions/cache@v2
+      id: renv-cache
       with:
-        id: renv-cache
         path: ~/.local/share/renv
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
