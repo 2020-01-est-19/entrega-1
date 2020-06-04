@@ -44,25 +44,90 @@ df %>%
     mutate(NSUM = cumsum(N)) -> df_infec
 ```
 
-## Nuevos casos por día
+---
+
+### Función para graficar un rango de los nuevos casos por día
 
 ```{r}
-df_infec %>%
-    filter(FECHA_RESULTADO >= "2020-04-10" & FECHA_RESULTADO <= "2020-04-30") %>%
-    plot(N~FECHA_RESULTADO, data = .)
+plot_new_cases <- function(min_day, max_day) {
+    df_infec %>%
+        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) %>%
+        plot(N~FECHA_RESULTADO, data = .)
+}
 ```
 
-## Casos totales por día
+### Función para graficar un rango de los casos totales
 
 ```{r}
-plot(df_infec$FECHA_RESULTADO, df_infec$NSUM)
+plot_sum_cases <- function(min_day, max_day) {
+    df_infec %>%
+        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) %>%
+        plot(NSUM~FECHA_RESULTADO, data = .)
+}
 ```
 
-## Movilización recreacional por día
+---
+
+### Función para graficar un rango del cambio de movilización recreacional
+
 ```{r}
-df_mov %>%
-    group_by(date) %>%
-    summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) %>%
-    #filter(date >= "2020-04-10" & date ) %>%
-    plot()
+plot_rmoves <- function(min_day, max_day) {
+    df_mov %>%
+        group_by(date) %>%
+        summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) %>%
+        filter(date >= min_day & date <= max_day) %>%
+        plot()
+}
+```
+
+---
+
+### DRY
+
+```{r}
+cat_function <- function(f_name, min_day, max_day) {
+    cat("```{r}\n")
+    cat(f_name)
+    cat("(\"")
+    cat(min_day)
+    cat("\", \"")
+    cat(max_day)
+    cat("\")\n```\n\n")
+}
+```
+
+---
+
+```{r}
+cat_title <- function(f_title, min_day, max_day) {
+    cat("##", f_title, min_day, "->", max_day, "\n")
+}
+```
+
+---
+
+```{r}
+repeat_plots <- function(min_day, max_day) {
+    cat_title("Nuevos casos", min_day, max_day)
+    cat_function("plot_new_cases", min_day, max_day)
+    plot_new_cases(min_day, max_day)
+    cat(".\n\n\n")
+
+    cat_title("Casos totales", min_day, max_day)
+    cat_function("plot_sum_cases", min_day, max_day)
+    plot_sum_cases(min_day, max_day)
+    cat(".\n\n\n")
+
+    cat_title("Movilización recreacional", min_day, max_day)
+    cat_function("plot_rmoves", min_day, max_day)
+    plot_rmoves(min_day, max_day)
+    cat(".\n\n\n")
+}
+```
+
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-03-05", "2020-03-25")
+repeat_plots("2020-03-08", "2020-03-28")
+repeat_plots("2020-03-24", "2020-04-13")
+repeat_plots("2020-04-10", "2020-04-30")
 ```
