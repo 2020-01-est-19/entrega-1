@@ -7,3 +7,5 @@ renv::init()
 
 renv::install("rmarkdown")
 renv::install("tidyverse")
+
+renv::snapshot()
