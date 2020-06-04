@@ -3122,7 +3122,34 @@ slide:not(.current) .plotly.html-widget{
 <li>Bullet 2</li>
 <li>Bullet 3</li>
 <li>Bullet 4</li>
-</ul></article></slide>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Data:</h2></hgroup><article  id="data" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>library(curl)
+library(readr)
+tmp &lt;- tempfile()
+curl_download(&quot;https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download&quot;, tmp)
+df &lt;- read_csv(tmp)</pre>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article  class="smaller">
+
+<pre class = 'prettyprint lang-r'>df</pre>
+
+<pre >## # A tibble: 170,039 x 8
+##    UUID    DEPARTAMENTO PROVINCIA  DISTRITO METODODX  EDAD SEXO  FECHA_RESULTADO
+##    &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;          
+##  1 7320ca… LIMA         &quot;LIMA&quot;     &quot;LA MOL… PCR         25 MASC… 6/03/2020      
+##  2 e81602… AREQUIPA     &quot;EN INVES… &quot;EN INV… PCR         29 MASC… 7/03/2020      
+##  3 cecdbf… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR         25 MASC… 7/03/2020      
+##  4 71ecb6… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR         51 MASC… 7/03/2020      
+##  5 566af4… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR          7 MASC… 7/03/2020      
+##  6 027561… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR         74 FEME… 7/03/2020      
+##  7 f01688… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR         25 MASC… 8/03/2020      
+##  8 971f8e… LIMA         &quot;LIMA&quot;     &quot;SANTIA… PCR         66 FEME… 8/03/2020      
+##  9 bc45b7… HUANUCO      &quot;EN INVES… &quot;EN INV… PCR         15 FEME… 9/03/2020      
+## 10 0e2a19… HUANUCO      &quot;EN INVES… &quot;EN INV… PCR         27 MASC… 9/03/2020      
+## # … with 170,029 more rows</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
