@@ -12,6 +12,18 @@ output:
 * Bullet 3
 * Bullet 4
 
-```{r}
+## Data:
+
+```{r, message=FALSE, warning=FALSE}
 library(curl)
+library(readr)
+tmp <- tempfile()
+curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
+df <- read_csv(tmp)
+```
+
+---
+
+```{r}
+df
 ```
