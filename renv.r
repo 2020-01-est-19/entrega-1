@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 
-library(renv)
+if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 
 renv::consent(TRUE)
 renv::init()
