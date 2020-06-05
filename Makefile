@@ -1,4 +1,4 @@
-SOURCE = $(wildcard *.rmd) $(wildcard *.png)
+SOURCE = $(wildcard *.rmd) $(wildcard *.png) plots.r
 TARGET = $(SOURCE:%.rmd=%.html)
 
 PNGSOURCE = $(wildcard *.svg)
