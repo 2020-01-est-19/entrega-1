@@ -223,7 +223,6 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |Frecuencia de salida | Cuantitativa discreta|
 |Lugar donde vive (departamento)| Cualitativa nominal|
 |Cantidad de infectados| Cuantitativa discreta|
-|Cantidad de personas que no siguen la inmovilización social| Cuantitativa discreta|
 
 # Planificación
 
