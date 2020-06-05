@@ -27,15 +27,25 @@ df %>%
 ## ---- plot_new_cases
 plot_new_cases <- function(min_day, max_day, main_title) {
     df_infec %>%
-        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) %>%
+        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) -> df_tmp
+
+    df_tmp %>%
         plot(N~FECHA_RESULTADO, data = ., main = main_title, xlab = "Fecha", ylab = "Nuevos casos")
+
+    abline(h = mean(df_tmp$N), col = "red")
+    abline(h = median(df_tmp$N), col = "blue")
 }
 
 ## ---- plot_sum_cases
 plot_sum_cases <- function(min_day, max_day, main_title) {
     df_infec %>%
-        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) %>%
+        filter(FECHA_RESULTADO >= min_day & FECHA_RESULTADO <= max_day) -> df_tmp
+
+    df_tmp %>%
         plot(NSUM~FECHA_RESULTADO, data = ., main = main_title, xlab = "Fecha", ylab = "Casos totales")
+
+    abline(h = mean(df_tmp$NSUM), col = "red")
+    abline(h = median(df_tmp$NSUM), col = "blue")
 }
 
 ## ---- plot_rmoves
@@ -43,8 +53,13 @@ plot_rmoves <- function(min_day, max_day, main_title) {
     df_mov %>%
         group_by(date) %>%
         summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) %>%
-        filter(date >= min_day & date <= max_day) %>%
+        filter(date >= min_day & date <= max_day) -> df_tmp
+
+    df_tmp %>%
         plot(main = main_title, xlab = "Fecha", ylab = "Cambio de movilizacion")
+
+    abline(h = mean(df_tmp$mov), col = "red")
+    abline(h = median(df_tmp$mov), col = "blue")
 }
 
 ## ---- cat_function
