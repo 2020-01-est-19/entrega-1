@@ -37,7 +37,7 @@ En `df` la unidad muestral es un caso de COVID
 
 ---
 
-### Datos de movilización en Perú
+### Datos de movilizacion en Perú
 
 ```{r movilization, eval=FALSE}
 ```
@@ -85,26 +85,8 @@ https://github.com/2020-01-est-19/proyecto
 
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-05", "2020-03-25",
-    "Algo",
-
-    "algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo
-    algo algo",
-
-    "Algo3"
-)
-repeat_plots("2020-03-08", "2020-03-28")
-repeat_plots("2020-03-24", "2020-04-13")
-repeat_plots("2020-04-10", "2020-04-30")
+repeat_plots("2020-03-05", "2020-03-25", "Declaracion de Estado de Emergencia")
+repeat_plots("2020-03-08", "2020-03-28", "Aprobacion del Padron de Hogares")
+repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por genero")
+repeat_plots("2020-04-10", "2020-04-30", "Permiso de adquisicion de bienes y servicios basicos")
 ```
