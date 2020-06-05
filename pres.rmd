@@ -20,8 +20,9 @@ library(berryFunctions)
 ```{r, message=FALSE, warning=FALSE}
 tmp <- tempfile()
 curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
-df <- read_csv(tmp) # En df la unidad muestral es un caso de COVID
+df <- read_csv(tmp)
 ```
+En $df$ la unidad muestral es un caso de COVID
 
 ---
 
@@ -131,7 +132,25 @@ repeat_plots <- function(min_day, max_day, text1 = "", text2 = "", text3 = "") {
 ```
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-05", "2020-03-25", "Algo")
+repeat_plots("2020-03-05", "2020-03-25",
+    "Algo",
+
+    "algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo
+    algo algo",
+
+    "Algo3"
+)
 repeat_plots("2020-03-08", "2020-03-28")
 repeat_plots("2020-03-24", "2020-04-13")
 repeat_plots("2020-04-10", "2020-04-30")
