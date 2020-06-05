@@ -102,5 +102,5 @@ cat_plot <- function(min_day, max_day, main_title, fun, title, text = "") {
 repeat_plots <- function(min_day, max_day, main_title = "", text1 = "", text2 = "", text3 = "") {
     cat_plot(min_day, max_day, main_title, plot_new_cases, "Nuevos casos", text1)
     cat_plot(min_day, max_day, main_title, plot_sum_cases, "Casos totales", text2)
-    cat_plot(min_day, max_day, main_title, plot_rmoves, "Movilizacion recreacional", text3)
+    cat_plot(min_day, max_day, main_title, plot_rmoves, "Movilización recreacional", text3)
 }
