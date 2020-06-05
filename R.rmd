@@ -58,7 +58,7 @@ Esto quiere decir que lo podemos empezar inmediatamente.
 # Objetivos
 La importancia de este estudio estadístico radica en el análisis de algunas de las
 medidas que el gobierno ha declarado ante la coyuntura del Covid-19.
-Es importante estudiar su efectividad en la movilización social,
+Es importante estudiar su efecto en la movilización social,
 puesto que podría otorgar un panorama más holístico y verídico sobre las medidas que
 generan un impacto positivo en la desaceleración de la propagación del
 nuevo virus Sars-CoV-2.
@@ -66,7 +66,7 @@ nuevo virus Sars-CoV-2.
 ## Objectivos generales
 * El objetivo de este trabajo es determinar en qué medida las diferentes acciones
 que ha aplicado el gobierno, desde el inicio del periodo de cuarentena hasta el
-tiempo del estudio, son o no efectivas para reducir el impacto y expansión
+tiempo del estudio,  redujeron el impacto y expansión
 del Covid-19 en el Perú.
 Queremos averiguar el efecto de estas medidas en 2 diferentes aspectos.
 Estos son: la movilización social y
@@ -241,7 +241,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 Se realizará una encuesta para aproximadamente 100 personas, en el cual se formularán preguntas con las siguientes variables:
 * Frecuencia de salida promedio al día antes del inicio de cuarentena 
 * Frecuencia de salida promedio al día luego de la medida del gobierno
-* Cantidad  aproximada de personas que observó en lugares públicos (mercado, hospital) luego de la aplicación de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal.
+* Cantidad  aproximada de personas que observó en lugares públicos (mercado, hospital) luego de aplicadas las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal.
 * Cantidad de personas aproximada que observó cumplir con el distanciamiento social de 1 metro, luego de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal
 * Tipo de trabajo (formal / informal)
 * Edad
@@ -266,7 +266,7 @@ Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y
 # Discusión de resultados
 
 ## Patrones: 
-* Pudimos notar que la curva de casos totales no muestra un cambio notable entre antes y después de haber tomado cada medida. 
+* Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un incremento de personas infectadas significativo  entre antes y después de haber tomado cada medida. 
 * En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 * En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
