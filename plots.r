@@ -34,6 +34,9 @@ plot_new_cases <- function(min_day, max_day, main_title) {
 
     abline(h = mean(df_tmp$N), col = "red")
     abline(h = median(df_tmp$N), col = "blue")
+
+    legend("topleft", legend=c("Promedio", "Mediana"),
+       col=c("red", "blue"), lty=1:1, cex=0.8)
 }
 
 ## ---- plot_sum_cases
@@ -46,6 +49,9 @@ plot_sum_cases <- function(min_day, max_day, main_title) {
 
     abline(h = mean(df_tmp$NSUM), col = "red")
     abline(h = median(df_tmp$NSUM), col = "blue")
+
+    legend("topleft", legend=c("Promedio", "Mediana"),
+       col=c("red", "blue"), lty=1:1, cex=0.8)
 }
 
 ## ---- plot_rmoves
@@ -60,6 +66,9 @@ plot_rmoves <- function(min_day, max_day, main_title) {
 
     abline(h = mean(df_tmp$mov), col = "red")
     abline(h = median(df_tmp$mov), col = "blue")
+
+    legend("topright", legend=c("Promedio", "Mediana"),
+       col=c("red", "blue"), lty=1:1, cex=0.8)
 }
 
 ## ---- cat_function

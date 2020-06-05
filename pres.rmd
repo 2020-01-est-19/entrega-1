@@ -83,13 +83,9 @@ En `plots.r` hay unas funciones que ayudaron a hacer los siguientes gráficos.
 Haz un fork en github para ver como funcionan.
 https://github.com/2020-01-est-19/proyecto
 
-Además en los siguientes plots,
-la Línea roja representa el promedio y la azul la mediana.
-
-
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 repeat_plots("2020-03-05", "2020-03-25", "Declaración de Estado de Emergencia")
-repeat_plots("2020-03-08", "2020-03-28", "Aprobación del Padron de Hogares")
-repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por genero")
+repeat_plots("2020-03-08", "2020-03-28", "Aprobación del Padrón de Hogares")
+repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por género")
 repeat_plots("2020-04-10", "2020-04-30", "Permiso de adquisición de bienes y servicios basicos")
 ```
