@@ -7,6 +7,10 @@ output:
 
 <style> body {text-align: justify} </style>
 
+```{r,echo=FALSE,message=FALSE}
+source("plots.r")
+knitr::read_chunk("plots.r")
+```
 
 [![R CI](https://github.com/2020-01-est-19/proyecto/workflows/R%20CI/badge.svg)](https://github.com/2020-01-est-19/proyecto/actions?query=workflow%3A%22R+CI%22)
 [![Ppt](https://img.shields.io/badge/Ioslides-Ppt-informational?logo=R)](./pres.html)
@@ -192,7 +196,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |5  |¿Cuál fue el último nivel educativo que cursaron?| Descriptiva|
 |6  |¿Es su tipo de empleo uno formal o informal?| Descriptiva|
 |6  |¿Qué tan frecuentemente salía de casa previamente al comienzo de la cuarentena?| Descriptiva|
-|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva| 
+|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva|
 |8  |¿Qué tanto consideras que tu distrito se ha visto afectado por la enfermedad?| Descriptiva|
 |9  |¿Por qué razones salías durante la cuarentena?| Descriptiva|
 |10 |¿Consideras que la medida X fue efectiva para reducir el número de contagios en tu distrito?| Descriptiva|
@@ -239,7 +243,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 ### Encuestas
 Se realizará una encuesta para aproximadamente 100 personas, en el cual se formularán preguntas con las siguientes variables:
-* Frecuencia de salida promedio al día antes del inicio de cuarentena 
+* Frecuencia de salida promedio al día antes del inicio de cuarentena
 * Frecuencia de salida promedio al día luego de la medida del gobierno
 * Cantidad  aproximada de personas que observó en lugares públicos (mercado, hospital) luego de la aplicación de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal.
 * Cantidad de personas aproximada que observó cumplir con el distanciamiento social de 1 metro, luego de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal
@@ -260,13 +264,17 @@ Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y
 # Obtención y Procesamiento de Resultados
 
 
-
-
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-03-05", "2020-03-25", "Declaración de Estado de Emergencia")
+repeat_plots("2020-03-08", "2020-03-28", "Aprobación del Padrón de Hogares")
+repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por género")
+repeat_plots("2020-04-10", "2020-04-30", "Permiso de adquisición de bienes y servicios basicos")
+```
 
 # Discusión de resultados
 
-## Patrones: 
-* Pudimos notar que la curva de casos totales no muestra un cambio notable entre antes y después de haber tomado cada medida. 
+## Patrones:
+* Pudimos notar que la curva de casos totales no muestra un cambio notable entre antes y después de haber tomado cada medida.
 * En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 * En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
