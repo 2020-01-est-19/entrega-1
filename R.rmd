@@ -150,6 +150,11 @@ Al procesar esta data y relacionarla con otra/s, la investigación se vuelve má
 interesante, ya que las relaciones entre diferentes estadísticas son
 posiblemente desconocidas y le brindan información mucho más útil al lector.
 
+# Planificación
+
+![](gantt.png)
+
+
 # Medidas elegidas
 
 1. Decreto de estado de emergencia.
@@ -265,10 +270,6 @@ Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y
 * En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 * En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
-
-# Planificación
-
-![](gantt.png)
 
 # Bibliografía
 
