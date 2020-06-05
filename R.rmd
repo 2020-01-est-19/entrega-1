@@ -169,16 +169,12 @@ Hogares (SISFOH) que se encuentren en los ámbitos geográficos con mayor
 vulnerabilidad sanitaria en el marco del D.U. N° 027-2020 (68)
     - ¿La tasa de personas que reciben la bonificación por día fue alcanzable a la
     mayoría de personas del sector vulnerable? (Descriptiva)
-    - ¿Es representativo el número de personas que reciben la bonificación respecto
-    al total de personas vulnerables? (Descriptiva)
-    - ¿Es posible predecir un saqueo en caso no se haya aprobado el subsidio?
 
 4. Disposición presidencial que permite la salida de hombres y mujeres en días
 complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
     - ¿Qué diferencia hubo en el tránsito de personas entre los días para hombres y
     para mujeres? (Descriptiva)
-    - ¿A dónde se dirige la mayor parte del flujo de personas?
-    ¿Qué razón explicaría esto? (Exploratoria)
+    - ¿A dónde se dirige la mayor parte del flujo de personas? ¿Qué razón explicaría esto? (Exploratoria)
 
 ##  Preguntas propuestas para estudio (para los encuestados)
 
@@ -191,24 +187,25 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |5  |¿Cuál fue el último nivel educativo que cursaron?| Descriptiva|
 |6  |¿Es su tipo de empleo uno formal o informal?| Descriptiva|
 |6  |¿Qué tan frecuentemente salía de casa previamente al comienzo de la cuarentena?| Descriptiva|
-|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva|
-
+|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva| 
+|8  |¿Qué tanto consideras que tu distrito se ha visto afectado por la enfermedad?| Descriptiva|
+|9  |¿Por qué razones salías durante la cuarentena?| Descriptiva|
+|10 |¿Consideras que la medida X fue efectiva para reducir el número de contagios en tu distrito?| Descriptiva|
+|11 |¿Qué condiciones crees que aceleran la propagación del Covid en tu distrito?| Descriptiva|
+|12 |¿Qué condiciones crees que aceleran / retardan la propagación del Covid en tu distrito?| Descriptiva|
 
 ##  Preguntas propuestas para estudio (para la data)
 
 
 |N° | Pregunta | Tipo |
 |---|----------|------|
-|1  |¿Quá tan frecuentemente salía la población en una fecha determinada respecto al promedio?| Inferencial|
-|2  |¿Qué lugares se frecuentan? ¿Con qué frecuencia acude la gente a estas ubicaciones?| Inferencial|
-|3  |¿De qué clase social suelen ser las personas que salen durante los períodos de cuarentena? ¿Qué razones existen para estos?| Exploratoria|
-|4  |¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?| Descriptiva|
-|5  |¿Qué poblaciones se ven más afectadas por la enfermedad durante las medidas de aislamiento? ¿Cómo varía esto respecto a periodos anteriores a su promulgación?| Exploratoria|
-|6  |¿Se pueden prevenir errores - proveer mejores opciones respecto a medidas preventivas a partir de estas características? | Explorativa|
-|7  |¿Como se vio afectado el tránsito en los días previos a la implementación?| Descriptiva|
-|8  |¿Cómo ciertas condiciones determinan que el Covid-19  se propague?| Causal|
-|9  |¿Cuáles han sido las medidas que han tenido mayor impacto en la población?| Inferencial|
-
+|1  |¿Qué tan frecuentemente salía la población en una fecha determinada respecto al promedio?| Inferencial|
+|2  |¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?| Descriptiva|
+|3  |¿Qué poblaciones se ven más afectadas por la enfermedad durante las medidas de aislamiento? ¿Cómo varía esto respecto a periodos anteriores a su promulgación?| Descriptiva|
+|4  |¿Se pueden prevenir errores - proveer mejores opciones respecto a medidas preventivas a partir de estas características?| Exploratoria|
+|5  |¿Como se vio afectado el tránsito de personas en los días previos a la implementación?| Descriptiva|
+|6  |¿Cuáles han sido las medidas que han tenido mayor impacto en la población?| Inferencial|
+|7  |¿Cómo ciertas condiciones determinan que la propagación del COVID se acelere / retarde?| Causal|
 
 # Variables
 
@@ -218,11 +215,56 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |Género| Cualitativa nominal|
 |Clase social| Cualitativa ordinal|
 |Nivel educativo alcanzado| Cualitativa ordinal|
-|Tiempo transcurrido de inicio| Cuantitativa continua|
 |Tipo de trabajo| Cualitativa nominal|
 |Frecuencia de salida | Cuantitativa discreta|
-|Lugar donde vive (departamento)| Cualitativa nominal|
-|Cantidad de infectados| Cuantitativa discreta|
+|Lugar donde vive (distrito)| Cualitativa nominal|
+|Cantidad de infectados por dia| Cuantitativa discreta|
+|Tiempo (dias)| Cuantitativa discreta|
+|Justificacion de salida| Cualitativa nomilal|
+|Medidas aplicadas| Cualitativa nominal|
+|Cantidad de personas observadas en lugares públicos (mercado, hospital)| Cualitativa ordinal|
+|Cantidad de personas que respeta las normas de distanciamiento social en público| Cualitativa ordinal|
+
+## Descriptores numéricos para las variables de mayor importancia:
+
+### Data web
+* Frecuencia de salida de personas (antes y después): Utilizamos mediana y media.
+* Cantidad de infectados por día: Utilizamos media.
+* Edad: Utilizamos la mediana para relacionar rangos de edades con las repuestas brindadas por las personas en las encuestas.
+
+### Encuestas
+Se realizará una encuesta para aproximadamente 100 personas, en el cual se formularán preguntas con las siguientes variables:
+* Frecuencia de salida promedio al día antes del inicio de cuarentena 
+* Frecuencia de salida promedio al día luego de la medida del gobierno
+* Cantidad  aproximada de personas que observó en lugares públicos (mercado, hospital) luego de la aplicación de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal.
+* Cantidad de personas aproximada que observó cumplir con el distanciamiento social de 1 metro, luego de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal
+* Tipo de trabajo (formal / informal)
+* Edad
+* Género
+* Distrito
+* Clase social
+* Nivel educativo
+
+# Descriptores gráficos
+
+Utilizaremos:
+
+Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida.
+Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
+
+# Obtención y Procesamiento de Resultados
+
+
+
+
+
+# Discusión de resultados
+
+## Patrones: 
+* Pudimos notar que la curva de casos totales no muestra un cambio notable entre antes y después de haber tomado cada medida. 
+* En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
+* En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
+
 
 # Planificación
 
