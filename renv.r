@@ -7,5 +7,6 @@ renv::init()
 
 renv::install("rmarkdown")
 renv::install("tidyverse")
+renv::install("berryFunctions")
 
 renv::snapshot()

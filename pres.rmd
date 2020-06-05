@@ -11,6 +11,7 @@ output:
 ```{r, message=FALSE, warning=FALSE}
 library(curl)
 library(tidyverse)
+library(berryFunctions)
 ```
 
 ## Datos:
@@ -96,11 +97,6 @@ cat_function <- function(f_name, min_day, max_day) {
     cat(max_day)
     cat("\")\n```\n\n")
 }
-```
-
----
-
-```{r}
 cat_title <- function(f_title, min_day, max_day) {
     cat("##",
         f_title,
@@ -115,29 +111,27 @@ cat_title <- function(f_title, min_day, max_day) {
 ---
 
 ```{r}
+cat_plot <- function(min_day, max_day, fun, title, text = "") {
+    cat_title(title, min_day, max_day)
+    cat_function(berryFunctions::getName(fun), min_day, max_day)
+
+    cat("<div style=\"float: left\">\n")
+        fun(min_day, max_day)
+    cat("</div>\n")
+
+    cat("<div>\n")
+        cat(text)
+    cat("</div>\n")
+}
 repeat_plots <- function(min_day, max_day, text1 = "", text2 = "", text3 = "") {
-    cat_title("Nuevos casos", min_day, max_day)
-    cat_function("plot_new_cases", min_day, max_day)
-    plot_new_cases(min_day, max_day)
-    cat(text1)
-    cat(".\n\n\n")
-
-    cat_title("Casos totales", min_day, max_day)
-    cat_function("plot_sum_cases", min_day, max_day)
-    plot_sum_cases(min_day, max_day)
-    cat(text2)
-    cat(".\n\n\n")
-
-    cat_title("Movilización recreacional", min_day, max_day)
-    cat_function("plot_rmoves", min_day, max_day)
-    plot_rmoves(min_day, max_day)
-    cat(text3)
-    cat(".\n\n\n")
+    cat_plot(min_day, max_day, plot_new_cases, "Nuevos casos", text1)
+    cat_plot(min_day, max_day, plot_sum_cases, "Casos totales", text2)
+    cat_plot(min_day, max_day, plot_rmoves, "Movilización recreacional", text3)
 }
 ```
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-05", "2020-03-25")
+repeat_plots("2020-03-05", "2020-03-25", "Algo")
 repeat_plots("2020-03-08", "2020-03-28")
 repeat_plots("2020-03-24", "2020-04-13")
 repeat_plots("2020-04-10", "2020-04-30")
