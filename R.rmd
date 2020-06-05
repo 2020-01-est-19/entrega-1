@@ -265,10 +265,10 @@ Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y
 
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-05", "2020-03-25", "Declaración de Estado de Emergencia")
-repeat_plots("2020-03-08", "2020-03-28", "Aprobación del Padrón de Hogares")
-repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por género")
-repeat_plots("2020-04-10", "2020-04-30", "Permiso de adquisición de bienes y servicios basicos")
+repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+repeat_plots("2020-03-18", 10, "Aprobación del Padrón de Hogares")
+repeat_plots("2020-04-03", 10, "Salida alternada por género")
+repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
 ```
 
 # Discusión de resultados
