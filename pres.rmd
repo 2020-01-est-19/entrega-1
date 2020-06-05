@@ -17,16 +17,31 @@ source("plots.r")
 knitr::read_chunk("plots.r")
 ```
 
+## Base de datos:
+- Plataforma Nacional de Datos Abiertos. (2020). Casos positivos por COVID-19 - [Ministerio de Salud - MINSA]. Recuperado el 4 de Junio, de MINSA Sitio web: https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa
+- Google LLC. (2020). Google COVID-19 Community Mobility Reports Peru.. Recuperado el 7 de mayo de 2020, de Google LLC Sitio Web: https://www.gstatic.com/covid19/mobility/2020-04-11_PE_Mobility_Report_en.pdf
 
-## Librerías:
+## Descriptores numéricos para cada variable
+- Frecuencia de salida de las personas (antes y después): Utilizamos mediana y media
+- Cantidad de infectados por dia: Para relacionar esta data con las medidas utilizaremos la media, máximos y mínimos
+- Edad: Para esta variable utilizamos la mediana para relacionar las respuestas brindadas por las personas en las encuestas con sus edades.
+
+## Descriptores Gráficos
+Utilizaremos:
+
+- Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida.
+- Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
+
+## Gráficos:
+
+### Librerías:
 
 ```{r libraries, eval=FALSE}
 ```
 
-
-## Datos
-
 ---
+
+### Datos
 
 ### Casos de Covid en el Perú:
 
@@ -89,3 +104,19 @@ repeat_plots("2020-03-08", "2020-03-28", "Aprobación del Padrón de Hogares")
 repeat_plots("2020-03-24", "2020-04-13", "Salida alternada por género")
 repeat_plots("2020-04-10", "2020-04-30", "Permiso de adquisición de bienes y servicios basicos")
 ```
+
+## Patrones
+
+1. Pudimos notar que la curva de casos totales muestra un leve cambio entre antes y después de haber tomado cada medida.
+2. En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que fuera aplicada cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
+3. En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
+
+## Conclusiones/hipótesis
+
+En base a los datos que ya tenemos y hemos procesado pensamos existe una relación clara entre las medidas tomadas y la cantidad de infectados, ya que las graficas varian de una u otra manera entre los días anteriores a tomar cada medida y los posteriores.
+Además, pensamos que todas las medidas escogidas afectaron la cantidad de infectados por día de manera similar, debido a que los gráficos muestran un cambio parecido dias despues de que se aplicara cada medida.
+
+## Extra
+1. Con la encuesta se han obtenido datos que se nos hace difícil de manejar. Por ejemplo, en uno de los descriptores se le pregunta a la persona por las medidas que ellos recuerdan para luego incluirlo en el análisis de impacto y correlacionarlos con la data.
+2. Se ha optado por incluir variables como “Justificaciones de salida”. “tiempo”, ”medidas”.
+3. Asimismo, se están incluyendo preguntas exploratorias y descriptivas tales como, “¿Por qué razones sales durante la cuarentena?” o “Qué tanto consideras que tu distrito se ha visto afectado?”
