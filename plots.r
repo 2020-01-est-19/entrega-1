@@ -13,7 +13,7 @@ df <- read_csv(tmp)
 ## ---- movilization
 tmp <- tempfile()
 curl_download("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", tmp)
-read_csv(tmp, col_types = "ccccDdddddd") %>%
+read_csv(tmp, col_types = "cccccdDdddddd") %>%
     filter(country_region_code == "PE") -> df_mov
 
 ## ---- infec
