@@ -7,7 +7,8 @@ library(berryFunctions)
 ## ---- covid
 tmp <- tempfile()
 curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
-df <- read_csv(tmp)
+read_csv(tmp) %>%
+    mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) -> df
 
 ## ---- movilization
 tmp <- tempfile()
@@ -19,7 +20,6 @@ read_csv(tmp, col_types = "cccccdDdddddd") %>%
 df %>%
     group_by(FECHA_RESULTADO) %>%
     summarise(N = n()) %>%
-    mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) %>%
     arrange(FECHA_RESULTADO) %>%
     mutate(NSUM = cumsum(N)) -> df_infec
 
