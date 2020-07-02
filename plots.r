@@ -73,7 +73,7 @@ plot_rmoves <- function(day, min_day, max_day, main_title) {
     abline(h = mean(df_tmp_b$mov), col = "red", lty = 2)
     abline(h = median(df_tmp_b$mov), col = "blue", lty = 2)
 
-    legend("topright", legend=c("Promedio A", "Mediana A", "Promedio B", "Mediana B"),
+    legend("topright", legend=c("Promedio antes", "Mediana antes", "Promedio después", "Mediana después"),
        col=c("red", "blue", "red", "blue"), lty=c(1,1,2,2), cex=0.8)
 }
 
