@@ -1,10 +1,14 @@
 name: R CI
 
 on:
+  schedule:
+      # Touch cache or it will be deleted
+      - cron: '0 0 */6 * *'
+
   push:
-    branches: [ '*' ]
+      branches: [ '*' ]
   pull_request:
-    branches: [ '*' ]
+      branches: [ '*' ]
 
 jobs:
   ubuntu:
