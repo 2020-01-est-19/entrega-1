@@ -1,24 +1,18 @@
-SOURCE = $(wildcard *.rmd) $(wildcard *.png) plots.r
+SOURCE = $(wildcard *.rmd) $(wildcard *.svg) plots.r
 TARGET = $(SOURCE:%.rmd=%.html)
-
-PNGSOURCE = $(wildcard *.svg)
-PNGTARGET = $(PNGSOURCE:%.svg=%.png)
 
 default: $(TARGET)
 
-%.html: %.rmd $(PNGTARGET)
+%.html: %.rmd
 	Rscript -e 'library(rmarkdown); render("$<")'
 	mv $(@:%.html=%.nb.html) $@ || true
-
-%.png: %.svg
-	inkscape --export-type=png $< || inkscape $< -e $@
 
 zip: proyecto.zip
 .PHONY: zip
 
-proyecto.zip: $(TARGET) $(SOURCE) $(PNGTARGET)
+proyecto.zip: $(TARGET) $(SOURCE)
 	zip $@  $^
 
-install: $(TARGET) $(SOURCE) $(PNGTARGET)
+install: $(TARGET) $(SOURCE)
 	install -d $(DESTDIR)
 	cp $^ $(DESTDIR)

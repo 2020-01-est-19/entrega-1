@@ -158,8 +158,7 @@ posiblemente desconocidas y le brindan información mucho más útil al lector.
 
 # Planificación
 
-![](gantt.png)
-
+<img src="gantt.svg">
 
 # Medidas elegidas
 
