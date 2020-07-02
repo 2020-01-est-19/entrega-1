@@ -1,8 +1,10 @@
 ---
 title: "Efecto de las medidas tomadas por el gobierno peruano frente al COVID-19"
 output:
-   html_notebook:
-      theme: darkly
+  html_document:
+    df_print: paged
+  html_notebook:
+    theme: darkly
 ---
 
 <style> body {text-align: justify} </style>

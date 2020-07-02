@@ -2,7 +2,6 @@
 library(curl)
 library(tidyverse)
 library(berryFunctions)
-library(tidyverse)
 
 
 ## ---- covid
