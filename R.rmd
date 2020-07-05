@@ -325,7 +325,7 @@ df %>% filter(PROVINCIA == "LIMA") %>%
     select(DISTRITO) %>%
     table() %>%
     sort(TRUE) %>%
-    barplot(las=2, horiz=TRUE, xlab="Casos")
+    barplot(las=1, horiz=TRUE, xlab="Casos")
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
