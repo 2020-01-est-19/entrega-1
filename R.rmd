@@ -356,29 +356,18 @@ title("Razones para salir durante la cuarentena")
 
 ### Medidas
 ```{r}
-approb <- function(bools) {
-    return(length(which(bools))/length(bools))
-}
-
 par(mai = c(1, 2.5, 0.5, 0.5))
-data.frame(
-    "Medida" = as.factor(c("Inmovilización",
-                           "No acceso a lugares públicos",
-                           "Salida intercalada",
-                           "Bono",
-                           "Un monto del Afp",
-                           "Un porcentaje del Afp")),
-    "Approb" = c(
-        approb(df_form2$social.bool),
-        approb(df_form2$ocio.bool),
-        approb(df_form2$noday.bool),
-        approb(df_form2$bono.bool),
-        approb(df_form2$afp1.bool),
-        approb(df_form2$afp2.bool)
-    )
-) %>% # No sé como sortearlo
-    barplot(Approb~Medida, data=.,
-            horiz = TRUE,
+
+(table(c(
+    rep("Inmovilización",               length(which(df_form2$social.bool))),
+    rep("No acceso a lugares públicos", length(which(df_form2$ocio.bool))),
+    rep("Salida intercalada",           length(which(df_form2$noday.bool))),
+    rep("Bono",                         length(which(df_form2$bono.bool))),
+    rep("Un monto del Afp",             length(which(df_form2$afp1.bool))),
+    rep("Un porcentaje del Afp",        length(which(df_form2$afp2.bool)))
+))/length(df_form2$social.bool)) %>%
+    sort(TRUE) %>%
+    barplot(horiz = TRUE,
             las = 1,
             ylab = "",
             xlab = "Aprobación"
