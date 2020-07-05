@@ -255,6 +255,7 @@ read_csv(tmp) %>%
     ) %>% 
     mutate(
         genero = as.factor(genero),
+        ingreso = as.factor(ingreso),
         distrito = as.factor(distrito),
         estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
         empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
@@ -275,28 +276,32 @@ plot(edad~genero, data=df_form)
 
 ### Ingreso promedio
 
-Hay que limpiar los datos antes de hacer esto.
+```{r}
+par(mai = c(0.8, 1.5, 0.2, 0.5))
+plot(edad~ingreso, data=df_form, horizontal = TRUE, las = 2, xlab="")
+title(ylab="Ingreso", line=6)
+```
 
 ### Distrito
 ```{r}
 par(mai = c(0.8, 2, 0.2, 0.5))
-
-boxplot(edad~distrito, data = df_form, horizontal=TRUE, las=2, ylab="")
+plot(edad~distrito, data = df_form, horizontal=TRUE, las=2, xlab="")
+title(ylab="Distrito", line=8)
 ```
 
 ### Nivel educativo
 ```{r}
-boxplot(edad~estudio, data = df_form)
+plot(edad~estudio, data = df_form)
 ```
 
 ### Empleo
 ```{r}
-boxplot(edad~empleo, data = df_form)
+plot(edad~empleo, data = df_form)
 ```
 
 ### Frecuencia de salidas
 ```{r}
-boxplot(edad~salidas, data = df_form)
+plot(edad~salidas, data = df_form)
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
