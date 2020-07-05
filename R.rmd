@@ -256,7 +256,7 @@ read_csv(tmp) %>%
     mutate(
         genero = as.factor(genero),
         distrito = as.factor(distrito),
-        estudio = as.factor(estudio),
+        estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
         empleo = as.factor(empleo)
     ) -> df_form
 ```
@@ -278,12 +278,13 @@ Hay que limpiar los datos antes de hacer esto.
 ### Distrito
 ```{r}
 par(mai = c(0.8, 2, 0.2, 0.5))
-#df_form$distrito %>%
-#    table() %>%
-#    sort(TRUE) %>%
-#    barplot(horiz = TRUE, las = 1)
 
 boxplot(edad~distrito, data = df_form, horizontal=TRUE, las=2, ylab="")
+```
+
+### Nivel educativo
+```{r}
+boxplot(edad~estudio, data = df_form)
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
