@@ -329,6 +329,17 @@ df %>% filter(PROVINCIA == "LIMA") %>%
     sort(TRUE) %>%
     barplot(las=1, horiz=TRUE, xlab="Casos")
 ```
+### Razones
+```{r}
+par(mai = c(1, 2.5, 0.2, 0.5))
+df_form2$razones %>%
+    unlist() %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(las=1, horiz=TRUE, xlab="Personas")
+
+title("Razones para salir durante la cuarentena")
+```
 
 ## Descriptores numéricos para las variables de mayor importancia:
 
