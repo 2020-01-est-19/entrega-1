@@ -7,7 +7,10 @@ library(berryFunctions)
 ## ---- covid
 tmp <- tempfile()
 curl_download("https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download", tmp)
-read_csv(tmp) %>%
+
+readLines(tmp) %>%
+    iconv(from = "ISO-8859-1", to = "UTF-8") %>%
+    read_csv() %>%
     mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) -> df
 
 ## ---- movilization

@@ -238,6 +238,11 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 ## Plots y otras cosas
 ```{r}
 # curl -Ls "$url" > df_form.csv
+
+tmp <- tempfile()
+curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
+read_csv(tmp) -> df_form1
+  
 tmp <- tempfile()
 curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
 
@@ -260,48 +265,67 @@ read_csv(tmp) %>%
         estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
         empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
         salidas = factor(salidas, levels = c(0:5, "Mayor 5"))
-    ) -> df_form
+    ) -> df_form2
 ```
 
 ### Edad de la muestra
 ```{r}
-summary(df_form$edad)
-boxplot(df_form$edad, ylab = "Edad")
+summary(df_form2$edad)
+boxplot(df_form2$edad, ylab = "Edad")
 ```
 
 ### Género
 ```{r}
-plot(edad~genero, data=df_form)
+plot(edad~genero, data=df_form2)
 ```
 
 ### Ingreso promedio
 
 ```{r}
 par(mai = c(0.8, 1.5, 0.2, 0.5))
-plot(edad~ingreso, data=df_form, horizontal = TRUE, las = 2, xlab="")
+plot(edad~ingreso, data=df_form2, horizontal = TRUE, las = 2, xlab="")
 title(ylab="Ingreso", line=6)
 ```
 
 ### Distrito
-```{r}
+```{r, fig.width=12, fig.height=20}
 par(mai = c(0.8, 2, 0.2, 0.5))
-plot(edad~distrito, data = df_form, horizontal=TRUE, las=2, xlab="")
+plot(edad~distrito, data = df_form2, horizontal=TRUE, las=2, xlab="")
 title(ylab="Distrito", line=8)
 ```
 
 ### Nivel educativo
 ```{r}
-plot(edad~estudio, data = df_form)
+plot(edad~estudio, data = df_form2)
 ```
 
 ### Empleo
 ```{r}
-plot(edad~empleo, data = df_form)
+plot(edad~empleo, data = df_form2)
 ```
 
 ### Frecuencia de salidas
 ```{r}
-plot(edad~salidas, data = df_form)
+summary(df_form$salidas)
+plot(edad~salidas, data = df_form2)
+```
+
+### Personas por frecuencia de salida
+```{r}
+df_form2 %>%
+    group_by(salidas) %>%
+    summarise(n=n()) %>%
+    barplot(n~salidas, data=., ylab = "Personas", xlab="Salidas por semana")
+```
+
+### Casos por distrito
+```{r, fig.width=12, fig.height=20}
+par(mai = c(1, 2.5, 0.2, 0.5))
+df %>% filter(PROVINCIA == "LIMA") %>%
+    select(DISTRITO) %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(las=2, horiz=TRUE, xlab="Casos")
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
