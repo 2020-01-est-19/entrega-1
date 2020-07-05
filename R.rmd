@@ -235,12 +235,22 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |Cantidad de personas observadas en lugares públicos (mercado, hospital)| Cualitativa ordinal|
 |Cantidad de personas que respeta las normas de distanciamiento social en público| Cualitativa ordinal|
 
-## Plots
+## Plots y otras cosas
 ```{r}
 # curl -Ls "$url" > df_form.csv
 tmp <- tempfile()
 curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
 df_form <- read_csv(tmp)
+```
+
+### Edad de la muestra
+```{r}
+summary(df_form$"¿Cuál es tu edad?")
+```
+
+### Género
+```{r}
+df_form$"¿De qué género eres?" %>% table() %>% barplot()
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
