@@ -240,17 +240,35 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 # curl -Ls "$url" > df_form.csv
 tmp <- tempfile()
 curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
-df_form <- read_csv(tmp)
+
+read_csv(tmp) %>%
+    rename(
+        tiempo = "Marca temporal",
+        edad = "¿Cuál es tu edad?",
+        genero = "¿De qué género eres?",
+        ingreso = "¿Cuánto es el ingreso mensual promedio de tu familia aproximadamente (soles) ?",
+        distrito = "¿En qué distrito vives?",
+        estudio = "¿Cuál fue el último nivel educativo que completaste?",
+        empleo = "¿Cuál es tu tipo de empleo?",
+        salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?"
+        # TODO otras cosas
+    ) %>% 
+    mutate(
+        genero = as.factor(genero),
+        distrito = as.factor(distrito),
+        estudio = as.factor(estudio),
+        empleo = as.factor(empleo)
+    ) -> df_form
 ```
 
 ### Edad de la muestra
 ```{r}
-summary(df_form$"¿Cuál es tu edad?")
+summary(df_form$edad)
 ```
 
 ### Género
 ```{r}
-df_form$"¿De qué género eres?" %>% table() %>% barplot()
+plot(edad~genero, data=df_form)
 ```
 
 ### Ingreso promedio
@@ -259,8 +277,13 @@ Hay que limpiar los datos antes de hacer esto.
 
 ### Distrito
 ```{r}
-par(mai = c(0.75, 2, 0.25, 1))
-df_form$"¿En qué distrito vives?" %>% table() %>% barplot(horiz = TRUE, las = 1)
+par(mai = c(0.8, 2, 0.2, 0.5))
+#df_form$distrito %>%
+#    table() %>%
+#    sort(TRUE) %>%
+#    barplot(horiz = TRUE, las = 1)
+
+boxplot(edad~distrito, data = df_form, horizontal=TRUE, las=2, ylab="")
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
