@@ -256,8 +256,14 @@ read_csv(tmp) %>%
         estudio = "¿Cuál fue el último nivel educativo que completaste?",
         empleo = "¿Cuál es tu tipo de empleo?",
         salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?",
-        razones = "¿Por qué razones salías durante la cuarentena?"
-        # TODO otras cosas
+        razones = "¿Por qué razones salías durante la cuarentena?",
+        social.bool = "¿La medida de \"Inmovilización social\", realmente  hizo que tus salidas durante toda la cuarentena fueran muy pocas?",
+        ocio.bool = "¿ La \"Suspensión de acceso a lugares públicos: lugares de ocio, restaurantes, etc\", te desanimó  salir de casa?",
+        noday.bool = "¿La medida \"Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)\", garantizo que salieras menos que antes?",
+        multa.bool = "¿ La medida \"Multa de S/.86 -S/.340 para todas las personas que desobedecen disposiciones del gobierno\", hizo que tus salidas de casa fueran menores?",
+        bono.bool = "¿ La medida \"Entrega de bono S/. 380, S/.760 de acuerdo al Sistema de Focalización de Hogares (SISFOH) \", permitió que redujeras tus salidas de casa?",
+        afp1.bool = "¿ La medida \"Retiro de hasta S/. 2000 de fondos AFP de trabajadores afiliados que no tienen planilla\", te mantuvo más tiempo en casa?",
+        afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?"
     ) %>% 
     mutate(
         genero = as.factor(genero),
@@ -266,7 +272,14 @@ read_csv(tmp) %>%
         estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
         empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
         salidas = factor(salidas, levels = c(0:5, "Mayor 5")),
-        razones = strsplit(razones, ", ")
+        razones = strsplit(razones, ", "),
+        social.bool = social.bool == "Sí" | social.bool == "Si",
+        ocio.bool = ocio.bool == "Sí" | ocio.bool == "Si",
+        noday.bool = noday.bool == "Sí" | noday.bool == "Si",
+        multa.bool = multa.bool == "Sí" | multa.bool == "Si",
+        bono.bool = bono.bool == "Sí" | bono.bool == "Si",
+        afp1.bool = afp1.bool == "Sí" | afp1.bool == "Si",
+        afp2.bool = afp2.bool == "Sí" | afp2.bool == "Si",
     ) -> df_form2
 ```
 
@@ -331,7 +344,7 @@ df %>% filter(PROVINCIA == "LIMA") %>%
 ```
 ### Razones
 ```{r}
-par(mai = c(1, 2.5, 0.2, 0.5))
+par(mai = c(1, 2.5, 0.5, 0.5))
 df_form2$razones %>%
     unlist() %>%
     table() %>%
@@ -339,6 +352,38 @@ df_form2$razones %>%
     barplot(las=1, horiz=TRUE, xlab="Personas")
 
 title("Razones para salir durante la cuarentena")
+```
+
+### Medidas
+```{r}
+approb <- function(bools) {
+    return(length(which(bools))/length(bools))
+}
+
+par(mai = c(1, 2.5, 0.5, 0.5))
+data.frame(
+    "Medida" = as.factor(c("Inmovilización",
+                           "No acceso a lugares públicos",
+                           "Salida intercalada",
+                           "Bono",
+                           "Un monto del Afp",
+                           "Un porcentaje del Afp")),
+    "Approb" = c(
+        approb(df_form2$social.bool),
+        approb(df_form2$ocio.bool),
+        approb(df_form2$noday.bool),
+        approb(df_form2$bono.bool),
+        approb(df_form2$afp1.bool),
+        approb(df_form2$afp2.bool)
+    )
+) %>% # No sé como sortearlo
+    barplot(Approb~Medida, data=.,
+            horiz = TRUE,
+            las = 1,
+            ylab = "",
+            xlab = "Aprobación"
+    )
+title("Aprobación por medida (de 0 a 1)")
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
