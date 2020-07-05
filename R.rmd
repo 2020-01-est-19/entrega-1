@@ -253,6 +253,16 @@ summary(df_form$"¿Cuál es tu edad?")
 df_form$"¿De qué género eres?" %>% table() %>% barplot()
 ```
 
+### Ingreso promedio
+
+Hay que limpiar los datos antes de hacer esto.
+
+### Distrito
+```{r}
+par(mai = c(0.75, 2, 0.25, 1))
+df_form$"¿En qué distrito vives?" %>% table() %>% barplot(horiz = TRUE, las = 1)
+```
+
 ## Descriptores numéricos para las variables de mayor importancia:
 
 ### Data web
