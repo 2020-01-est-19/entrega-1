@@ -255,7 +255,8 @@ read_csv(tmp) %>%
         distrito = "¿En qué distrito vives?",
         estudio = "¿Cuál fue el último nivel educativo que completaste?",
         empleo = "¿Cuál es tu tipo de empleo?",
-        salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?"
+        salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?",
+        razones = "¿Por qué razones salías durante la cuarentena?"
         # TODO otras cosas
     ) %>% 
     mutate(
@@ -264,7 +265,8 @@ read_csv(tmp) %>%
         distrito = as.factor(distrito),
         estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
         empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
-        salidas = factor(salidas, levels = c(0:5, "Mayor 5"))
+        salidas = factor(salidas, levels = c(0:5, "Mayor 5")),
+        razones = strsplit(razones, ", ")
     ) -> df_form2
 ```
 
@@ -306,7 +308,7 @@ plot(edad~empleo, data = df_form2)
 
 ### Frecuencia de salidas
 ```{r}
-summary(df_form$salidas)
+summary(df_form2$salidas)
 plot(edad~salidas, data = df_form2)
 ```
 
