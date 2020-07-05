@@ -257,13 +257,15 @@ read_csv(tmp) %>%
         genero = as.factor(genero),
         distrito = as.factor(distrito),
         estudio = factor(estudio, levels = c("Secundaria", "Técnica", "Universitaria", "Posgrado")),
-        empleo = as.factor(empleo)
+        empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
+        salidas = factor(salidas, levels = c(0:5, "Mayor 5"))
     ) -> df_form
 ```
 
 ### Edad de la muestra
 ```{r}
 summary(df_form$edad)
+boxplot(df_form$edad, ylab = "Edad")
 ```
 
 ### Género
@@ -285,6 +287,16 @@ boxplot(edad~distrito, data = df_form, horizontal=TRUE, las=2, ylab="")
 ### Nivel educativo
 ```{r}
 boxplot(edad~estudio, data = df_form)
+```
+
+### Empleo
+```{r}
+boxplot(edad~empleo, data = df_form)
+```
+
+### Frecuencia de salidas
+```{r}
+boxplot(edad~salidas, data = df_form)
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
