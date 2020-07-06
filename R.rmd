@@ -341,6 +341,7 @@ df %>% filter(PROVINCIA == "LIMA") %>%
     table() %>%
     sort(TRUE) %>%
     barplot(las=1, horiz=TRUE, xlab="Casos")
+title("Casos por distrito")
 ```
 ### Razones
 ```{r}
@@ -382,6 +383,12 @@ df_form2$"Respecto a la anterior pregunta. Del 0 al 5, ¿ En cuánto disminuyó 
     barplot(ylab="Personas")
 
 title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
+```
+
+### Distrito vs ingreso
+```{r, fig.width=12, fig.height=20}
+# No supe como hacerlo con vanilla R
+ggplot(aes(y = distrito, x = ingreso), data = df_form2) + geom_boxplot()
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
