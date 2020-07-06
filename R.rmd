@@ -290,51 +290,75 @@ read_csv(tmp) %>%
 ### Edad de la muestra
 ```{r}
 summary(df_form2$edad)
-hist(df_form2$edad, xlab = "Edad")
+hist(df_form2$edad, xlab = "Edad", ylab = "Personas", main=NULL)
+title("Edades")
 ```
 
 ### Género
 ```{r}
-plot(edad~genero, data=df_form2)
+df_form2 %>%
+    group_by(genero) %>%
+    summarise(n = n()) %>%
+    barplot(n~genero, data=., xlab="Personas", ylab="Cantidad")
+
+title("Género")
 ```
 
 ### Ingreso promedio
 
 ```{r}
 par(mai = c(0.8, 1.5, 0.2, 0.5))
-plot(edad~ingreso, data=df_form2, horizontal = TRUE, las = 2, xlab="")
+df_form2 %>%
+    group_by(ingreso) %>%
+    summarise(n = n()) %>%
+    barplot(n~ingreso, data=., horiz = TRUE, las = 2, xlab = "Personas", ylab="")
 title(ylab="Ingreso", line=6)
+title("Ingresos")
 ```
 
 ### Distrito
 ```{r, fig.width=12, fig.height=20}
-par(mai = c(0.8, 2, 0.2, 0.5))
-plot(edad~distrito, data = df_form2, horizontal=TRUE, las=2, xlab="")
-title(ylab="Distrito", line=8)
+par(mai = c(1, 2, 0.5, 0.5))
+#plot(edad~distrito, data = df_form2, horizontal=TRUE, las=2, xlab="")
+#title(ylab="Distrito", line=8)
+
+df_form2$distrito %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
+title("Distrito")
 ```
 
 ### Nivel educativo
 ```{r}
-plot(edad~estudio, data = df_form2)
+par(mai = c(1, 1.5, 0.5, 0.5))
+df_form2$estudio %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
+
+title("Niveles educativos")
 ```
 
 ### Empleo
 ```{r}
-plot(edad~empleo, data = df_form2)
+par(mai = c(1, 1.5, 0.5, 0.5))
+df_form2$empleo %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
+
+title("Tipo de trabajo")
 ```
 
-### Frecuencia de salidas
-```{r}
-summary(df_form2$salidas)
-plot(edad~salidas, data = df_form2)
-```
-
-### Personas por frecuencia de salida
+### Frecuencia de salida
 ```{r}
 df_form2 %>%
     group_by(salidas) %>%
     summarise(n=n()) %>%
-    barplot(n~salidas, data=., ylab = "Personas", xlab="Salidas por semana")
+    barplot(n~salidas, data=., ylab = "Personas", xlab="Salidas")
+
+title("Salidas por semana")
 ```
 
 ### Casos por distrito
@@ -349,6 +373,7 @@ title("Casos por distrito")
 ```
 ### Razones
 ```{r}
+# TODO limpieza
 par(mai = c(1, 2.5, 0.5, 0.5))
 df_form2$razones %>%
     unlist() %>%
@@ -432,12 +457,16 @@ df_form2 %>%
 
 ### Distrito vs ingreso otra vez
 ```{r}
-ggplot(aes(y = distrito, x = ingreso), data = df_5) + geom_boxplot()
+ggplot(aes(y = distrito, x = ingreso), data = df_5) +
+    geom_boxplot() +
+    ggtitle("5 distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
 ```
 
 ### Distrito vs empleo
 ```{r}
-ggplot(aes(y = distrito, x = empleo), data = df_5) + geom_boxplot()
+ggplot(aes(y = distrito, x = empleo), data = df_5) +
+    geom_boxplot() +
+    ggtitle("5 distritos vs tipo de empleo")
 ```
 
 ### Desaceleración del contagio
@@ -446,7 +475,7 @@ df_form2$decceleration %>%
     unlist() %>%
     table() %>%
     sort(TRUE) %>%
-    knitr::kable(col.names = c("Medida", "Cantidad"))
+    knitr::kable(col.names = c("Medida", "Personas que lo aprueban"))
 ```
 
 ### Aceleración del contagio
@@ -455,7 +484,7 @@ df_form2$acceleration %>%
     unlist() %>%
     table() %>%
     sort(TRUE) %>%
-    knitr::kable(col.names = c("Factor", "Cantidad"))
+    knitr::kable(col.names = c("Factor", "Personas que lo aprueban"))
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
