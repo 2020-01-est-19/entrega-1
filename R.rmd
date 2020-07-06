@@ -263,7 +263,9 @@ read_csv(tmp) %>%
         multa.bool = "¿ La medida \"Multa de S/.86 -S/.340 para todas las personas que desobedecen disposiciones del gobierno\", hizo que tus salidas de casa fueran menores?",
         bono.bool = "¿ La medida \"Entrega de bono S/. 380, S/.760 de acuerdo al Sistema de Focalización de Hogares (SISFOH) \", permitió que redujeras tus salidas de casa?",
         afp1.bool = "¿ La medida \"Retiro de hasta S/. 2000 de fondos AFP de trabajadores afiliados que no tienen planilla\", te mantuvo más tiempo en casa?",
-        afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?"
+        afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?",
+        decceleration = "¿Qué condiciones crees que existen en tu distrito que retardan la propagación del Covid?",
+        acceleration = "¿Qué condiciones crees que existen en tu distrito que aceleran la propagación del Covid?"             
     ) %>% 
     mutate(
         genero = as.factor(genero),
@@ -280,13 +282,15 @@ read_csv(tmp) %>%
         bono.bool = bono.bool == "Sí" | bono.bool == "Si",
         afp1.bool = afp1.bool == "Sí" | afp1.bool == "Si",
         afp2.bool = afp2.bool == "Sí" | afp2.bool == "Si",
+        acceleration = strsplit(acceleration, ", "),
+        decceleration = strsplit(decceleration, ", ")
     ) -> df_form2
 ```
 
 ### Edad de la muestra
 ```{r}
 summary(df_form2$edad)
-boxplot(df_form2$edad, ylab = "Edad")
+hist(df_form2$edad, xlab = "Edad")
 ```
 
 ### Género
@@ -434,6 +438,24 @@ ggplot(aes(y = distrito, x = ingreso), data = df_5) + geom_boxplot()
 ### Distrito vs empleo
 ```{r}
 ggplot(aes(y = distrito, x = empleo), data = df_5) + geom_boxplot()
+```
+
+### Desaceleración del contagio
+```{r}
+df_form2$decceleration %>%
+    unlist() %>%
+    table() %>%
+    sort(TRUE) %>%
+    knitr::kable(col.names = c("Medida", "Cantidad"))
+```
+
+### Aceleración del contagio
+```{r}
+df_form2$acceleration %>%
+    unlist() %>%
+    table() %>%
+    sort(TRUE) %>%
+    knitr::kable(col.names = c("Medida", "Cantidad"))
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
