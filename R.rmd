@@ -455,7 +455,7 @@ df_form2$acceleration %>%
     unlist() %>%
     table() %>%
     sort(TRUE) %>%
-    knitr::kable(col.names = c("Medida", "Cantidad"))
+    knitr::kable(col.names = c("Factor", "Cantidad"))
 ```
 
 ## Descriptores numéricos para las variables de mayor importancia:
