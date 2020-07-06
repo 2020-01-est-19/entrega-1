@@ -412,6 +412,24 @@ infectados_5 %>%
     barplot(las=1, horiz=TRUE, xlab="Casos")
 title("Casos en algunos distritos")
 ```
+### Distrito vs medida
+```{r}
+df_form2 %>%
+    filter(distrito %in% c("Miraflores",
+                           "Barranco",
+                           "San Isidro",
+                           "Santiago de Surco",
+                           "San Borja")
+           ) -> df_5
+#boxplot(social.bool~distrito, data=df_5)
+
+# No sé como hacerlo
+```
+
+### Distrito vs ingreso otra vez
+```{r}
+ggplot(aes(y = distrito, x = ingreso), data = df_5) + geom_boxplot()
+```
 
 ## Descriptores numéricos para las variables de mayor importancia:
 
