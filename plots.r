@@ -110,7 +110,9 @@ cat_plot <- function(day, range,  main_title, fun, title) {
     cat_title(title, min_day, max_day)
     cat_function(berryFunctions::getName(fun), min_day, max_day)
 
-    fun(day, min_day, max_day, main_title)
+    # Print date in title
+    date_str <- paste("(",format(as.Date(day), "%Y-%m-%d") ,")", sep="")
+    fun(day, min_day, max_day, paste(main_title, date_str))
 
     cat("\n.\n\n\n")
 }
