@@ -3195,7 +3195,10 @@ library(berryFunctions)</pre>
 
 <pre class = 'prettyprint lang-r'>tmp &lt;- tempfile()
 curl_download(&quot;https://cloud.minsa.gob.pe/s/Y8w3wHsEdYQSZRp/download&quot;, tmp)
-read_csv(tmp) %&gt;%
+
+readLines(tmp) %&gt;%
+    iconv(from = &quot;ISO-8859-1&quot;, to = &quot;UTF-8&quot;) %&gt;%
+    read_csv() %&gt;%
     mutate(FECHA_RESULTADO = lubridate::dmy(FECHA_RESULTADO)) -&gt; df</pre>
 
 <p>En <code>df</code> la unidad muestral es un caso de COVID</p>
