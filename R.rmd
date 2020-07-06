@@ -374,6 +374,15 @@ par(mai = c(1, 2.5, 0.5, 0.5))
     )
 title("Aprobación por medida (de 0 a 1)")
 ```
+### Inmovilización
+```{r}
+df_form2$"Respecto a la anterior pregunta. Del 0 al 5, ¿ En cuánto disminuyó tus salidas durante la cuarentena?" %>%
+    table() %>%
+    sort() %>%
+    barplot(ylab="Personas")
+
+title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
+```
 
 ## Descriptores numéricos para las variables de mayor importancia:
 
