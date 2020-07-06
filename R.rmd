@@ -431,6 +431,11 @@ df_form2 %>%
 ggplot(aes(y = distrito, x = ingreso), data = df_5) + geom_boxplot()
 ```
 
+### Distrito vs empleo
+```{r}
+ggplot(aes(y = distrito, x = empleo), data = df_5) + geom_boxplot()
+```
+
 ## Descriptores numéricos para las variables de mayor importancia:
 
 ### Data web
