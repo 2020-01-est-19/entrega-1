@@ -40,13 +40,19 @@ plot_new_cases <- function(day, min_day, max_day, main_title) {
     df_tmp %>%
         plot(N~FECHA_RESULTADO, data = ., main = main_title, xlab = "Fecha", ylab = "Nuevos casos")
 
-    abline(h = mean(df_tmp_a$N), col = "red")
-    abline(h = median(df_tmp_a$N), col = "blue")
+    mean1 <- mean(df_tmp_a$N)
+    segments(as.Date(min_day)-1, mean1, as.Date(day), mean1, col = "red")
+    
+    median1 <- median(df_tmp_a$N)
+    segments(as.Date(min_day)-1, median1, as.Date(day), median1, col = "blue")
 
-    abline(h = mean(df_tmp_b$N), col = "red", lty = 2)
-    abline(h = median(df_tmp_b$N), col = "blue", lty = 2)
+    mean2 <- mean(df_tmp_b$N)
+    segments(as.Date(day), mean2, as.Date(max_day)+1, mean2, col = "red", lty = 2)
+    
+    median2 <- median(df_tmp_b$N)
+    segments(as.Date(day), median2, as.Date(max_day)+1, median2, col = "blue", lty = 2)
 
-    legend("topright", legend=c("Promedio A", "Mediana A", "Promedio B", "Mediana B"),
+    legend("topright", legend=c("Promedio antes", "Mediana antes", "Promedio después", "Mediana después"),
        col=c("red", "blue", "red", "blue"), lty=c(1,1,2,2), cex=0.8)
 }
 
@@ -70,11 +76,17 @@ plot_rmoves <- function(day, min_day, max_day, main_title) {
     df_tmp %>%
         plot(main = main_title, xlab = "Fecha", ylab = "Cambio de movilizacion")
 
-    abline(h = mean(df_tmp_a$mov), col = "red")
-    abline(h = median(df_tmp_a$mov), col = "blue")
+    mean1 <- mean(df_tmp_a$mov)
+    segments(as.Date(min_day)-1, mean1, as.Date(day), mean1, col = "red")
+    
+    median1 <- median(df_tmp_a$mov)
+    segments(as.Date(min_day)-1, median1, as.Date(day), median1, col = "blue")
 
-    abline(h = mean(df_tmp_b$mov), col = "red", lty = 2)
-    abline(h = median(df_tmp_b$mov), col = "blue", lty = 2)
+    mean2 <- mean(df_tmp_b$mov)
+    segments(as.Date(day), mean2, as.Date(max_day)+1, mean2, col = "red", lty = 2)
+    
+    median2 <- median(df_tmp_b$mov)
+    segments(as.Date(day), median2, as.Date(max_day)+1, median2, col = "blue", lty = 2)
 
     legend("topright", legend=c("Promedio antes", "Mediana antes", "Promedio después", "Mediana después"),
        col=c("red", "blue", "red", "blue"), lty=c(1,1,2,2), cex=0.8)
@@ -113,6 +125,7 @@ cat_plot <- function(day, range,  main_title, fun, title) {
     # Print date in title
     date_str <- paste("(",format(as.Date(day), "%Y-%m-%d") ,")", sep="")
     fun(day, min_day, max_day, paste(main_title, date_str))
+    abline(v = as.Date(day))
 
     cat("\n.\n\n\n")
 }
