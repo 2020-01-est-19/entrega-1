@@ -674,6 +674,13 @@
       "Repository": "CRAN",
       "Hash": "ecd17882a0b4419545691e095b74ee89"
     },
+    "wordcloud": {
+      "Package": "wordcloud",
+      "Version": "2.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "dddb6538141ed1e2435cb63c6c748d16"
+    },
     "xfun": {
       "Package": "xfun",
       "Version": "0.14",

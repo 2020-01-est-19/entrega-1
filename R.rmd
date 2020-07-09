@@ -237,12 +237,13 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 ## Plots y otras cosas
 ```{r}
+library(wordcloud)
 # curl -Ls "$url" > df_form.csv
 
 tmp <- tempfile()
 curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
 read_csv(tmp) -> df_form1
-  
+
 tmp <- tempfile()
 curl_download("https://docs.google.com/spreadsheets/d/e/2PACX-1vS5FwsKHl4PhukIHfSGbfA8NCQ5SqBDpQ16KC69JCiFAWVeJ40BACp0dqhBTkHi9cpLE_JmEmIvfdvA/pub?gid=637100843&single=true&output=csv", tmp)
 
@@ -272,8 +273,8 @@ read_csv(tmp) %>%
         afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?",
         afp2.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto tiempo más te mantuvo en casa?",
         decceleration = "¿Qué condiciones crees que existen en tu distrito que retardan la propagación del Covid?",
-        acceleration = "¿Qué condiciones crees que existen en tu distrito que aceleran la propagación del Covid?"             
-    ) %>% 
+        acceleration = "¿Qué condiciones crees que existen en tu distrito que aceleran la propagación del Covid?"
+    ) %>%
     mutate(
         genero = as.factor(genero),
         ingreso = as.factor(ingreso),

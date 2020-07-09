@@ -11,7 +11,7 @@ RUN apt-get update && \
 	pandoc \
 	r-base
 
-RUN Rscript -e "install.packages(c(\"rmarkdown\",\"tidyverse\", \"berryFunctions\"))"
+RUN Rscript -e "install.packages(c(\"rmarkdown\", \"tidyverse\", \"berryFunctions\", \"wordcloud\"))"
 
 WORKDIR /root
 
