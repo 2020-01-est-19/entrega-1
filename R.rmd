@@ -416,19 +416,13 @@ title("Aprobación por medida (de 0 a 1)")
 ```
 ### Inmovilización
 ```{r}
-df_form2$"Respecto a la anterior pregunta. Del 0 al 5, ¿ En cuánto disminuyó tus salidas durante la cuarentena?" %>%
+df_form2$social.05 %>%
     table() %>%
     sort() %>%
     barplot(ylab="Personas")
 
 title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
 ```
-### Medida vs educación
-```{r}
-# No sé como hacer esta
-ggplot(aes(y = bono.05, x = estudio), data = df_form2) + geom_boxplot()
-```
-
 ### Distrito vs ingreso
 ```{r, fig.width=12, fig.height=20}
 # No supe como hacerlo con vanilla R
@@ -452,7 +446,8 @@ infectados_5 %>%
     barplot(las=1, horiz=TRUE, xlab="Casos")
 title("Casos en algunos distritos")
 ```
-### Distrito vs medida
+
+### Distrito vs ingreso otra vez
 ```{r}
 df_form2 %>%
     filter(distrito %in% c("Miraflores",
@@ -461,13 +456,6 @@ df_form2 %>%
                            "Santiago de Surco",
                            "San Borja")
            ) -> df_5
-#boxplot(social.bool~distrito, data=df_5)
-
-# No sé como hacerlo
-```
-
-### Distrito vs ingreso otra vez
-```{r}
 ggplot(aes(y = distrito, x = ingreso), data = df_5) +
     geom_boxplot() +
     ggtitle("5 distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
