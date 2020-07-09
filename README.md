@@ -14,6 +14,8 @@ https://2020-01-est-19.github.io/proyecto/pres.html
 - `r-base`
 - `pandoc`
 - `libcurl4-gnutls-dev`
+- `libssl-dev`
+- `libxml2-dev`
 
 ### Make
 ``` bash
@@ -26,4 +28,14 @@ $ R
 
 $ make -j$(nproc)
 $ make install DESTDIR=dest/
+```
+
+## Build docker
+
+```bash
+# Esta parte demora mucho, también hay una versión ya compilada en el repositorio.
+docker build -t proyecto .
+
+# En windows tendrías que reemplazar $(pwd) con el directorio en el que estás.
+docker run --rm -v $(pwd):/root proyecto -c 'LC_ALL=C.UTF-8 make -j$(nproc) zip'
 ```
