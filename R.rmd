@@ -426,7 +426,7 @@ title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
 ### Medida vs educación
 ```{r}
 # No sé como hacer esta
-ggplot(aes(y = bono.bool, x = estudio), data = df_form2) + geom_boxplot()
+ggplot(aes(y = bono.05, x = estudio), data = df_form2) + geom_boxplot()
 ```
 
 ### Distrito vs ingreso
