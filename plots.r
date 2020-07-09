@@ -134,6 +134,6 @@ cat_plot <- function(day, range,  main_title, fun, title) {
 repeat_plots <- function(day, range, main_title = "") {
     day <- lubridate::ymd(day)
     cat_plot(day, range, main_title, plot_new_cases, "Nuevos casos")
-    cat_plot(day, range, main_title, plot_sum_cases, "Casos totales")
+    #cat_plot(day, range, main_title, plot_sum_cases, "Casos totales")
     cat_plot(day, range, main_title, plot_rmoves, "Movilización recreacional")
 }
