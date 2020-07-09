@@ -1,4 +1,4 @@
-SOURCE = $(wildcard *.rmd) $(wildcard *.svg) plots.r
+SOURCE = $(wildcard *.rmd) $(wildcard *.svg) plots.r Dockerfile Makefile
 TARGET = $(SOURCE:%.rmd=%.html)
 
 default: $(TARGET)
@@ -10,7 +10,7 @@ default: $(TARGET)
 zip: proyecto.zip
 .PHONY: zip
 
-proyecto.zip: $(TARGET) $(SOURCE) Dockerfile Makefile
+proyecto.zip: $(TARGET) $(SOURCE)
 	zip $@  $^
 
 install: $(TARGET) $(SOURCE)
