@@ -258,12 +258,19 @@ read_csv(tmp) %>%
         salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?",
         razones = "¿Por qué razones salías durante la cuarentena?",
         social.bool = "¿La medida de \"Inmovilización social\", realmente  hizo que tus salidas durante toda la cuarentena fueran muy pocas?",
+        social.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿ En cuánto disminuyó tus salidas durante la cuarentena?",
         ocio.bool = "¿ La \"Suspensión de acceso a lugares públicos: lugares de ocio, restaurantes, etc\", te desanimó  salir de casa?",
+        ocio.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto te desanimó salir de casa?",
         noday.bool = "¿La medida \"Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)\", garantizo que salieras menos que antes?",
+        noday.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto cambio tus salidas?",
         multa.bool = "¿ La medida \"Multa de S/.86 -S/.340 para todas las personas que desobedecen disposiciones del gobierno\", hizo que tus salidas de casa fueran menores?",
+        multa.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuán menores fueron tus salidas?",
         bono.bool = "¿ La medida \"Entrega de bono S/. 380, S/.760 de acuerdo al Sistema de Focalización de Hogares (SISFOH) \", permitió que redujeras tus salidas de casa?",
+        bono.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto se redujo tus salidas?",
         afp1.bool = "¿ La medida \"Retiro de hasta S/. 2000 de fondos AFP de trabajadores afiliados que no tienen planilla\", te mantuvo más tiempo en casa?",
+        afp1.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿ Cuán más te mantuviste en casa?",
         afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?",
+        afp2.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto tiempo más te mantuvo en casa?",
         decceleration = "¿Qué condiciones crees que existen en tu distrito que retardan la propagación del Covid?",
         acceleration = "¿Qué condiciones crees que existen en tu distrito que aceleran la propagación del Covid?"             
     ) %>% 
@@ -419,6 +426,7 @@ title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
 ### Medida vs educación
 ```{r}
 # No sé como hacer esta
+ggplot(aes(y = bono.bool, x = estudio), data = df_form2) + geom_boxplot()
 ```
 
 ### Distrito vs ingreso
