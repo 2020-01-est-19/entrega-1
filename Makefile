@@ -1,4 +1,4 @@
-SOURCE = $(wildcard *.rmd) $(wildcard *.svg) plots.r Dockerfile Makefile
+SOURCE = $(wildcard *.rmd) $(wildcard *.svg) Dockerfile Makefile
 TARGET = $(SOURCE:%.rmd=%.html)
 
 default: $(TARGET)
