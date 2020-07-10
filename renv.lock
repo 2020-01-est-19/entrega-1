@@ -37,6 +37,13 @@
       "Repository": "CRAN",
       "Hash": "08588806cba69f04797dab50627428ed"
     },
+    "NLP": {
+      "Package": "NLP",
+      "Version": "0.2-0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "87cc6e9aa4c81e4c0f2d1df89d3561a8"
+    },
     "R6": {
       "Package": "R6",
       "Version": "2.4.1",
@@ -576,6 +583,13 @@
       "Repository": "CRAN",
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
     },
+    "slam": {
+      "Package": "slam",
+      "Version": "0.1-47",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "73c92e0f6f2a29786505152040c35825"
+    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.4.6",
@@ -638,6 +652,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "a8c653ef8ce67683f588e6088ed45572"
+    },
+    "tm": {
+      "Package": "tm",
+      "Version": "0.7-7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ea7232b98cd08d481a5bf452fa9b51f3"
     },
     "utf8": {
       "Package": "utf8",

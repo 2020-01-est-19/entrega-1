@@ -237,7 +237,6 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 ## Plots y otras cosas
 ```{r}
-library(wordcloud)
 # curl -Ls "$url" > df_form.csv
 
 tmp <- tempfile()
@@ -384,13 +383,11 @@ title("Casos por distrito")
 ```
 ### Razones
 ```{r}
-# TODO limpieza
-par(mai = c(1, 2.5, 0.5, 0.5))
-df_form2$razones %>%
-    unlist() %>%
-    table() %>%
-    sort(TRUE) %>%
-    barplot(las=1, horiz=TRUE, xlab="Personas")
+library(wordcloud)
+library(tm)
+
+df_form2$razones %>% unlist() %>% table() -> razones_t 
+wordcloud(names(razones_t), as.vector(razones_t), min.freq = 2)
 
 title("Razones para salir durante la cuarentena")
 ```

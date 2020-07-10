@@ -9,5 +9,6 @@ renv::install("rmarkdown")
 renv::install("tidyverse")
 renv::install("berryFunctions")
 renv::install("wordcloud")
+renv::install("tm")
 
 renv::snapshot()
