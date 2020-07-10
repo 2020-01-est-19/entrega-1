@@ -711,28 +711,8 @@ IMAGEN
 
 Dado que |t| < t-crítico, no se puede solventar la idea de rechazar la hipótesis directamente. Dado además que  P(T<t) > , no se llega a rechazar completamente Ho, por lo que se asume que no existen diferencias significativas.
 
+##¿Cuáles eran las razones por las que la población salía durante la cuarentena?
 
-
-### Frecuencia de salida
-```{r}
-df_form2 %>%
-    group_by(salidas) %>%
-    summarise(n=n()) %>%
-    barplot(n~salidas, data=., ylab = "Personas", xlab="Salidas")
-
-title("Salidas por semana")
-```
-
-### Casos por distrito
-```{r, fig.width=12, fig.height=20}
-par(mai = c(1, 2.5, 1, 0.5))
-df %>% filter(PROVINCIA == "LIMA") %>%
-    select(DISTRITO) %>%
-    table() %>%
-    sort(TRUE) %>%
-    barplot(las=1, horiz=TRUE, xlab="Casos")
-title("Casos por distrito")
-```
 ### Razones
 ```{r}
 
@@ -741,6 +721,22 @@ wordcloud(names(razones_t), as.vector(razones_t), min.freq = 2)
 
 title("Razones para salir durante la cuarentena")
 ```
+
+El gráfico anterior manifiesta algunas de las razones que justifican las salidas de casa de la población encuestada durante la cuarentena. Es necesario destacar que esta gráfica se relaciona mucho con la gráfica 6,8,10 y 12, dado que explicaría de algún u otro modo el aumento de casos. La razón con mayor porcentaje es la comida, la que le continúa son los medicamentos y por último el trabajo.  
+
+### Frecuencia de salida
+```{r}
+df_form2 %>%
+    group_by(salidas) %>%
+    summarise(n=n()) %>%
+    barplot(n~salidas, data=., ylab = "Personas", xlab="Salidas")
+
+title("Gráfico 15. Salidas por semana")
+```
+
+Este gráfico se relaciona mucho con el anterior, dado que exhibe las salidas por semana de la población muestra. La gráfica contiene un punto máximo en 2, además de otro máximo local en 5. La media y la mediana son 3.06 y 3 respectivamente, lo que provee un buen estimador de las salidas promedio de las personas encuestadas.
+
+##¿Cuáles han sido las medidas que han tenido mayor impacto en la población?
 
 ### Medidas
 ```{r}
@@ -760,8 +756,98 @@ par(mai = c(1, 2.5, 0.5, 0.5))
             ylab = "",
             xlab = "Aprobación"
     )
-title("Aprobación por medida (de 0 a 1)")
+title("Gráfico 16. Aprobación por medida (de 0 a 1)")
 ```
+
+El gráfico 16 muestra el nivel de aprobación de las medidas que se están estudiando. No obstante, también se han incluido dentro del padrón de hogares el monto de AFP y un porcentaje del mismo. Con un nivel de aprobación mayor a 0.8, la población optó por la medida “Declaración de Estado de Emergencia”. Desde el punto de vista de la población la inmovilización contribuyó en mayor medida. El segundo lugar es para el no acceso a lugares públicos, es decir el permiso para la adquisición de bienes y servicios básicos. Luego, con una aprobación menor a 0.6 las salidas por género. Finalmente, la aprobación del Padrón de Hogares con una aprobación de 0.2 aproximadamente.
+
+#Respondiendo las preguntas exploratorias
+
+##¿Existe una misma tendencia de poblaciones afectadas por el Covid 19 durante las medidas de aislamiento? 
+
+El gráfico 17 muestra la relación entre las variables clase social y distrito. Una parte de la población se distribuyó entre los distritos Barranco con 3000 a 4000 soles de ingresos mensuales, Santiago de Surco [6000-7000), Surquillo [7000-8000) y Villa María del Triunfo [5000-6000). No obstante, la mayor parte de la población se ubica en un nivel de ingreso entre 0 a 2000. En el gráfico 18 se muestra el número de casos por distrito. Estos resultados se pueden vincular directamente con los ingresos de la población. En el gráfico 17 analizamos los distritos que tienen una mayor distribución en un ingreso específico. Por ejemplo, en el gráfico 18. el distrito de Barranco tiene un número de casos menor a 2000 mil casos. Surquillo por su parte tiene aproximadamente 2100 casos. Más aún, Santiago de Surco 5000 casos y Villa María del Triunfo 5800 casos. A partir de ello podríamos establecer ciertos patrones. El primero de ellos sería que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y que este sea de un determinado distrito presentará un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000. 
+
+### Distrito vs ingreso
+```{r, fig.width=12, fig.height=20}
+# No supe como hacerlo con vanilla R
+ggplot(aes(y = distrito, x = ingreso), data = df_form2) +
+    geom_boxplot() +
+    ggtitle("Gráfico 17. Distritos vs ingresos") +
+    theme(plot.title = element_text(hjust = 0.5))
+```
+
+### Casos por distrito
+```{r, fig.width=12, fig.height=20}
+par(mai = c(1, 2.5, 1, 0.5))
+df %>% filter(PROVINCIA == "LIMA") %>%
+    select(DISTRITO) %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(las=1, horiz=TRUE, xlab="Casos")
+title("Gráfico 18. Casos por distrito")
+```
+
+##¿Las medidas en los distritos más exclusivos presentan una mayor o menor efectividad?
+
+Las medidas presentan una mayor efectividad en el distrito de Barranco, dado que a diferencia de los demás, su número oscila en aproximadamente 900 casos. El mayor número de casos es en Santiago de Surco, con más de 4000 mil casos. Analizando, la gráfica 20, la cual relaciona empleo VS. Distrito se puede constatar que en Barranco existe mayor cantidad de gente con un empleo informal. Cabe señalar que también hay población que no trabaja. Por otro lado, en Santiago de Surco, San Isidro y San Borja existe una empleabilidad formal. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal. 
+
+### Distrito exclusivos vs casos
+```{r}
+par(mai = c(1, 2, 0.2, 0.5))
+df %>% filter(PROVINCIA == "LIMA") %>%
+    filter(DISTRITO %in% c("MIRAFLORES",
+                           "BARRANCO",
+                           "SAN ISIDRO",
+                           "SANTIAGO DE SURCO",
+                           "SAN BORJA")
+           ) -> infectados_5 # Es necesario luego
+
+infectados_5 %>%
+    select(DISTRITO) %>%
+    table() %>%
+    sort(TRUE) %>%
+    barplot(las=1, horiz=TRUE, xlab="Casos")
+title("Gráfico 19. Casos en algunos distritos")
+```
+
+### Distrito exclusivos vs empleo
+```{r}
+ggplot(aes(y = distrito, x = empleo), data = df_5) +
+    geom_boxplot() +
+    ggtitle("Gráfico 20. distritos vs tipo de empleo")
+```
+
+### Distrito exclusivo vs ingreso 
+```{r}
+df_form2 %>%
+    filter(distrito %in% c("Miraflores",
+                           "Barranco",
+                           "San Isidro",
+                           "Santiago de Surco",
+                           "San Borja")
+           ) -> df_5
+ggplot(aes(y = distrito, x = ingreso), data = df_5) +
+    geom_boxplot() +
+    ggtitle("Gráfico 21. distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
+```
+
+#Respondiendo las preguntas inferenciales
+
+##¿La entrega de mayores subsidios monetarios resultaría en un importante beneficio para la disminución del número de salidas?
+
+A partir del gráfico 22 se manifiesta que esta medida, para la población encuestada, no redujo las salidas. Esto respalda las hipótesis que suscitaron en la gráfica 8 y 9, las cuales exponían que aunque el objetivo del padrón de hogares era ayudar a las poblaciones más vulnerables para que puedan acceder a los servicios básicos, el mismo hecho de cobrar hacía que la salidas aumenten. Del mismo modo, la aglomeración resultaría en un aumento del número de contagiados, el cual se muestra claramente en la gráfica 8.
+
+### Entrega de bono S/. 380, S/.760 de acuerdo al Sistema de Focalización de Hogares (SISFOH)
+```{r}
+df_form2$bono.05 %>%
+    table() %>%
+    barplot(ylab="Personas")
+
+title("Del 0 al 5, ¿Cuánto se redujo tus salidas?")
+```
+
+##Disminución de salidas de las demás medidas
+
 ### Inmovilización
 ```{r}
 df_form2$social.05 %>%
@@ -789,89 +875,30 @@ df_form2$noday.05 %>%
 title("Del 0 al 5, ¿Cuánto cambió tus salidas?")
 ```
 
-### Multa de S/.86-S/.340 para todas las personas que desobedecen disposiciones del gobierno
+#Respondiendo las preguntas predictivas
+
+##¿Es posible predecir cuántas horas en promedio una persona salía de casa conociendo su nivel de ingresos y el distrito de residencia?
+
+Para esta pregunta, utilizaremos la gráfica 17 para tratar de darle respuesta. Como ya se analizó previamente, esta gráfica exhibe que tres de los cincos distritos exclusivos de Lima tienen un ingreso entre 3000 y 8000 soles. Sin embargo en distritos como Ate Vitarte, Cieneguilla, El Augustino, Independencia, Lurín, entre otros, el nivel de ingresos es desde 1000 a 2000 soles. En base a estos datos, podríamos predecir que las personas con mayores ingresos son las que menos horas salen de casa, mientras que las personas que no tienen una buena solvencia económica requerirían y se verían en la obligación de salir de casa para poder conseguir dinero, ya sea vendiendo productos de primera necesidad, ropa, accesorios, etc.
+
+##¿Es posible predecir su nivel de ingresos conociendo únicamente su tipo de empleo? 
+
+Después de realizar una investigación, se pudo encontrar que las personas con un empleo informal ganan en promedio S/. 715. La ministra de Trabajo, Sylvia Cáceres mencionó que en contraste con la población en el sector formal perciben un salario promedio de más de S/. 2000. Es necesario destacar que la variabilidad dependerá del tipo de trabajo. También la ministra mencionó que la brecha es de un 64%. Para el gráfico 18, una mayor población se encuentra trabajando en un sector formal, por lo que sus ingresos oscilarían entre S/.2000 a más. Por otro lado, el sector informal es el que menos población presenta, menor a quince personas aproximadamente. Esta población, según lo citado, tendrá un salario tres veces menor al del sector formal.
+
+### Empleo
 ```{r}
-df_form2$multa.05 %>%
-    table() %>%
-    barplot(ylab="Personas")
-
-title("De 0 a 5, ¿Cúanto disminuyeron tus salidas durante la cuarentena?")
-```
-
-### Entrega de bono S/. 380, S/.760 de acuerdo al Sistema de Focalización de Hogares (SISFOH)
-```{r}
-df_form2$bono.05 %>%
-    table() %>%
-    barplot(ylab="Personas")
-
-title("Del 0 al 5, ¿Cuánto se redujo tus salidas?")
-```
-
-### Retiro de hasta S/. 2000 de fondos AFP de trabajadores afiliados que no tienen planilla
-```{r}
-df_form2$afp1.05 %>%
-    table() %>%
-    barplot(ylab="Personas")
-
-title("Del 0 al 5, ¿ Cuán más te mantuviste en casa?")
-```
-
-### Retiro del  25% de fondos AFP para trabajadores afiliados
-```{r}
-df_form2$afp2.05 %>%
-    table() %>%
-    barplot(ylab="Personas")
-
-title("Del 0 al 5, ¿Cuánto tiempo más te mantuvo en casa?")
-```
-
-### Distrito vs ingreso
-```{r, fig.width=12, fig.height=20}
-# No supe como hacerlo con vanilla R
-ggplot(aes(y = distrito, x = ingreso), data = df_form2) +
-    geom_boxplot() +
-    ggtitle("Distritos vs ingresos") +
-    theme(plot.title = element_text(hjust = 0.5))
-```
-### Distrito vs casos
-```{r}
-par(mai = c(1, 2, 0.2, 0.5))
-df %>% filter(PROVINCIA == "LIMA") %>%
-    filter(DISTRITO %in% c("MIRAFLORES",
-                           "BARRANCO",
-                           "SAN ISIDRO",
-                           "SANTIAGO DE SURCO",
-                           "SAN BORJA")
-           ) -> infectados_5 # Es necesario luego
-
-infectados_5 %>%
-    select(DISTRITO) %>%
+par(mai = c(1, 1.5, 0.5, 0.5))
+df_form2$empleo %>%
     table() %>%
     sort(TRUE) %>%
-    barplot(las=1, horiz=TRUE, xlab="Casos")
-title("Casos en algunos distritos")
+    barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
+
+title("Tipo de trabajo")
 ```
 
-### Distrito vs ingreso otra vez
-```{r}
-df_form2 %>%
-    filter(distrito %in% c("Miraflores",
-                           "Barranco",
-                           "San Isidro",
-                           "Santiago de Surco",
-                           "San Borja")
-           ) -> df_5
-ggplot(aes(y = distrito, x = ingreso), data = df_5) +
-    geom_boxplot() +
-    ggtitle("5 distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
-```
+#Respondiendo las preguntas causales
 
-### Distrito vs empleo
-```{r}
-ggplot(aes(y = distrito, x = empleo), data = df_5) +
-    geom_boxplot() +
-    ggtitle("5 distritos vs tipo de empleo")
-```
+##¿Qué factores determinan que la propagación del Covid 19 se desacelere?
 
 ### Desaceleración del contagio
 ```{r}
@@ -882,6 +909,10 @@ df_form2$decceleration %>%
     knitr::kable(col.names = c("Medida", "Personas que lo aprueban"))
 ```
 
+#Respondiendo las preguntas mecanísticas
+
+##¿Cómo ciertas condiciones determinan que la propagación del COVID se acelere?
+
 ### Aceleración del contagio
 ```{r}
 df_form2$acceleration %>%
@@ -891,32 +922,76 @@ df_form2$acceleration %>%
     knitr::kable(col.names = c("Factor", "Personas que lo aprueban"))
 ```
 
-## Descriptores numéricos para las variables de mayor importancia:
+#Discusión de resultados
 
-### Data web
-* Frecuencia de salida de personas (antes y después): Utilizamos mediana y media.
-* Cantidad de infectados por día: Utilizamos media.
-* Edad: Utilizamos la mediana para relacionar rangos de edades con las repuestas brindadas por las personas en las encuestas.
+##Patrones: 
 
-### Encuestas
-Se realizará una encuesta para aproximadamente 100 personas, en el cual se formularán preguntas con las siguientes variables:
-* Frecuencia de salida promedio al día antes del inicio de cuarentena
-* Frecuencia de salida promedio al día luego de la medida del gobierno
-* Cantidad  aproximada de personas que observó en lugares públicos (mercado, hospital) luego de aplicadas las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal.
-* Cantidad de personas aproximada que observó cumplir con el distanciamiento social de 1 metro, luego de las medidas del gobierno. Esto se medirá mediante un indicador categórico ordinal
-* Tipo de trabajo (formal / informal)
-* Edad
-* Género
-* Distrito
-* Clase social
-* Nivel educativo
+1. Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un cambio no significativo entre antes y después de haber tomado cada medida. 
 
-# Descriptores gráficos
+2. En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 
-Utilizaremos:
+3. En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
-Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida.
-Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
+4. Asimismo, otro patrón encontrado es que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y este siendo de un determinado distrito presenta un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000. 
+
+5. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal. 
+
+#Hipótesis, relación movilidad social-> casos covid-19: 
+
+1. 
+
+H0: Mayores casos durante la medida de inmovilización social no implica necesariamente un aumento de la movilización social.
+H1: Mayores casos durante la medida de inmovilización social supone un aumento de la cantidad de personas que se movilizan
+
+2. 
+
+H0: Menores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
+H1: Mayores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
+
+##Hipótesis, en relación a las encuestas:
+
+1.
+
+H0: Las personas con menores frecuencias de salida no supone necesariamente que tengan más ingresos mensuales
+H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
+
+##Parámetros de estudio 
+A partir de los datos obtenidos de las encuesta, se establecen parámetros de interés que permiten cuantificar la confiabilidad del estudio realizado:
+
+|Población | Tamaño de la muestra  (personas entrevistadas) | Nivel de Confianza | Tolerancia |
+|---|----------|------|
+| 8000000 |360| 95%| 5%|
+
+El tamaño de la muestra adecuado para el nivel de confianza esperado se obtiene a partir de:
+
+$$P(|Xn-u|<E)>=1-$$
+#Valores de interés 
+
+|Variables cuantitativas | Rango | Media | Intervalo de confianza |
+|---|----------|------|
+| Edad |[0,75] | 39.8| u +- 1.47|
+| Frecuencia de salida por semana |[0,5]   | 2.5| u +- 0.18|
+
+Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
+Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
+
+#Pruebas de Hipótesis:
+
+H0: Las personas con menores frecuencias de salida  necesariamente no supone que tengan más ingresos mensuales
+
+H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
+
+
+Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más  alto que el promedio mensual en Lima. 
+
+De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada.
+
+IMG
+
+Por lo que se acepta H0 y se elimina H1, una mayor  frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
+
+
+
 
 # Obtención y Procesamiento de Resultados
 
@@ -927,13 +1002,6 @@ repeat_plots("2020-03-18", 10, "Aprobación del Padrón de Hogares")
 repeat_plots("2020-04-03", 10, "Salida alternada por género")
 repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
 ```
-
-# Discusión de resultados
-
-## Patrones:
-* Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un incremento de personas infectadas significativo  entre antes y después de haber tomado cada medida.
-* En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
-* En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
 
 # Bibliografía
