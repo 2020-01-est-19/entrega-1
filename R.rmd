@@ -256,7 +256,13 @@ Ello, dado que todos los individuos de subconjunto de la población objetivo
 tienen la misma probabilidad de ser seleccionados.
 
 ## Tamaño de la muestra
-* Finita
+* Para la investigación, se busca cumplir por lo menos con:
+<0.05, e<0.05
+*Para encontrar un número mínimo de personas a entrevistar, manteniendo una confianza de 95% y margen de error de 5%, se utilizó la siguiente fórmula:
+
+$$n = Z^2p(1-p)/e^2$$
+
+Como no hay todavía datos para obtener el valor real de p, se asume p = 0.5. Con ello, se obtiene un tamaño de muestra de por lo menos 91 personas para ser significativo. 
 
 # Proveniencia de los datos
 Existen varias fuentes de la que es posible extraer la información necesaria
@@ -332,46 +338,111 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |2  |¿De qué género son?| Descriptiva|
 |3  |¿Cuánto es su ingreso promedio?| Descriptiva|
 |4  |¿En qué distrito vives?| Descriptiva|
-|5  |¿Cuál fue el último nivel educativo que cursaron?| Descriptiva|
-|6  |¿Es su tipo de empleo uno formal o informal?| Descriptiva|
-|6  |¿Qué tan frecuentemente salía de casa previamente al comienzo de la cuarentena?| Descriptiva|
-|7  |¿Qué medidas gubernamentales son las que recuerdan que se hayan tomado?| Descriptiva|
+|5  |¿Cuál fue el último nivel educativo que completaste?| Descriptiva|
+|6  |¿Su tipo de empleo es formal o informal?| Descriptiva|
+|7  |¿Qué tan frecuentemente salía de casa previamente al comienzo de la cuarentena?| Descriptiva|
 |8  |¿Qué tanto consideras que tu distrito se ha visto afectado por la enfermedad?| Descriptiva|
 |9  |¿Por qué razones salías durante la cuarentena?| Descriptiva|
-|10 |¿Consideras que la medida X fue efectiva para reducir el número de contagios en tu distrito?| Descriptiva|
-|11 |¿Qué condiciones crees que aceleran la propagación del Covid en tu distrito?| Descriptiva|
-|12 |¿Qué condiciones crees que aceleran / retardan la propagación del Covid en tu distrito?| Descriptiva|
+|10  |¿Consideras que esta medida “c/u de las medidas” fue efectiva para reducir el número de contagios en tu distrito?| Descriptiva|
+|11|¿Qué condiciones crees que aceleran la propagación del Covid en tu distrito?| Descriptiva|
+|12 |¿Qué condiciones crees que retardan la propagación del Covid en tu distrito?| Descriptiva|
+|13 |¿Qué medidas gubernamentales son las que recuerdas que se hayan tomado?| Descriptiva|
+
 
 ##  Preguntas propuestas para estudio (para la data)
 
 
 |N° | Pregunta | Tipo |
 |---|----------|------|
-|1  |¿Qué tan frecuentemente salía la población en una fecha determinada respecto al promedio?| Inferencial|
-|2  |¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?| Descriptiva|
-|3  |¿Qué poblaciones se ven más afectadas por la enfermedad durante las medidas de aislamiento? ¿Cómo varía esto respecto a periodos anteriores a su promulgación?| Descriptiva|
-|4  |¿Se pueden prevenir errores - proveer mejores opciones respecto a medidas preventivas a partir de estas características?| Exploratoria|
-|5  |¿Como se vio afectado el tránsito de personas en los días previos a la implementación?| Descriptiva|
-|6  |¿Cuáles han sido las medidas que han tenido mayor impacto en la población?| Inferencial|
-|7  |¿Cómo ciertas condiciones determinan que la propagación del COVID se acelere / retarde?| Causal|
+|14  |¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?| Descriptiva|
+|15  |¿Cuáles eran las razones por las que la población salía durante la cuarentena?| Descriptiva|
+|16  |¿Cuáles han sido las medidas que han tenido mayor impacto en la población?| Descriptiva|
+|17  |Existe una misma tendencia de poblaciones afectadas por el Covid 19 durante las medidas de aislamiento? | Exploratoria|
+|18  |¿Las medidas en los distritos más exclusivos presentan una mayor o menor efectividad?| Exploratoria|
+|19  |¿La entrega de mayores subsidios monetarios resultaría en un importante beneficio para la disminución del número de salidas?| Inferencial|
+|20  |¿Es posible predecir cuántas horas en promedio una persona salía de casa conociendo su nivel de ingresos y el distrito de residencia?| Predictiva|
+|21  |¿Es posible predecir su nivel de ingresos conociendo únicamente su tipo de empleo?| Predictiva|
+|22  |¿Qué factores determinan que la propagación del Covid 19 se desacelere?| Causal|
+|23  |¿Cómo ciertas condiciones determinan que la propagación del COVID se acelere / retarde?| Mecanística|
 
 # Variables
 
-|Variable| Tipo de variable|
+|Variable| Relación con pregunta| Tipo de variable|
 |--------|-----------------|
-|Edad| Cuantitativa discreta|
-|Género| Cualitativa nominal|
-|Clase social| Cualitativa ordinal|
-|Nivel educativo alcanzado| Cualitativa ordinal|
-|Tipo de trabajo| Cualitativa nominal|
-|Frecuencia de salida | Cuantitativa discreta|
-|Lugar donde vive (distrito)| Cualitativa nominal|
-|Cantidad de infectados por dia| Cuantitativa discreta|
-|Tiempo (dias)| Cuantitativa discreta|
-|Justificacion de salida| Cualitativa nomilal|
-|Medidas aplicadas| Cualitativa nominal|
-|Cantidad de personas observadas en lugares públicos (mercado, hospital)| Cualitativa ordinal|
-|Cantidad de personas que respeta las normas de distanciamiento social en público| Cualitativa ordinal|
+|Edad| 1| Cuantitativa discreta|
+|Género| 2| Cualitativa nominal|
+|Clase social| 3,17,18,20,21| Cualitativa ordinal|
+|Nivel educativo alcanzado| 5,17,18| Cualitativa ordinal|
+|Tipo de trabajo| 6,18,21| Cualitativa nominal|
+|Frecuencia de salida | 7,18,19| Cuantitativa discreta|
+|Lugar donde vive (distrito)| 4,17,18,20| Cualitativa nominal|
+|Cantidad de infectados por dia| 14,19| Cuantitativa discreta|
+|Justificacion de salida| 9,15| Cualitativa nomilal|
+|Medidas aplicadas| 10,16,17,18,19| Cualitativa nominal|
+|Factores| 22,23| Cualitativa nominal|
+
+#Descriptores numéricos para las variables de mayor importancia:
+
+##Variables Data web
+
+-Cantidad  de  personas que se movilizan en las calles antes y después de cada una de las medidas, Tiempo, Medidas aplicadas:
+
+*Media (valor): permitirá  conocer en promedio cuántos  ciudadanos limeños se movilizan  antes y después de la medida
+
+*Mediana, cuartiles (valor): permitirá saber cuántos ciudadanos limeños se movilizan al 25%, 50%; 75%, 100%  del tiempo de estudio, de esta manera se conocerá  el efecto de la movilización con el transcurso del tiempo para cada medida.
+
+*Desviación estándar: permitirá saber cuántas son las variaciones promedio  de movilización social respecto a la media  
+
+-Cantidad de infectados por día, Tiempo:
+
+*Media(valor): permitirá conocer cuánto es la tasa infectados que  hubo en promedio antes y después de medida aplicada
+
+*Mediana, cuartiles (valor): permitirá saber cuántos infectados hubo al 25%, 50%;75%, 100%  del tiempo de estudio, de esta manera se conocerá  el efecto del número de infectados con el transcurso del tiempo para cada medida.
+
+*Desviación estándar: permitirá saber cuántas son las variaciones promedio de infectados respecto a la media.
+
+#Variables Encuestas
+
+-Frecuencia de salida promedio a la semana ,antes y después de cada medida del gobierno
+
+Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida
+
+Moda (valor): permitirá saber la frecuencia de salida mayoritaria de los ciudadanos de Lima encuestados
+
+-Tipo de trabajo, Frecuencia de salida promedio a la semana ,antes y después de cada medida del gobierno
+
+Variable dicotomizada Tipo de trabajo=0,1
+
+Coeficiente de correlación biserial: indicará cuán relacionado está el tipo de trabajo con la frecuencia de salida
+
+
+-Edad, Frecuencia de salida promedio a la semana ,antes y después de cada medida del gobierno, Medida aplicada
+
+Media: permitirá conocer la edad promedio para cada frecuencia de salida promedio y para cada medida
+
+Coeficiente de correlación biserial: indicará cuán relacionado está la edad con la frecuencia de salida
+
+-Distrito, Frecuencia de salida promedio a la semana ,antes y después de cada medida del gobierno y medida aplicada
+
+Moda(valor): permitirá conocer en qué distrito inciden más en las veces de salida de las personas
+
+-Clase social
+
+Moda(valor): permitirá conocer el nivel de ingresos por cada distrito.
+
+#Descriptores gráficos
+
+Utilizaremos:
+
+Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida.
+Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
+
+También utilizaremos un gráfico de caja de bigotes para diferenciar las edades de los entrevistados de manera rápida y efectiva. Esto nos permitirá ver la relación entre las edades y respuestas dadas por las personas. 
+
+Además, se utilizarán gráficos de barras principalmente para visualizar y analizar las respuestas cualitativas. Con los gráficos de barras se podrán ver cuales han sido las respuestas cualitativas respondidas con más y menos frecuencia.
+
+Finalmente, se usarán histograma para describir las variables cuantitativas que pueden ser distribuidas en rangos. Esto nos facilitará analizar los datos con muchos valores o respuestas posibles.
+
 
 ## Plots y otras cosas
 ```{r}
@@ -394,11 +465,11 @@ read_csv(tmp) %>%
         distrito = "¿En qué distrito vives?",
         estudio = "¿Cuál fue el último nivel educativo que completaste?",
         empleo = "¿Cuál es tu tipo de empleo?",
-        salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los días de cuarentena?",
+        salidas = "¿Cuántas veces a la semana, en promedio, salías de casa durante los  días de cuarentena?",
         razones = "¿Por qué razones salías durante la cuarentena?",
-        social.bool = "¿La medida de \"Inmovilización social\", realmente hizo que tus salidas durante toda la cuarentena fueran muy pocas?",
+        social.bool = "¿La medida de \"Inmovilización social\", realmente  hizo que tus salidas durante toda la cuarentena fueran muy pocas?",
         social.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿ En cuánto disminuyó tus salidas durante la cuarentena?",
-        ocio.bool = "¿ La \"Suspensión de acceso a lugares públicos: lugares de ocio, restaurantes, etc\", te desanimó salir de casa?",
+        ocio.bool = "¿ La \"Suspensión de acceso a lugares públicos: lugares de ocio, restaurantes, etc\", te desanimó  salir de casa?",
         ocio.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto te desanimó salir de casa?",
         noday.bool = "¿La medida \"Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)\", garantizo que salieras menos que antes?",
         noday.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto cambio tus salidas?",
@@ -408,7 +479,7 @@ read_csv(tmp) %>%
         bono.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto se redujo tus salidas?",
         afp1.bool = "¿ La medida \"Retiro de hasta S/. 2000 de fondos AFP de trabajadores afiliados que no tienen planilla\", te mantuvo más tiempo en casa?",
         afp1.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿ Cuán más te mantuviste en casa?",
-        afp2.bool = "¿ La medida \"Retiro del 25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?",
+        afp2.bool = "¿ La medida \"Retiro del  25% de fondos AFP para trabajadores afiliados\", te mantuvo más tiempo en casa?",
         afp2.05 = "Respecto a la anterior pregunta. Del 0 al 5, ¿Cuánto tiempo más te mantuvo en casa?",
         decceleration = "¿Qué condiciones crees que existen en tu distrito que retardan la propagación del Covid?",
         acceleration = "¿Qué condiciones crees que existen en tu distrito que aceleran la propagación del Covid?"
@@ -440,8 +511,23 @@ read_csv(tmp) %>%
 ```{r}
 summary(df_form2$edad)
 boxplot(df_form2$edad, xlab = "", ylab = "Edad", main=NULL)
-title("Edad")
+title("Gráfico 1. Edad")
 ```
+
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  17.00   23.00   32.00   34.57   46.00   60.00 
+
+n = 310, sd = 12.619
+
+Podemos así determinar el intervalo de confianza calculando:
+
+desv/sqrt(n) = 12.619 /sqrt(310) =0.7167
+z t alfa/2 = 1.96
+
+U.Bound => 34.57 + 1.96 * 12.619 = 59.30
+L.Bound  => 34.57 - 1.96 * 12.619 = 9.84
+
+Se sabe por tanto que la media real se puede encontrar en [9.84, 59.30] con 95% de certeza.
 
 ### Género
 ```{r}
@@ -450,7 +536,7 @@ df_form2 %>%
     summarise(n = n()) %>%
     barplot(n~genero, data=., xlab="Personas", ylab="Cantidad")
 
-title("Género")
+title("Gráfico 2. Género")
 ```
 
 ### Ingreso promedio
@@ -462,7 +548,7 @@ df_form2 %>%
     summarise(n = n()) %>%
     barplot(n~ingreso, data=., horiz = TRUE, las = 2, xlab = "Personas", ylab="")
 title(ylab="Ingreso", line=6)
-title("Ingresos")
+title("Gráfico 3. Ingresos")
 ```
 
 ### Distrito
@@ -475,18 +561,7 @@ df_form2$distrito %>%
     table() %>%
     sort(TRUE) %>%
     barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
-title("Distrito")
-```
-
-### Nivel educativo
-```{r}
-par(mai = c(1, 1.5, 0.5, 0.5))
-df_form2$estudio %>%
-    table() %>%
-    sort(TRUE) %>%
-    barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
-
-title("Niveles educativos")
+title("Gráfico 4. Distrito")
 ```
 
 ### Empleo
@@ -497,8 +572,146 @@ df_form2$empleo %>%
     sort(TRUE) %>%
     barplot(horiz = TRUE, las = 2, xlab = "Personas", ylab="")
 
-title("Tipo de trabajo")
+title("Gráfico 5. Tipo de trabajo")
 ```
+
+###¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?
+
+Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
+##Declaración del Estado de Emergencia
+#Incorporar el n° de Gráfico 6. 
+declaración nuevos casos
+
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+```
+En esta gráfica podemos visualizar que la cantidad de infectados por día bajó en algunos días inmediatamente después de que se declarará el estado de emergencia. Se puede apreciar en la gráfica que se lleva a cabo cada 2 o 3 días durante la semana siguiente a la implementación del Estado de Emergencia. Esto se podría deber a factores como la cantidad de pruebas tomadas por día, frecuencia de salida de las personas y el cumplimiento de las leyes y medidas tomadas. 
+
+Para analizar esta gráfica, se asume que el crecimiento de la enfermedad bajo condiciones normales es exponencial. Por tanto, se puede construir un modelo tal que:
+ln(y) At+B. Tomando a L1como regresión de control sin variable independiente y L2la regresión luego de aplicarse la medida, se realizó un F-test para comprobar si el modelo L1modela a L2 sin diferencias significativas.
+
+-Ho : No existen diferencias significativas entre ambos modelos 
+-Ha : Existen diferencias significativas entre el modelo anterior a la medida y el actual.
+
+IMAGEN
+
+Dado que la varianza 1 > varianza 2, la elección del orden de las variables es correcta. Por tanto, dado F > F crítico, se encuentra evidencia para falsear Ho. Dado > P(F<=f) una cola, se rechaza la hipótesis nula, por lo que existen diferencias significativas. Comparando las pendientes A1=0.337 y A2=0.0729 con A2 <A1, se puede asumir que se frenó la expansión de la enfermedad.
+
+#ncorporar el n° de Gráfico 7. título
+misma medida pero la de cambio
+
+PLOT
+
+A partir del gráfico 7, se logra visualizar que previo a la promulgación de la medida “Declaración de Estado de Emergencia”, la gente tenía mucha más movilización y luego de decretada, el cambio de movilización disminuyó en gran medida. El promedio y mediana (líneas continuas) antes de que se aplique esta medida es aproximadamente -3. Por otro lado, el promedio y mediana (líneas punteadas) desde el quince hasta el veinticinco está por debajo de -60.
+
+Para comprobar la significancia de esta diferencia, se realizó un test-t de medias. Se asumieron las siguientes hipótesis:
+
+-Ho : No existe un efecto significativo de la medida por sobre las medias del Cambio de Movilización
+-Ha : Existen diferencias significativas entre las medias de la variable Cambio de Movilización para antes y después de ejecutarse la medida.
+
+[imagen]
+
+Dado que el valor |t| > t-crítico dos colas, se puede encontrar evidencia para rechazar la hipótesis nula Ho. Dado =0.05 > P(T<=t) dos colas, existe significancia suficiente para ello. Por tanto, se rechaza Ho, existiendo por tanto diferencias significativas entre antes de ejecutarse la declaración de Estado de Emergencia y después sobre la movilización de las personas. Debido a que el coeficiente de correlación es menor a 0, se puede afirmar que el cambio además redujo la movilización.
+## Aprobación del Padrón de Hogares
+
+Este gráfico nos muestra la cantidad de casos diez días antes y diez días después de que la medida “Aprobación del Padrón de Hogares” fuera aprobada. Esta es una gráfica muy importante, dado que tenía como objetivo ayudar a las poblaciones más vulnerables en condición de extrema pobreza a nivel nacional para que pudieran subsistir durante la cuarentena. Dicho en otras palabras, para que pudieran acceder a los servicios básicos y medicamentos, en caso fuesen requeridos. La cantidad de casos antes de que la medida fuese declarada, 08/03 hasta 18/03,  va desde aproximadamente uno hasta veinte. No obstante, desde 18/03 hasta 28/03 la cantidad de casos va en aumento. Sin duda alguna, el objetivo era bueno, pero para el panorama que se estaba viviendo no fue efectiva. Una posible hipótesis sería la salida obligatoria de los beneficiarios a los bancos a formar largas colas durante horas. Esto explicaría el aumento de casos.
+
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-03-18", 10, "Aprobación del Padrón de Hogares")
+```
+ 
+#grafico 8 nuevos casos
+ 
+Se realizó un f-test sobre los inputs a la regresión lineal del logaritmo de la gráfica, siguiendo el modelo planteado arriba. Se colocó como control a todos los datos previos a declararse la medida. Se plantearon las siguientes hipótesis:
+Ho : No existe un efecto significativo de la medida por sobre la tendencia de los nuevos casos con respecto al control.
+Ha : Existen un efecto significativo entre las muestras de control y la data posterior a la declaración.
+
+IMAGEN
+
+Dado que la primera varianza es mayor a la segunda, el orden de operación de los datos es correcto. Como tal, dado F > F-critico una cola, encontramos evidencia en contra de Ho. Dado ademas P(F<=f) < , se puede garantizar la decisión de rechazar la hipótesis nula, por lo que deben existir diferencias significativas entre los datos. Dado además A1= 0.2672 > A2=0.0116, se puede afirmar que la medida redujo la tasa de infección.
+
+#GRAFICO 9 CAMBIOS
+
+Esta gráfica, al igual que la Gráfica 7, manifiesta un comportamiento similar. Sin embargo, a partir de la disminución de la curva se podrían generar algunas conjeturas. La primera de ellas es que las personas tenían un respaldo para poder comprar sus alimentos y medicamentos de ser necesario por lo que ya no tenían que salir a las calles de manera concurrida a vender productos, entre otras cosas. Cabe resaltar que con esto no queremos decir que la población no salía y que la medida fue 100% efectiva. Al contrario, la población objetivo salió para hacer el retiro del subsidio por lo que el número de casos aumentó. Sin embargo, esto también contribuyó a que en días posteriores se queden en casa, debido a que contaban con dinero para subsistir por un par de semanas más (varía según el número de integrantes). Estas afirmaciones se respaldan con la media y mediana antes del decreto (líneas continuas), dado que se ubica en la parte superior del gráfico, mientras que la media y mediana (líneas punteadas) por debajo de -60.
+
+#GRAFICO DE CAMBIOS RECREACIONALES Y ESO
+
+Utilizando un test-t para medias en ambas secciones de la gráfica, podemos determinar si existe un efecto de la medida por sobre la trend general.
+Ho : No  existen diferencias significativas entre ambas secciones de la gráfica.
+Ha : Existen diferencias significativas entre ambas secciones de la gráfica.
+
+IMAGEN
+
+Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < , la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo 
+
+##Salida alternada por género
+
+El gráfico 10 exhibe la cantidad de casos antes y después de aplicarse la medida “Salida alternada por género”. En un primer momento esta medida tenía como objetivo disminuir el número de contagios. Por tal razón, el Gobierno decretó determinados días de salida para mujeres y otros para varones, y los domingos nadie salía. No obstante, a partir de la representación se puede observar que el número de casos aumentó de aproximadamente cien a mil cien casos. Después de los reportajes vistos, podríamos tratar de explicar este comportamiento basándonos en lo siguiente: las mamás consideran que los varones (esposos) no saben hacer las compras de mercado. Algunos dirían que esto no tiene fundamento, pero analizando detalladamente los reportajes, pudimos reconocer que en los días de salida de mujeres había mucha más aglomeración y desorden, a diferencia de los días en que les tocaba salir a los varones.
+
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-04-03", 10, "Salida alternada por género")
+```
+
+#GRAFICO 10 NUEVOS CASOS
+
+Para comprobar estadísticamente si es que la medida fue efectiva o no, se realizó el test F sobre la forma logarítmica de la regresión. Debido a que la regresión no se centra en 0, se normalizaron los puntos previamente. 
+
+Ho : No existe diferencias significativas entre los dos sets de puntos. 
+Ha : Existe diferencias significativas entre el set de puntos antes y despues de aplicarse la medida.
+
+IMAGEN
+
+Dado que F < F-crítico una cola, no se puede falsear la hipótesis nula. Además, comoP(F<=f) una cola > 0.05, se decide mantener la hipótesis nula, considerando que no existen diferencias significativas. Con esto, se comprueba que la medida no tuvo éxito en reducir los nuevos casos.
+
+#GRAFICO DE CAMBIOS
+
+
+Se puede observar un leve cambio en la posición de las medias de ambos datasets. Para comprobar la significancia de esta diferencia, se plantea un test-t. Asumiendo:
+
+Ho: No se puede encontrar diferencias significativas entre las dos fases.
+
+Ha: Existen diferencias significativas entre antes de declararse la medida y tras su ejecución.
+
+IMAGEN
+
+Dado que |tStat| < t critico dos colas, no se puede encontrar evidencia que niegue Ho. Dado además que P(T<=t) > , no se llega a rechazar la hipótesis nula, por lo que se asume que no existen diferencias significativas tras la medida.
+
+
+##Permiso de adquisición de bienes y servicios básicos
+
+#grafico de nuevos casos
+
+En el gráfico número 12 hay una observación muy poco evidente que se puede ver. Pocos días anteriores a la implementación de la medida en consideración, los nuevos casos empezaron a incrementar después de haberse mantenido relativamente constantes por un tiempo. El incremento de estos nuevos casos al parecer fue controlado por unos dias posteriores de ser tomada la medida. Sin embargo, en la gráfica se puede visualizar que aproximadamente una semana después de haberse tomado esta medida los casos empezaron a incrementar nuevamente.
+
+```{r,echo=FALSE,message=FALSE,results="asis"}
+repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
+```
+
+
+Para comprobar la significancia de esta diferencia, se plantea un test-f. Asumiendo a los puntos ubicados antes de la aplicación de la medida como control:
+
+Ho: No se puede encontrar diferencias significativas entre la fase de control y tras aplicar la medida.
+
+Ha: Existen diferencias significativas entre antes de declararse la medida y tras su ejecución.
+
+IMAGEN
+
+Dado F < F-crítico una cola, no se encuentra evidencia en contra de la hipótesis nula. Como P(F<=f)>0.05, no se rechaza Ho, asumiendo por tanto que no existen diferencias significativas en el ratio de aparición de nuevos casos.
+
+#aqui va el grafico de cambios
+
+En esta gráfica podemos ver que la medida de permiso de adquisición de bienes y servicios básicos no afectó de manera evidente la movilización social, ya que no se puede ver una reducción o incremento totalmente claro en los días posteriores a la implementación de esta medida. Se puede observar esto mediante un t-test. Asumiendo así:
+
+Ho = No existe diferencia antes y después de aplicarse la medida
+
+Ha = Existen diferencias significativas en la movilización entre el periodo previo a la declaración  y el posterior.
+
+IMAGEN
+
+
+Dado que |t| < t-crítico, no se puede solventar la idea de rechazar la hipótesis directamente. Dado además que  P(T<t) > , no se llega a rechazar completamente Ho, por lo que se asume que no existen diferencias significativas.
+
+
 
 ### Frecuencia de salida
 ```{r}
