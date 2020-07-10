@@ -301,8 +301,8 @@ read_csv(tmp) %>%
 ### Edad de la muestra
 ```{r}
 summary(df_form2$edad)
-hist(df_form2$edad, xlab = "Edad", ylab = "Personas", main=NULL)
-title("Edades")
+boxplot(df_form2$edad, xlab = "", ylab = "Edad", main=NULL)
+title("Edad")
 ```
 
 ### Género
