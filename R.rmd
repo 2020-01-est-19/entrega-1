@@ -112,7 +112,7 @@ cat_function <- function(f_name, min_day, max_day) {
     cat("(\"")
     cat(format(as.Date(min_day), "%Y-%m-%d"))
     cat("\", \"")
-    cat(format(as.Date(max_day), "%Y-%m-%d"))
+    cat(format(as.Date(max_day), "%Y-%m-%d"))d
     cat("\")\n```\n\n")
 }
 
