@@ -19,7 +19,7 @@ https://2020-01-est-19.github.io/proyecto/pres.html
 
 ### Make
 ``` bash
-$ sudo apt install r-base pandoc libcurll4-gnutls-dev
+$ sudo apt install r-base pandoc libcurll4-gnutls-dev libssl-dev libxml2-dev
 $ R
 > if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
 > renv::consent(TRUE)
