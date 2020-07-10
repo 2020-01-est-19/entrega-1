@@ -147,7 +147,6 @@ cat_plot <- function(day, range,  main_title, fun, title) {
 repeat_plots <- function(day, range, main_title = "") {
     day <- lubridate::ymd(day)
     cat_plot(day, range, main_title, plot_new_cases, "Nuevos casos")
-    #cat_plot(day, range, main_title, plot_sum_cases, "Casos totales")
     cat_plot(day, range, main_title, plot_rmoves, "Movilización recreacional")
 }
 ```
@@ -575,16 +574,21 @@ df_form2$empleo %>%
 title("Gráfico 5. Tipo de trabajo")
 ```
 
-###¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?
+### ¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?
 
 Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
-##Declaración del Estado de Emergencia
-#Incorporar el n° de Gráfico 6. 
+## Declaración del Estado de Emergencia
+# Incorporar el n° de Gráfico 6. 
 declaración nuevos casos
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+
+#day <- lubridate::ymd(day)
+#cat_plot(day, range, main_title, plot_new_cases, "Nuevos casos")
+#cat_plot(day, range, main_title, plot_rmoves, "Movilización recreacional")
 ```
+
 En esta gráfica podemos visualizar que la cantidad de infectados por día bajó en algunos días inmediatamente después de que se declarará el estado de emergencia. Se puede apreciar en la gráfica que se lleva a cabo cada 2 o 3 días durante la semana siguiente a la implementación del Estado de Emergencia. Esto se podría deber a factores como la cantidad de pruebas tomadas por día, frecuencia de salida de las personas y el cumplimiento de las leyes y medidas tomadas. 
 
 Para analizar esta gráfica, se asume que el crecimiento de la enfermedad bajo condiciones normales es exponencial. Por tanto, se puede construir un modelo tal que:
