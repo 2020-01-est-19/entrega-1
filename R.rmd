@@ -10,6 +10,12 @@ output:
 <style> body {text-align: justify} </style>
 
 ```{r,echo=FALSE,message=FALSE}
+library(berryFunctions)
+library(curl)
+library(tidyverse)
+library(tm)
+library(wordcloud)
+
 source("plots.r")
 knitr::read_chunk("plots.r")
 ```
@@ -384,8 +390,6 @@ title("Casos por distrito")
 ```
 ### Razones
 ```{r}
-library(wordcloud)
-library(tm)
 
 df_form2$razones %>% unlist() %>% table() -> razones_t 
 wordcloud(names(razones_t), as.vector(razones_t), min.freq = 2)
