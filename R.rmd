@@ -55,13 +55,13 @@ plot_new_cases <- function(day, min_day, max_day, main_title) {
 
     mean1 <- mean(df_tmp_a$N)
     segments(as.Date(min_day)-1, mean1, as.Date(day), mean1, col = "red")
-    
+
     median1 <- median(df_tmp_a$N)
     segments(as.Date(min_day)-1, median1, as.Date(day), median1, col = "blue")
 
     mean2 <- mean(df_tmp_b$N)
     segments(as.Date(day), mean2, as.Date(max_day)+1, mean2, col = "red", lty = 2)
-    
+
     median2 <- median(df_tmp_b$N)
     segments(as.Date(day), median2, as.Date(max_day)+1, median2, col = "blue", lty = 2)
 
@@ -91,13 +91,13 @@ plot_rmoves <- function(day, min_day, max_day, main_title) {
 
     mean1 <- mean(df_tmp_a$mov)
     segments(as.Date(min_day)-1, mean1, as.Date(day), mean1, col = "red")
-    
+
     median1 <- median(df_tmp_a$mov)
     segments(as.Date(min_day)-1, median1, as.Date(day), median1, col = "blue")
 
     mean2 <- mean(df_tmp_b$mov)
     segments(as.Date(day), mean2, as.Date(max_day)+1, mean2, col = "red", lty = 2)
-    
+
     median2 <- median(df_tmp_b$mov)
     segments(as.Date(day), median2, as.Date(max_day)+1, median2, col = "blue", lty = 2)
 
@@ -261,7 +261,7 @@ tienen la misma probabilidad de ser seleccionados.
 
 $$n = Z^2p(1-p)/e^2$$
 
-Como no hay todavía datos para obtener el valor real de p, se asume p = 0.5. Con ello, se obtiene un tamaño de muestra de por lo menos 91 personas para ser significativo. 
+Como no hay todavía datos para obtener el valor real de p, se asume p = 0.5. Con ello, se obtiene un tamaño de muestra de por lo menos 91 personas para ser significativo.
 
 # Proveniencia de los datos
 Existen varias fuentes de la que es posible extraer la información necesaria
@@ -390,7 +390,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 *Mediana, cuartiles (valor): permitirá saber cuántos ciudadanos limeños se movilizan al 25%, 50%; 75%, 100%  del tiempo de estudio, de esta manera se conocerá  el efecto de la movilización con el transcurso del tiempo para cada medida.
 
-*Desviación estándar: permitirá saber cuántas son las variaciones promedio  de movilización social respecto a la media  
+*Desviación estándar: permitirá saber cuántas son las variaciones promedio  de movilización social respecto a la media
 
 -Cantidad de infectados por día, Tiempo:
 
@@ -436,7 +436,7 @@ Utilizaremos:
 Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida.
 Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
 
-También utilizaremos un gráfico de caja de bigotes para diferenciar las edades de los entrevistados de manera rápida y efectiva. Esto nos permitirá ver la relación entre las edades y respuestas dadas por las personas. 
+También utilizaremos un gráfico de caja de bigotes para diferenciar las edades de los entrevistados de manera rápida y efectiva. Esto nos permitirá ver la relación entre las edades y respuestas dadas por las personas.
 
 Además, se utilizarán gráficos de barras principalmente para visualizar y analizar las respuestas cualitativas. Con los gráficos de barras se podrán ver cuales han sido las respuestas cualitativas respondidas con más y menos frecuencia.
 
@@ -826,13 +826,6 @@ title("Gráfico 19. Casos en algunos distritos")
 
 ### Distrito exclusivos vs empleo
 ```{r}
-ggplot(aes(y = distrito, x = empleo), data = df_5) +
-    geom_boxplot() +
-    ggtitle("Gráfico 20. distritos vs tipo de empleo")
-```
-
-### Distrito exclusivo vs ingreso 
-```{r}
 df_form2 %>%
     filter(distrito %in% c("Miraflores",
                            "Barranco",
@@ -840,6 +833,13 @@ df_form2 %>%
                            "Santiago de Surco",
                            "San Borja")
            ) -> df_5
+ggplot(aes(y = distrito, x = empleo), data = df_5) +
+    geom_boxplot() +
+    ggtitle("Gráfico 20. distritos vs tipo de empleo")
+```
+
+### Distrito exclusivo vs ingreso 
+```{r}
 ggplot(aes(y = distrito, x = ingreso), data = df_5) +
     geom_boxplot() +
     ggtitle("Gráfico 21. distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
@@ -1009,23 +1009,12 @@ Por lo que se acepta H0 y se elimina H1, una mayor  frecuencia de salida no es i
 
 # Obtención y Procesamiento de Resultados
 
-
-<<<<<<< HEAD
-```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
-repeat_plots("2020-03-18", 10, "Aprobación del Padrón de Hogares")
-repeat_plots("2020-04-03", 10, "Salida alternada por género")
-repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
-```
-=======
 # Discusión de resultados
 
 ## Patrones:
 * Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un incremento de personas infectadas significativo  entre antes y después de haber tomado cada medida.
 * En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 * En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
->>>>>>> a0b234123b5a08949be9177298cdc8107d65322a
-
 
 # Bibliografía
 
