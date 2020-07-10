@@ -582,7 +582,9 @@ Para esta primera pregunta se han procesado los datos web. Se presentarán dos g
 declaración nuevos casos
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+#repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+
+cat_plot(lubridate::ymd("2020-03-15"), 10, "Declaración del estado de Emergencia", plot_new_cases, "Nuevos casos")
 
 #day <- lubridate::ymd(day)
 #cat_plot(day, range, main_title, plot_new_cases, "Nuevos casos")
@@ -606,6 +608,16 @@ misma medida pero la de cambio
 
 PLOT
 
+```{r,echo=FALSE,message=FALSE,results="asis"}
+#repeat_plots("2020-03-15", 10, "Declaración de Estado de Emergencia")
+
+cat_plot(lubridate::ymd("2020-03-15"), 10, "Declaración del estado de Emergencia", plot_rmoves, "Movilización recreacional")
+
+#day <- lubridate::ymd(day)
+#cat_plot(day, range, main_title, plot_new_cases, "Nuevos casos")
+#cat_plot(day, range, main_title, plot_rmoves, "Movilización recreacional")
+```
+
 A partir del gráfico 7, se logra visualizar que previo a la promulgación de la medida “Declaración de Estado de Emergencia”, la gente tenía mucha más movilización y luego de decretada, el cambio de movilización disminuyó en gran medida. El promedio y mediana (líneas continuas) antes de que se aplique esta medida es aproximadamente -3. Por otro lado, el promedio y mediana (líneas punteadas) desde el quince hasta el veinticinco está por debajo de -60.
 
 Para comprobar la significancia de esta diferencia, se realizó un test-t de medias. Se asumieron las siguientes hipótesis:
@@ -621,7 +633,7 @@ Dado que el valor |t| > t-crítico dos colas, se puede encontrar evidencia para 
 Este gráfico nos muestra la cantidad de casos diez días antes y diez días después de que la medida “Aprobación del Padrón de Hogares” fuera aprobada. Esta es una gráfica muy importante, dado que tenía como objetivo ayudar a las poblaciones más vulnerables en condición de extrema pobreza a nivel nacional para que pudieran subsistir durante la cuarentena. Dicho en otras palabras, para que pudieran acceder a los servicios básicos y medicamentos, en caso fuesen requeridos. La cantidad de casos antes de que la medida fuese declarada, 08/03 hasta 18/03,  va desde aproximadamente uno hasta veinte. No obstante, desde 18/03 hasta 28/03 la cantidad de casos va en aumento. Sin duda alguna, el objetivo era bueno, pero para el panorama que se estaba viviendo no fue efectiva. Una posible hipótesis sería la salida obligatoria de los beneficiarios a los bancos a formar largas colas durante horas. Esto explicaría el aumento de casos.
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-03-18", 10, "Aprobación del Padrón de Hogares")
+cat_plot(lubridate::ymd("2020-03-18"), 10, "Aprobación del Padrón de Hogares", plot_new_cases, "Nuevos casos")
 ```
  
 #grafico 8 nuevos casos
@@ -640,6 +652,10 @@ Esta gráfica, al igual que la Gráfica 7, manifiesta un comportamiento similar.
 
 #GRAFICO DE CAMBIOS RECREACIONALES Y ESO
 
+```{r,echo=FALSE,message=FALSE,results="asis"}
+cat_plot(lubridate::ymd("2020-03-18"), 10, "Aprobación del Padrón de Hogares", plot_rmoves, "Movilización recreacional")
+```
+
 Utilizando un test-t para medias en ambas secciones de la gráfica, podemos determinar si existe un efecto de la medida por sobre la trend general.
 Ho : No  existen diferencias significativas entre ambas secciones de la gráfica.
 Ha : Existen diferencias significativas entre ambas secciones de la gráfica.
@@ -648,12 +664,13 @@ IMAGEN
 
 Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < , la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo 
 
-##Salida alternada por género
+## Salida alternada por género
 
 El gráfico 10 exhibe la cantidad de casos antes y después de aplicarse la medida “Salida alternada por género”. En un primer momento esta medida tenía como objetivo disminuir el número de contagios. Por tal razón, el Gobierno decretó determinados días de salida para mujeres y otros para varones, y los domingos nadie salía. No obstante, a partir de la representación se puede observar que el número de casos aumentó de aproximadamente cien a mil cien casos. Después de los reportajes vistos, podríamos tratar de explicar este comportamiento basándonos en lo siguiente: las mamás consideran que los varones (esposos) no saben hacer las compras de mercado. Algunos dirían que esto no tiene fundamento, pero analizando detalladamente los reportajes, pudimos reconocer que en los días de salida de mujeres había mucha más aglomeración y desorden, a diferencia de los días en que les tocaba salir a los varones.
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-04-03", 10, "Salida alternada por género")
+#repeat_plots("2020-04-03", 10, "Salida alternada por género")
+cat_plot(lubridate::ymd("2020-04-03"), 10, "Salida alternada por género", plot_new_cases, "Nuevos casos")
 ```
 
 #GRAFICO 10 NUEVOS CASOS
@@ -669,6 +686,9 @@ Dado que F < F-crítico una cola, no se puede falsear la hipótesis nula. Ademá
 
 #GRAFICO DE CAMBIOS
 
+```{r,echo=FALSE,message=FALSE,results="asis"}
+cat_plot(lubridate::ymd("2020-04-03"), 10, "Salida alternada por género", plot_rmoves, "Movilización recreacional")
+```
 
 Se puede observar un leve cambio en la posición de las medias de ambos datasets. Para comprobar la significancia de esta diferencia, se plantea un test-t. Asumiendo:
 
@@ -688,7 +708,8 @@ Dado que |tStat| < t critico dos colas, no se puede encontrar evidencia que nieg
 En el gráfico número 12 hay una observación muy poco evidente que se puede ver. Pocos días anteriores a la implementación de la medida en consideración, los nuevos casos empezaron a incrementar después de haberse mantenido relativamente constantes por un tiempo. El incremento de estos nuevos casos al parecer fue controlado por unos dias posteriores de ser tomada la medida. Sin embargo, en la gráfica se puede visualizar que aproximadamente una semana después de haberse tomado esta medida los casos empezaron a incrementar nuevamente.
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
-repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
+#repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
+cat_plot(lubridate::ymd("2020-04-20"), 10, "Permiso de adquisición de bienes y servicios basicos", plot_new_cases, "Nuevos casos")
 ```
 
 
@@ -703,6 +724,10 @@ IMAGEN
 Dado F < F-crítico una cola, no se encuentra evidencia en contra de la hipótesis nula. Como P(F<=f)>0.05, no se rechaza Ho, asumiendo por tanto que no existen diferencias significativas en el ratio de aparición de nuevos casos.
 
 #aqui va el grafico de cambios
+```{r,echo=FALSE,message=FALSE,results="asis"}
+#repeat_plots("2020-04-20", 10, "Permiso de adquisición de bienes y servicios basicos")
+cat_plot(lubridate::ymd("2020-04-20"), 10, "Permiso de adquisición de bienes y servicios basicos", plot_rmoves, "Movilización recreacional")
+```
 
 En esta gráfica podemos ver que la medida de permiso de adquisición de bienes y servicios básicos no afectó de manera evidente la movilización social, ya que no se puede ver una reducción o incremento totalmente claro en los días posteriores a la implementación de esta medida. Se puede observar esto mediante un t-test. Asumiendo así:
 
