@@ -1059,8 +1059,8 @@ $$P(|Xn-u|<E)>=1-α$$
 
 |Variables cuantitativas | Rango | Media | Intervalo de confianza |
 |---|----------|------|
-| Edad |[0,75] | 39.8| u +- 1.47|
-| Frecuencia de salida por semana |[0,5]   | 2.5| u +- 0.18|
+| Edad |[0,75] | 39.8| u ± 1.47|
+| Frecuencia de salida por semana |[0,5]   | 2.5| u ± 0.18|
 
 Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
 Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
