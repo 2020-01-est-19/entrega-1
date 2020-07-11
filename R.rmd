@@ -581,9 +581,8 @@ Para esta primera pregunta se han procesado los datos web. Se presentarán dos g
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-15"), 10, "Gráfico 6. Declaración del estado de Emergencia", plot_new_cases, "Nuevos casos")
 ```
-
 Para analizar esta gráfica, se asume que el crecimiento de la enfermedad bajo condiciones normales es exponencial. Por tanto, se puede construir un modelo tal que:
-ln(y) At+B. Tomando a L1como regresión de control sin variable independiente y L2la regresión luego de aplicarse la medida, se realizó un F-test para comprobar si el modelo L1modela a L2 sin diferencias significativas.
+ln(y) ~ At+B. Tomando a L1como regresión de control sin variable independiente y L2 la regresión luego de aplicarse la medida, se realizó un F-test para comprobar si el modelo L1 modela a L2 sin diferencias significativas.
 
 * Ho : No existen diferencias significativas entre ambos modelos.
 * Ha : Existen diferencias significativas entre el modelo anterior a la medida y el actual.
@@ -606,7 +605,6 @@ Dado que la varianza 1 > varianza 2, la elección del orden de las variables es 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-15"), 10, "Gráfico 7. Declaración del estado de Emergencia", plot_rmoves, "Movilización recreacional")
 ```
-
 A partir del gráfico 7, se logra visualizar que previo a la promulgación de la medida “Declaración de Estado de Emergencia”, la gente tenía mucha más movilización y luego de decretada, el cambio de movilización disminuyó en gran medida. El promedio y mediana (líneas continuas) antes de que se aplique esta medida es aproximadamente -3. Por otro lado, el promedio y mediana (líneas punteadas) desde el quince hasta el veinticinco está por debajo de -60.
 
 Para comprobar la significancia de esta diferencia, se realizó un test-t de medias. Se asumieron las siguientes hipótesis:
@@ -640,7 +638,6 @@ Este gráfico nos muestra la cantidad de casos diez días antes y diez días des
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-18"), 10, "Gráfico 8. Aprobación del Padrón de Hogares", plot_new_cases, "Nuevos casos")
 ```
- 
 Se realizó un f-test sobre los inputs a la regresión lineal del logaritmo de la gráfica, siguiendo el modelo planteado arriba. Se colocó como control a todos los datos previos a declararse la medida. Se plantearon las siguientes hipótesis:
 
 * Ho : No existe un efecto significativo de la medida por sobre la tendencia de los nuevos casos con respecto al control.
@@ -664,7 +661,6 @@ Dado que la primera varianza es mayor a la segunda, el orden de operación de lo
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-18"), 10, "Gráfico 9. Aprobación del Padrón de Hogares", plot_rmoves, "Movilización recreacional")
 ```
-
 Esta gráfica, al igual que la Gráfica 7, manifiesta un comportamiento similar. Sin embargo, a partir de la disminución de la curva se podrían generar algunas conjeturas. La primera de ellas es que las personas tenían un respaldo para poder comprar sus alimentos y medicamentos de ser necesario por lo que ya no tenían que salir a las calles de manera concurrida a vender productos, entre otras cosas. Cabe resaltar que con esto no queremos decir que la población no salía y que la medida fue 100% efectiva. Al contrario, la población objetivo salió para hacer el retiro del subsidio por lo que el número de casos aumentó. Sin embargo, esto también contribuyó a que en días posteriores se queden en casa, debido a que contaban con dinero para subsistir por un par de semanas más (varía según el número de integrantes). Estas afirmaciones se respaldan con la media y mediana antes del decreto (líneas continuas), dado que se ubica en la parte superior del gráfico, mientras que la media y mediana (líneas punteadas) por debajo de -60.
 
 Utilizando un test-t para medias en ambas secciones de la gráfica, podemos determinar si existe un efecto de la medida por sobre la trend general.
@@ -698,8 +694,6 @@ El gráfico 10 exhibe la cantidad de casos antes y después de aplicarse la medi
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-04-03"), 10, "Gráfico 10. Salida alternada por género", plot_new_cases, "Nuevos casos")
 ```
-
-
 Para comprobar estadísticamente si es que la medida fue efectiva o no, se realizó el test F sobre la forma logarítmica de la regresión. Debido a que la regresión no se centra en 0, se normalizaron los puntos previamente. 
 
 * Ho : No existe diferencias significativas entre los dos sets de puntos. 
@@ -723,7 +717,6 @@ Dado que F < F-crítico una cola, no se puede falsear la hipótesis nula. Ademá
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-04-03"), 10, "Gráfico 11. Salida alternada por género", plot_rmoves, "Movilización recreacional")
 ```
-
 Se puede observar un leve cambio en la posición de las medias de ambos datasets. Para comprobar la significancia de esta diferencia, se plantea un test-t. Asumiendo:
 
 * Ho: No se puede encontrar diferencias significativas entre las dos fases.
@@ -760,7 +753,6 @@ En el gráfico número 12 hay una observación muy poco evidente que se puede ve
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-04-20"), 10, "Gráfico 12. Permiso de adquisición de bienes y servicios basicos", plot_new_cases, "Nuevos casos")
 ```
-
 Para comprobar la significancia de esta diferencia, se plantea un test-f. Asumiendo a los puntos ubicados antes de la aplicación de la medida como control:
 
 * Ho: No se puede encontrar diferencias significativas entre la fase de control y tras aplicar la medida.
@@ -787,7 +779,6 @@ Dado F < F-crítico una cola, no se encuentra evidencia en contra de la hipótes
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-04-20"), 10, "Gráfico 13. Permiso de adquisición de bienes y servicios basicos", plot_rmoves, "Movilización recreacional")
 ```
-
 En esta gráfica podemos ver que la medida de permiso de adquisición de bienes y servicios básicos no afectó de manera evidente la movilización social, ya que no se puede ver una reducción o incremento totalmente claro en los días posteriores a la implementación de esta medida. Se puede observar esto mediante un t-test. Asumiendo así:
 
 * Ho = No existe diferencia antes y después de aplicarse la medida
@@ -1056,13 +1047,13 @@ H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensua
 ## Parámetros de estudio 
 A partir de los datos obtenidos de las encuesta, se establecen parámetros de interés que permiten cuantificar la confiabilidad del estudio realizado:
 
-|Población | Tamaño de la muestra  (personas entrevistadas) | Nivel de Confianza | Tolerancia |
+|Población | Tamaño de la muestra  (personas entrevistadas) | Significancia (α) | Nivel de confianza (1-α) |
 |---|----------|------|
 | 8000000 |360| 95%| 5%|
 
 El tamaño de la muestra adecuado para el nivel de confianza esperado se obtiene a partir de:
 
-$$P(|Xn-u|<E)>=1-$$
+$$P(|Xn-u|<E)>=1-α$$
 
 # Valores de interés 
 
