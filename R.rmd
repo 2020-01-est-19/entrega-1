@@ -1065,6 +1065,16 @@ $$P(|Xn-u|<E)>=1-α$$
 Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
 Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
 
+
+# Pruebas de Hipótesis:
+
+* H0: Las personas con menores frecuencias de salida  necesariamente no supone que tengan más ingresos mensuales
+
+H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
+
+
+Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más alto que el promedio mensual en Lima. 
+
 ```{r}
 summary(df_form2$edad)
 
@@ -1119,17 +1129,6 @@ round(parametro_estadistico2*esn2,2)
 
 ```
 
-
-# Pruebas de Hipótesis:
-
-* H0: Las personas con menores frecuencias de salida  necesariamente no supone que tengan más ingresos mensuales
-
-H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
-
-
-Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más alto que el promedio mensual en Lima. 
-
-IMG
 
 De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada. Por lo que se acepta H0 y se elimina H1, una mayor frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
 
