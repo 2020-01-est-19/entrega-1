@@ -582,7 +582,7 @@ Para esta primera pregunta se han procesado los datos web. Se presentarán dos g
 cat_plot(lubridate::ymd("2020-03-15"), 10, "Gráfico 6. Declaración del estado de Emergencia", plot_new_cases, "Nuevos casos")
 ```
 Para analizar esta gráfica, se asume que el crecimiento de la enfermedad bajo condiciones normales es exponencial. Por tanto, se puede construir un modelo tal que:
-ln(y) ~ At+B. Tomando a L1como regresión de control sin variable independiente y L2 la regresión luego de aplicarse la medida, se realizó un F-test para comprobar si el modelo L1 modela a L2 sin diferencias significativas.
+ln(y) ~ At+B. Tomando a L1 como regresión de control sin variable independiente y L2 la regresión luego de aplicarse la medida, se realizó un F-test para comprobar si el modelo L1 modela a L2 sin diferencias significativas.
 
 * Ho : No existen diferencias significativas entre ambos modelos.
 * Ha : Existen diferencias significativas entre el modelo anterior a la medida y el actual.
@@ -1049,7 +1049,7 @@ A partir de los datos obtenidos de las encuesta, se establecen parámetros de in
 
 |Población | Tamaño de la muestra  (personas entrevistadas) | Significancia (α) | Nivel de confianza (1-α) |
 |---|----------|------|
-| 8000000 |360| 95%| 5%|
+| 8000000 |360| 5%| 95%|
 
 El tamaño de la muestra adecuado para el nivel de confianza esperado se obtiene a partir de:
 
