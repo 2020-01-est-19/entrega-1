@@ -1065,6 +1065,61 @@ $$P(|Xn-u|<E)>=1-α$$
 Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
 Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
 
+```{r}
+summary(df_form2$edad)
+
+summary(df_form2$salidas_)
+```
+
+```{r}
+#Prueba de hipotesis encuesta
+
+df_form2 %>%
+    group_by(ingreso) %>%
+    summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
+    summarise(mean = mean(mean)) %>%
+    as.numeric() -> promedio_total
+
+t.test(df_form2$salidas_,mu=promedio_total,alternative = "greater",conf.level=0.95)
+
+```
+
+
+```{r}
+# Intervalos de confianza para la media de la variable Frecuencia_salida_por_Semana
+n=360
+yn=mean(df_form2$salidas_)
+esn=sd(df_form2$salidas_)/sqrt(n)
+alfa=0.05
+parametro_estadistico=qnorm(alfa/2,lower.tail = FALSE)
+lim_inferior=yn-parametro_estadistico*esn
+lim_superior=yn+parametro_estadistico*esn
+round(lim_superior,2)
+round(lim_inferior,2)
+
+round(parametro_estadistico*esn,2)
+
+
+```
+
+```{r}
+# Intervalos de confianza para la media de la variable edad
+n=360
+alfa=0.05
+yn2=mean(df_form2$edad)
+esn2=sd(df_form2$edad)/sqrt(n)
+parametro_estadistico2=qnorm(alfa/2,lower.tail = FALSE)
+lim_inferior=yn2-parametro_estadistico2*esn2
+lim_superior=yn2+parametro_estadistico2*esn2
+round(lim_superior,2)
+round(lim_inferior,2)
+round(parametro_estadistico2*esn2,2)
+
+
+
+```
+
+
 # Pruebas de Hipótesis:
 
 * H0: Las personas con menores frecuencias de salida  necesariamente no supone que tengan más ingresos mensuales
