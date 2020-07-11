@@ -1130,7 +1130,7 @@ round(parametro_estadistico2*esn2,2)
 ```
 
 
-De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada. Por lo que se acepta H0 y se elimina H1, una mayor frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
+De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada. Por lo que no se rechaza H0 , una mayor  frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
 
 # Bibliografía
 
