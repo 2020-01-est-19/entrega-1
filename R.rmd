@@ -489,6 +489,7 @@ read_csv(tmp) %>%
         empleo = factor(empleo, levels = c("No trabajo", "Informal", "Formal")),
         # Esteban Nicolas Villacorta Garcia cambió las respuestas de la encuesta
         # de "Mayor 5" a 6.
+        salidas_ = salidas,
         salidas = replace(salidas, salidas=="6", "Mayor 5"),
         salidas = factor(salidas, levels = c(0:5, "Mayor 5")),
         razones = strsplit(razones, ", "),
