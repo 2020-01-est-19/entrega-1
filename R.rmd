@@ -1084,6 +1084,7 @@ summary(df_form2$salidas_)
 ```{r}
 #Prueba de hipotesis encuesta
 
+
 df_form2 %>%
     group_by(ingreso) %>%
     summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
@@ -1131,6 +1132,23 @@ round(parametro_estadistico2*esn2,2)
 
 
 De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada. Por lo que no se rechaza H0 , una mayor  frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
+
+# Nuevos casos -> cambio movilización
+
+```{r}
+df_infec %>% rename(date = FECHA_RESULTADO) -> df_infec_tmp
+df_mov %>%
+    group_by(date) %>%
+    summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) ->
+    df_mov_tmp
+
+df_case_mov <- merge(df_infec_tmp, df_mov_tmp)
+
+plot(mov~N, data = df_case_mov, xlab="Nuevos casos", ylab="Movilización recreacional")
+cases_mov_lm <- lm(mov~N, data = df_case_mov)
+
+abline(cases_mov_lm)
+```
 
 # Bibliografía
 
