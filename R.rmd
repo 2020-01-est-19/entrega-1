@@ -1149,6 +1149,12 @@ cases_mov_lm <- lm(mov~N, data = df_case_mov)
 
 abline(cases_mov_lm)
 ```
+```{r}
+
+probando=0
+probando+1
+```
+
 
 # Bibliografía
 
