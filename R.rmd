@@ -1360,8 +1360,6 @@ El coeficiente es negativo y bajo, por lo que solo existe, con una muy baja sign
 # Bibliografía
 
 
-
-
 - Google LLC. (2020). Google COVID-19 Community Mobility Reports Peru.. Recuperado el 7 de mayo de 2020, de Google LLC Sitio Web: https://www.gstatic.com/covid19/mobility/2020-04-11_PE_Mobility_Report_en.pdf
 - Anónimo (2020). Acciones adoptadas por el gobierno ante COVID-19. Recuperado el 7 de mayo de 2020, de Velose Sitio Web: https://www.velose.pe/noticias/acciones-adoptadas-por-el-gobierno-ante-covid-19/
 - Gobierno del Perú (2020). Normativa sobre Estado de Emergencia por Coronavirus. Recuperado el 7 de mayo de 2020 de Plataforma digital del Estado Peruano Sitio Web: https://www.gob.pe/institucion/pcm/colecciones/787-normativa-sobre-estado-de-emergencia-por-coronavirus
