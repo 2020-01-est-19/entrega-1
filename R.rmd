@@ -1340,6 +1340,13 @@ df_medida_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = a
 
 df_medida_genero
 ```
+## Pruebas de Hipótesis:
+
+* H0: Personas del género masculino no suponen mayor frecuencia de salida a la semana.
+
+H1: Personas del género masculino suponen mayor frecuencia de salida a la semana.
+
+
 Determinación del coeficiente biserial:
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
 
@@ -1363,6 +1370,15 @@ rbp
 ```
 El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas con género masculino.
 
+# Edad -> Frecuencia de salida
+
+## Pruebas de Hipótesis:
+
+* H0: Existe una correlación entre la edad y la frecuencia de salida.
+
+H1: No existe una correlación entre la edad y la frecuencia de salida.
+
+
 ```{r}
 # edad -> frecuencia de salida
 datos.f <-as.character(df_form2$salidas)
@@ -1379,6 +1395,13 @@ cor(x = df_form2$edad , y =(datos.n), method = "pearson")
 El coeficiente en esta situación es muy bajo, por lo que no se puede detectar una relación entre las variables de edad y frecuencia de salida.
 
 # Ingresos -> frecuencia de salida
+
+## Pruebas de Hipótesis:
+
+* H0: Mayores ingresos no suponen mayor frecuencia de salida a la semana.
+
+H1: Mayores ingresos suponen mayor frecuencia de salida a la semana.
+
 
 ```{r}
 1000 * (as.numeric(df_form2$ingreso) - 1) -> x
