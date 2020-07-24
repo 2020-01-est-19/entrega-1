@@ -1179,6 +1179,12 @@ plot(df_trabajo$salidas~df_trabajo$empleo, ylab="Frecuencia de salida promedio",
 
 Se observa una relación entre el tipo de trabajo formal y la frecuencia de salida promedio, parece ser que una mayor frecuencia de salida esta asociada a un empleo de tipo formal. Para corroborar ello, se analiza el coeficiente de correlación biserial puntual.
 
+## Pruebas de Hipótesis:
+
+* H0: Las personas con un tipo de trabajo formal no supone que tengan una mayor frecuencia de salida promedio.
+
+H1: Las personas con un tipo de trabajo formal supone que tengan una mayor frecuencia de salida promedio.
+
 
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
 
@@ -1211,6 +1217,13 @@ df_inmovilizacion<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%
 df_inmovilizacion
 
 ```
+
+## Pruebas de Hipótesis:
+
+* H0: Las personas con un tipo de trabajo no supone que tengan una disminución en la frecuencia de salida.
+
+H1: Las personas con un tipo de trabajo no supone que tengan una disminución en la frecuencia de salida.
+
 Determinación del coeficiente de correlación biserial puntual
 
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
@@ -1246,6 +1259,12 @@ El coeficiente para la medida de Inmovilización social indica una correlación 
 df_retiro<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,afp1.05,Variable_dicotomizada)
 df_retiro
 ```
+## Pruebas de Hipótesis:
+
+* H0: El retiro de los 2000 soles de las personas afiliadas al fondo AFP no supone que tengan una disminución en la frecuencia de salida.
+
+H1: El retiro de los 2000 soles de las personas afiliadas al fondo AFP supone que tengan una disminución en la frecuencia de salida.
+
 Determinación del coeficiente de correlación biserial puntual
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
 
@@ -1270,7 +1289,7 @@ El coeficiente de correlación para la medida del retiro AFP es negativo y bajo.
 
 
 # Género -> Frecuencia de salida a la semana 
-## Variable independiente:Genero
+## Variable independiente: Género
 ## Variable dependiente: Frecuencia de salida a la semana
 
 ```{r}
@@ -1279,6 +1298,13 @@ df_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numer
 
 df_genero
 ```
+## Pruebas de Hipótesis:
+
+* H0: Personas del género femenino no suponen mayor frecuencia de salida a la semana.
+
+H1: Personas del género femenino suponen mayor frecuencia de salida a la semana.
+
+
 Determinación del coeficiente de correlación biserial puntual
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
 
