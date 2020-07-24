@@ -503,6 +503,7 @@ read_csv(tmp) %>%
         acceleration = strsplit(acceleration, ", "),
         decceleration = strsplit(decceleration, ", ")
     ) -> df_form2
+df_form2
 ```
 
 ### Edad de la muestra
@@ -521,7 +522,7 @@ $$desv/sqrt(n) = 12.619 /sqrt(310) =0.7167$$
 $$Zt(α/2) = ± 1.96$$
 
 $$U.Bound => 34.57 + 1.96 * 12.61/sqrt(n) = 35.97$$
-$$L.Bound  => 34.57 - 1.96 * 12.619/sqrt(n) = 33.17$$
+$$L.Bound   => 34.57 - 1.96 * 12.619/sqrt(n) = 33.17$$
 
 Se sabe por tanto que la media real se puede encontrar en [33.17, 35.99] con 95% de certeza.
 
@@ -1149,14 +1150,184 @@ cases_mov_lm <- lm(mov~N, data = df_case_mov)
 
 abline(cases_mov_lm)
 ```
-```{r}
 
-probando=0
-probando+1
+
+
+
+# Tipo de trabajo -> Frecuencia de salida a la semana 
+#Variable independiente:Tipo de trabajo
+#Variable dependiente: Frecuencia de salida a la semana
+Para establecer si existe una relación entre ambas variables, se requiere de un indicador estadístico numérico.Dado que la variable tipo de trabajo es categórica nominal se dicotomiza en 0,1 y a partir de ello mediante un coefieciente de correlación biserial puntual se obtiene el grado de correlación de ambas variables.
+
+```{r}
+df_trabajo<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,salidas,Variable_dicotomizada)%>%filter(salidas!="Mayor 5")
+df_trabajo
+```
+  
+```{r}
+plot(df_trabajo$salidas~df_trabajo$empleo, ylab="Frecuencia de salida promedio", xlab=" Variable dicotomizada Tipo de trabajo" )
 ```
 
 
+Se observa una relación entre el tipo de trabajo formal y la frecuencia de salida promedio,parece ser que una mayor frecuencia de salida esta asociada a un empleo de tipo formal. Para corroborar ello, se analiza el coeficiente de correlación biserial puntual.
+
+
+$$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
+
+```{r}
+df_trabajo_informal<-df_trabajo%>%filter(Variable_dicotomizada==0) # trabajadores informales
+df_trabajo_formal<-df_trabajo%>%filter(Variable_dicotomizada==1) # trabajadores formales
+X1barra<-mean(as.numeric(as.character(df_trabajo_formal$salidas))) #X1barra=promedio de la frecuencia de salida promedio de los trabajadores formales
+Xbarra<-mean(as.numeric(as.character(df_trabajo$salidas)))# Xbarra=promedio de la frecuencia de salida promedio del total de personas encuestadas
+SX<-sd(as.numeric(as.character(df_trabajo$salidas))) # SX=desv.estándar de la frecuencia de salida promeido del total de personas encuestadas
+p=length(df_trabajo_formal$Variable_dicotomizada)/length(df_trabajo$Variable_dicotomizada)  #p= proporción de trabajadores formales en la muestra
+  
+q=length(df_trabajo_informal$Variable_dicotomizada)/length(df_trabajo$Variable_dicotomizada) #q=proporción de trabajadores informales en la muestra
+
+
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  # rbp=coeficiente de correlación biserial puntual
+rbp
+
+```
+El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayores  frecuencia de salida promedio y un trabajo de tipo de informal. 
+
+# Medida de Inmovilización social
+#Tipo de trabajo->Disminución de frecuencia de salida
+#Variable independiente:Tipo de trabajo
+#Variable dependiente:Disminución de frecuencia de salida para los trabajadores de tipo formal
+
+```{r}
+df_inmovilizacion<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,social.05,Variable_dicotomizada)
+df_inmovilizacion
+
+```
+Determinación del coeficiente de correlación biserial puntual
+
+$$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
+
+
+```{r}
+df_movilidad1<-df_inmovilizacion%>%filter(Variable_dicotomizada==0)
+df_movilidad2<-df_inmovilizacion%>%filter(Variable_dicotomizada==1)
+X1barra<-mean(as.numeric(as.character(df_movilidad2$social.05)))
+Xbarra<-mean(as.numeric(as.character(df_inmovilizacion$social.05)))
+SX<-sd(as.numeric(as.character(df_inmovilizacion$social.05)))
+
+p=length(df_movilidad2$Variable_dicotomizada)/length(df_inmovilizacion$Variable_dicotomizada)
+  
+ 
+q=length(df_movilidad1$Variable_dicotomizada)/length(df_inmovilizacion$Variable_dicotomizada)
+
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp
+
+```
+El coeficiente para la medida de Inmovilización social indica una correlación muy baja entre las variables. Esto significa que mayores disminuciones en la frecuencia de salida  se correlacionan muy bajo con las personas de trabajo formal. 
+
+#Medida: Retiro 2000 soles de fondos AFP de trabajadores afiliados 
+#Tipo de trabajo->Disminución de frecuencia de salida
+#Variable independiente:Tipo de trabajo
+#Variable dependiente: Disminución de frecuencia de salida
+
+
+```{r}
+df_retiro<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,afp1.05,Variable_dicotomizada)
+df_retiro
+```
+Determinación del coeficiente de correlación biserial puntual
+$$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
+
+```{r}
+
+df_retiro1<-df_retiro%>%filter(Variable_dicotomizada==0)
+df_retiro2<-df_retiro%>%filter(Variable_dicotomizada==1)
+X1barra<-mean(as.numeric(as.character(df_retiro2$afp1.05)))
+Xbarra<-mean(as.numeric(as.character(df_retiro$afp1.05)))
+SX<-sd(as.numeric(as.character(df_retiro$afp1.05)))
+
+p=length(df_retiro2$Variable_dicotomizada)/length(df_retiro$Variable_dicotomizada)
+  
+ 
+q=length(df_retiro1$Variable_dicotomizada)/length(df_retiro$Variable_dicotomizada)
+
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp
+
+```
+El coeficiente de correlación para la medida del retiro AFP es negativo y bajo. El signo negativo significa que el comportamiento positivo corresponde a los trabajadores informales. Por lo  que mayores  disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
+
+
+# Genero -> Frecuencia de salida a la semana 
+#Variable independiente:Genero
+#Variable dependiente: Frecuencia de salida a la semana
+
+```{r}
+df_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numeric(genero == "Masculino"))%>%select(genero,salidas,Variable_dicotomizada)%>%filter(salidas !="Mayor 5")
+
+
+df_genero
+```
+Determinación del coeficiente de correlación biserial puntual
+$$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
+
+
+```{r}
+df_femenino<-df_genero%>%filter(Variable_dicotomizada==0)
+df_masculino<-df_genero%>%filter(Variable_dicotomizada==1)
+X1barra<-mean(as.numeric(as.character(df_masculino$salidas)))
+Xbarra<-mean(as.numeric(as.character(df_genero$salidas)))
+SX<-sd(as.numeric(as.character(df_genero$salidas)))
+p=length(df_masculino$Variable_dicotomizada)/length(df_genero$Variable_dicotomizada)
+  
+ 
+q=length(df_femenino$Variable_dicotomizada)/length(df_genero$Variable_dicotomizada)
+
+p=informal/
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp
+
+```
+El coeficiente es nagativo para las personas de genero Masculino, esto significa que la correlación es positiva para las personas de genero Femenino. Dado que el coeficiente es pequeño, mayores frecuencias de salida se correlacionan bajo  con las personas de genero Femenino.
+
+
+#Medida: Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
+# Genero -> Disminución de Frecuencia de salida a la semana 
+#Variable independiente:Genero
+#Variable dependiente: Disminución de Frecuencia de salida a la semana
+
+```{r}
+df_medida_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numeric(genero == "Masculino"))%>%select(genero,noday.05,Variable_dicotomizada)
+
+
+df_medida_genero
+```
+Determinación del coeficiente biserial:
+$$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
+
+
+
+```{r}
+df_med_femenino<-df_medida_genero%>%filter(Variable_dicotomizada==0)
+df_med_masculino<-df_medida_genero%>%filter(Variable_dicotomizada==1)
+X1barra<-mean(as.numeric(as.character(df_med_masculino$noday.05)))
+Xbarra<-mean(as.numeric(as.character(df_medida_genero$noday.05)))
+SX<-sd(as.numeric(as.character(df_medida_genero$noday.05)))
+p=length(df_med_masculino$Variable_dicotomizada)/length(df_medida_genero$Variable_dicotomizada)
+  
+ 
+q=length(df_med_femenino$Variable_dicotomizada)/length(df_medida_genero$Variable_dicotomizada)
+
+
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  #p=informal/muestra , q=formal/muestra
+rbp
+
+```
+El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas con genero masculino.
+
 # Bibliografía
+
+
+
 
 - Google LLC. (2020). Google COVID-19 Community Mobility Reports Peru.. Recuperado el 7 de mayo de 2020, de Google LLC Sitio Web: https://www.gstatic.com/covid19/mobility/2020-04-11_PE_Mobility_Report_en.pdf
 - Anónimo (2020). Acciones adoptadas por el gobierno ante COVID-19. Recuperado el 7 de mayo de 2020, de Velose Sitio Web: https://www.velose.pe/noticias/acciones-adoptadas-por-el-gobierno-ante-covid-19/
