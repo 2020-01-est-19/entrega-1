@@ -1140,18 +1140,24 @@ De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especifica
 df_infec %>% rename(date = FECHA_RESULTADO) -> df_infec_tmp
 df_mov %>%
     group_by(date) %>%
-    summarise(mov = mean(retail_and_recreation_percent_change_from_baseline, na.rm = TRUE)) ->
+    summarise(mov = mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm=TRUE)) ->
     df_mov_tmp
 
 df_case_mov <- merge(df_infec_tmp, df_mov_tmp)
 
-plot(mov~N, data = df_case_mov, xlab="Nuevos casos", ylab="Movilización recreacional")
+plot(mov~N, data = df_case_mov, xlab="Nuevos casos", ylab="Movilización por víveres")
 cases_mov_lm <- lm(mov~N, data = df_case_mov)
+
+residuos <- rstandard(cases_mov_lm)
+va <- fitted(cases_mov_lm)
 
 abline(cases_mov_lm)
 ```
 
-
+Al parecer los puntos de arriba a la izquierda representan los días anteriores
+a la cuarentena.
+La mancha de la izquierda a los días normales al inicio de la cuarentena.
+Y los puntos de abajo a la izquierda a los días domingos sin movilización.
 
 
 # Tipo de trabajo -> Frecuencia de salida a la semana 
