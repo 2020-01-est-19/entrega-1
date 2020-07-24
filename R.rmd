@@ -1282,7 +1282,6 @@ p=length(df_masculino$Variable_dicotomizada)/length(df_genero$Variable_dicotomiz
  
 q=length(df_femenino$Variable_dicotomizada)/length(df_genero$Variable_dicotomizada)
 
-p=informal/
 rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
 rbp
 
