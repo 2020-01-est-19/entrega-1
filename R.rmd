@@ -1178,8 +1178,14 @@ df_trabajo
   
 
 
-
 Para saber si una mayor frecuencia de salida esta asociada a un empleo de tipo formal. Se determina el coeficiente de correlación biserial puntual.
+=======
+## Pruebas de Hipótesis:
+
+* H0: No existe correlación entre la frecuencia de salida y el tipo de trabajo.
+
+H1: Existe correlación entre la frecuencia de salida y el tipo de trabajo.
+
 
 
 $$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
@@ -1213,6 +1219,13 @@ df_inmovilizacion<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%
 df_inmovilizacion
 
 ```
+
+## Pruebas de Hipótesis:
+
+* H0: No existe correlación entre la disminución de frecuencia de salida y el tipo de trabajo.
+
+* H1: Existe correlación entre la disminución de frecuencia de salida y el tipo de trabajo.
+
 Determinación del coeficiente de correlación biserial puntual
 
 $$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
@@ -1248,6 +1261,12 @@ El coeficiente para la medida de Inmovilización social indica una correlación 
 df_retiro<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,afp1.05,Variable_dicotomizada)
 df_retiro
 ```
+## Pruebas de Hipótesis:
+
+* H0: No existe correlación  entre la disminución en la frecuencia de salida y el tipo de trabajo.
+
+* H1: Existe correlación  entre la disminución en la frecuencia de salida y el tipo de trabajo.
+
 Determinación del coeficiente de correlación biserial puntual
 $$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
 
@@ -1272,8 +1291,8 @@ El coeficiente de correlación para la medida del retiro AFP es negativo y bajo.
 
 
 # Género -> Frecuencia de salida a la semana 
-#Variable independiente:Genero
-#Variable dependiente: Frecuencia de salida a la semana
+## Variable independiente: Género
+## Variable dependiente: Frecuencia de salida a la semana
 
 ```{r}
 df_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numeric(genero == "Masculino"))%>%select(genero,salidas,Variable_dicotomizada)%>%filter(salidas !="Mayor 5")
@@ -1281,6 +1300,13 @@ df_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numer
 
 df_genero
 ```
+## Pruebas de Hipótesis:
+
+* H0: No existe una correlación entre frecuencia de salida a la semana y personas del género femenino.
+
+* H1: Existe una correlación entre frecuencia de salida a la semana y personas del género femenino.
+
+
 Determinación del coeficiente de correlación biserial puntual
 $$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
 
@@ -1316,6 +1342,13 @@ df_medida_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = a
 
 df_medida_genero
 ```
+## Pruebas de Hipótesis:
+
+* H0: No existe una correlación entre la disminución de frecuencia de salida a la semana y personas del género femenino.
+
+* H1: Existe una correlación entre la disminución de frecuencia de salida a la semana y personas del género femenino.
+
+
 Determinación del coeficiente biserial:
 $$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
 
@@ -1342,10 +1375,19 @@ El coeficiente es muy bajo por lo que existe una correlación muy baja entre may
 
 El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas con género masculino.
 
+<<<<<<< HEAD
 
 #Edad -> Frecuencia de Salida
+=======
+# Edad -> Frecuencia de salida
+
+## Pruebas de Hipótesis:
+
+* H0: No existe una correlación lineal entre la edad y la frecuencia de salida.
+
+* H1: Existe una correlación lineal entre la edad y la frecuencia de salida.
+
 ```{r}
-# edad -> frecuencia de salida
 datos.f <-as.character(df_form2$salidas)
 datos.n<-replace(datos.f,datos.f=="Mayor 5","6")
 datos.n<-as.integer(datos.n)
@@ -1367,6 +1409,13 @@ summary(edad_frec_lm)
 
 # Ingresos -> frecuencia de salida
 
+## Pruebas de Hipótesis:
+
+* H0: No existe correlación lineal entre  ingresos mensuales y  la frecuencia de salida a la semana.
+
+* H1: Existe correlación lineal entre ingresos mensuales y la  frecuencia de salida a la semana.
+
+
 ```{r}
 
 #df_form2
@@ -1380,7 +1429,7 @@ abline(ingresos_frec)
 cor(x, y, method="pearson")
 
 ```
-La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlacion de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlacion negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
+La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlación de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlaciÓn negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
 
 ```{r}
 summary(ingresos_frec)
