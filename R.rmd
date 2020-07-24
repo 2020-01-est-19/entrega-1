@@ -1222,7 +1222,7 @@ df_inmovilizacion
 
 * H0: Las personas con un tipo de trabajo no supone que tengan una disminución en la frecuencia de salida.
 
-H1: Las personas con un tipo de trabajo no supone que tengan una disminución en la frecuencia de salida.
+* H1: Las personas con un tipo de trabajo no supone que tengan una disminución en la frecuencia de salida.
 
 Determinación del coeficiente de correlación biserial puntual
 
@@ -1263,7 +1263,7 @@ df_retiro
 
 * H0: El retiro de los 2000 soles de las personas afiliadas al fondo AFP no supone que tengan una disminución en la frecuencia de salida.
 
-H1: El retiro de los 2000 soles de las personas afiliadas al fondo AFP supone que tengan una disminución en la frecuencia de salida.
+* H1: El retiro de los 2000 soles de las personas afiliadas al fondo AFP supone que tengan una disminución en la frecuencia de salida.
 
 Determinación del coeficiente de correlación biserial puntual
 $$rbp=(X1barra-Xbarra/SX)*sqrt(p/q) $$ 
@@ -1302,7 +1302,7 @@ df_genero
 
 * H0: Personas del género femenino no suponen mayor frecuencia de salida a la semana.
 
-H1: Personas del género femenino suponen mayor frecuencia de salida a la semana.
+* H1: Personas del género femenino suponen mayor frecuencia de salida a la semana.
 
 
 Determinación del coeficiente de correlación biserial puntual
@@ -1344,7 +1344,7 @@ df_medida_genero
 
 * H0: Personas del género masculino no suponen mayor frecuencia de salida a la semana.
 
-H1: Personas del género masculino suponen mayor frecuencia de salida a la semana.
+* H1: Personas del género masculino suponen mayor frecuencia de salida a la semana.
 
 
 Determinación del coeficiente biserial:
@@ -1376,7 +1376,7 @@ El coeficiente es muy bajo por lo que existe una correlación muy baja entre may
 
 * H0: Existe una correlación entre la edad y la frecuencia de salida.
 
-H1: No existe una correlación entre la edad y la frecuencia de salida.
+* H1: No existe una correlación entre la edad y la frecuencia de salida.
 
 
 ```{r}
@@ -1400,7 +1400,7 @@ El coeficiente en esta situación es muy bajo, por lo que no se puede detectar u
 
 * H0: Mayores ingresos no suponen mayor frecuencia de salida a la semana.
 
-H1: Mayores ingresos suponen mayor frecuencia de salida a la semana.
+* H1: Mayores ingresos suponen mayor frecuencia de salida a la semana.
 
 
 ```{r}
