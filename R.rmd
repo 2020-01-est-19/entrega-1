@@ -1270,8 +1270,8 @@ El coeficiente de correlación para la medida del retiro AFP es negativo y bajo.
 
 
 # Género -> Frecuencia de salida a la semana 
-#Variable independiente:Genero
-#Variable dependiente: Frecuencia de salida a la semana
+## Variable independiente:Genero
+## Variable dependiente: Frecuencia de salida a la semana
 
 ```{r}
 df_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = as.numeric(genero == "Masculino"))%>%select(genero,salidas,Variable_dicotomizada)%>%filter(salidas !="Mayor 5")
@@ -1366,7 +1366,7 @@ abline(lm_ing_freq)
 
 cor(x, y, method="pearson")
 ```
-La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlacion de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlacion negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
+La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlación de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlaciÓn negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
 
 # Bibliografía
 
