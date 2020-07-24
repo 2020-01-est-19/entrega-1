@@ -1355,15 +1355,18 @@ El coeficiente en esta situación es muy bajo, por lo que no se puede detectar u
 # Ingresos -> frecuencia de salida
 
 ```{r}
-#df_form2
-
 1000 * (as.numeric(df_form2$ingreso) - 1) -> x
 as.numeric(df_form2$salidas) - 1 -> y
 
-cor(x, y, method="pearson")
+df_ing_freq <- data.frame(x, y)
+plot(y~x, df_ing_freq)
 
+lm_ing_freq <- lm(y~x, df_ing_freq)
+abline(lm_ing_freq)
+
+cor(x, y, method="pearson")
 ```
-El coeficiente es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlacion negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede asegurar la tendencia.
+La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlacion de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlacion negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
 
 # Bibliografía
 
