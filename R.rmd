@@ -1323,6 +1323,20 @@ rbp
 ```
 El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas con genero masculino.
 
+```{r}
+# edad -> frecuencia de salida
+datos.f <-as.character(df_form2$salidas)
+datos.n<-replace(datos.f,datos.f=="Mayor 5","6")
+datos.n<-as.integer(datos.n)
+edad_frec <- data.frame(df_form2$edad,datos.n)
+edad_frec
+plot(datos.n~df_form2.edad,data = edad_frec, xlab="edad", ylab="frecuencia")
+edad_frec_lm <- lm(datos.n~df_form2.edad, data =edad_frec )
+abline(edad_frec_lm)
+
+cor(x = df_form2$edad , y =(datos.n), method = "pearson")
+```
+El coeficiente en esta situación es muy bajo, por lo que no se puede detectar una relación ente las variables de edad y frecuencia de salida.
 # Bibliografía
 
 
