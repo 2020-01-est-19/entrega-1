@@ -1175,11 +1175,11 @@ Para establecer si existe una relación entre ambas variables, se requiere de un
 df_trabajo<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,salidas,Variable_dicotomizada)%>%filter(salidas!="Mayor 5")
 df_trabajo
 ```
-  
+
 
 
 Para saber si una mayor frecuencia de salida esta asociada a un empleo de tipo formal. Se determina el coeficiente de correlación biserial puntual.
-=======
+
 ## Pruebas de Hipótesis:
 
 * H0: No existe correlación entre la frecuencia de salida y el tipo de trabajo.
@@ -1373,12 +1373,6 @@ rbp
 
 El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas de genero masculino.
 
-El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas con género masculino.
-
-<<<<<<< HEAD
-
-#Edad -> Frecuencia de Salida
-=======
 # Edad -> Frecuencia de salida
 
 ## Pruebas de Hipótesis:
