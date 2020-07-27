@@ -577,9 +577,12 @@ title("Gráfico 5. Tipo de trabajo")
 
 Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
 
-### Frecuencia de salida VS Ingresos
+### Frecuencia de salidas VS ingresos
 ```{r}
-plot(ingreso~salidas_, data=df_form2)
+ggplot(aes(x = salidas_, y = ingreso), data = df_form2) +
+    geom_boxplot() +
+    ggtitle("Salidas vs ingresos") +
+    theme(plot.title = element_text(hjust = 0.5))
 ```
 
 # Declaración del Estado de Emergencia
