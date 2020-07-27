@@ -1154,10 +1154,6 @@ va <- fitted(cases_mov_lm)
 abline(cases_mov_lm)
 ```
 
-Al parecer los puntos de arriba a la izquierda representan los días anteriores
-a la cuarentena.
-La mancha de la izquierda a los días normales al inicio de la cuarentena.
-Finalmente, los puntos de abajo a la izquierda a los días domingos sin movilización.
 ```{r}
 summary(cases_mov_lm )
 plot(cases_mov_lm )
