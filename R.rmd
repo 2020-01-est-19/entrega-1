@@ -435,7 +435,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 Gráfica de dispersión para notar fácilmente como aumenta o decrece la cantidad de infectados e infectados por dia antes y después de que se aplique la medida. Además, la gráfica de dispersión nos puede ayudar a encontrar una relación y/o patrón entre la cantidad de infectados y/o movilización social y los días transcurridos desde que se empleó cada medida.
 
-También utilizaremos un gráfico de caja de bigotes para diferenciar las edades de los entrevistados de manera rápida y efectiva. Esto nos permitirá ver la relación entre las edades y respuestas dadas por las personas. 
+También utilizaremos un gráfico de caja de bigotes para diferenciar las edades de los entrevistados de manera rápida y efectiva. Esto nos permitirá ver la relación entre las edades y respuestas dadas por las personas.
 
 Además, se utilizarán gráficos de barras principalmente para visualizar y analizar las respuestas cualitativas. Con los gráficos de barras se podrán ver cuales han sido las respuestas cualitativas respondidas con más y menos frecuencia.
 
@@ -577,6 +577,11 @@ title("Gráfico 5. Tipo de trabajo")
 
 Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
 
+### Frecuencia de salida VS Ingresos
+```{r}
+plot(ingreso~salidas_, data=df_form2)
+```
+
 # Declaración del Estado de Emergencia
 
 ```{r,echo=FALSE,message=FALSE,results="asis"}
@@ -686,7 +691,7 @@ Utilizando un test-t para medias en ambas secciones de la gráfica, podemos dete
 |t Critical two - tail  |2.306004| |
 |---|----------|------|
 
-Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo 
+Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo
 
 ## Salida alternada por género
 
@@ -695,9 +700,9 @@ El gráfico 10 exhibe la cantidad de casos antes y después de aplicarse la medi
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-04-03"), 10, "Gráfico 10. Salida alternada por género", plot_new_cases, "Nuevos casos")
 ```
-Para comprobar estadísticamente si es que la medida fue efectiva o no, se realizó el test F sobre la forma logarítmica de la regresión. Debido a que la regresión no se centra en 0, se normalizaron los puntos previamente. 
+Para comprobar estadísticamente si es que la medida fue efectiva o no, se realizó el test F sobre la forma logarítmica de la regresión. Debido a que la regresión no se centra en 0, se normalizaron los puntos previamente.
 
-* Ho : No existe diferencias significativas entre los dos sets de puntos. 
+* Ho : No existe diferencias significativas entre los dos sets de puntos.
 * Ha : Existe diferencias significativas entre el set de puntos antes y despues de aplicarse la medida.
 
 |F - Test Two - Sample for Variances |
@@ -812,13 +817,13 @@ Dado que |t| < t-crítico, no se puede solventar la idea de rechazar la hipótes
 ### Razones
 ```{r}
 
-df_form2$razones %>% unlist() %>% table() -> razones_t 
+df_form2$razones %>% unlist() %>% table() -> razones_t
 wordcloud(names(razones_t), as.vector(razones_t), min.freq = 2)
 
 title("Gráfico 14. Razones para salir durante la cuarentena")
 ```
 
-El gráfico anterior manifiesta algunas de las razones que justifican las salidas de casa de la población encuestada durante la cuarentena. Es necesario destacar que esta gráfica se relaciona mucho con la gráfica 6,8,10 y 12, dado que explicaría de algún u otro modo el aumento de casos. La razón con mayor porcentaje es la comida, la que le continúa son los medicamentos y por último el trabajo.  
+El gráfico anterior manifiesta algunas de las razones que justifican las salidas de casa de la población encuestada durante la cuarentena. Es necesario destacar que esta gráfica se relaciona mucho con la gráfica 6,8,10 y 12, dado que explicaría de algún u otro modo el aumento de casos. La razón con mayor porcentaje es la comida, la que le continúa son los medicamentos y por último el trabajo.
 
 ### Frecuencia de salida
 ```{r}
@@ -859,9 +864,9 @@ El gráfico 16 muestra el nivel de aprobación de las medidas que se están estu
 
 # Respondiendo las preguntas exploratorias
 
-## ¿Existe una misma tendencia de poblaciones afectadas por el Covid 19 durante las medidas de aislamiento? 
+## ¿Existe una misma tendencia de poblaciones afectadas por el Covid 19 durante las medidas de aislamiento?
 
-El gráfico 17 muestra la relación entre las variables clase social y distrito. Una parte de la población se distribuyó entre los distritos Barranco con 3000 a 4000 soles de ingresos mensuales, Santiago de Surco [6000-7000), Surquillo [7000-8000) y Villa María del Triunfo [5000-6000). No obstante, la mayor parte de la población se ubica en un nivel de ingreso entre 0 a 2000. En el gráfico 18 se muestra el número de casos por distrito. Estos resultados se pueden vincular directamente con los ingresos de la población. En el gráfico 17 analizamos los distritos que tienen una mayor distribución en un ingreso específico. Por ejemplo, en el gráfico 18. el distrito de Barranco tiene un número de casos menor a 2000 mil casos. Surquillo por su parte tiene aproximadamente 2100 casos. Más aún, Santiago de Surco 5000 casos y Villa María del Triunfo 5800 casos. A partir de ello podríamos establecer ciertos patrones. El primero de ellos sería que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y que este sea de un determinado distrito presentará un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000. 
+El gráfico 17 muestra la relación entre las variables clase social y distrito. Una parte de la población se distribuyó entre los distritos Barranco con 3000 a 4000 soles de ingresos mensuales, Santiago de Surco [6000-7000), Surquillo [7000-8000) y Villa María del Triunfo [5000-6000). No obstante, la mayor parte de la población se ubica en un nivel de ingreso entre 0 a 2000. En el gráfico 18 se muestra el número de casos por distrito. Estos resultados se pueden vincular directamente con los ingresos de la población. En el gráfico 17 analizamos los distritos que tienen una mayor distribución en un ingreso específico. Por ejemplo, en el gráfico 18. el distrito de Barranco tiene un número de casos menor a 2000 mil casos. Surquillo por su parte tiene aproximadamente 2100 casos. Más aún, Santiago de Surco 5000 casos y Villa María del Triunfo 5800 casos. A partir de ello podríamos establecer ciertos patrones. El primero de ellos sería que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y que este sea de un determinado distrito presentará un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000.
 
 ### Distrito vs ingreso
 ```{r, fig.width=12, fig.height=20}
@@ -885,7 +890,7 @@ title("Gráfico 18. Casos por distrito")
 
 ## ¿Las medidas en los distritos más exclusivos presentan una mayor o menor efectividad?
 
-Las medidas presentan una mayor efectividad en el distrito de Barranco, dado que a diferencia de los demás, su número oscila en aproximadamente 900 casos. El mayor número de casos es en Santiago de Surco, con más de 4000 mil casos. Analizando, la gráfica 20, la cual relaciona empleo VS. Distrito se puede constatar que en Barranco existe mayor cantidad de gente con un empleo informal. Cabe señalar que también hay población que no trabaja. Por otro lado, en Santiago de Surco, San Isidro y San Borja existe una empleabilidad formal. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal. 
+Las medidas presentan una mayor efectividad en el distrito de Barranco, dado que a diferencia de los demás, su número oscila en aproximadamente 900 casos. El mayor número de casos es en Santiago de Surco, con más de 4000 mil casos. Analizando, la gráfica 20, la cual relaciona empleo VS. Distrito se puede constatar que en Barranco existe mayor cantidad de gente con un empleo informal. Cabe señalar que también hay población que no trabaja. Por otro lado, en Santiago de Surco, San Isidro y San Borja existe una empleabilidad formal. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal.
 
 ### Distrito exclusivos vs casos
 ```{r}
@@ -920,7 +925,7 @@ ggplot(aes(y = distrito, x = empleo), data = df_5) +
     ggtitle("Gráfico 20. distritos vs tipo de empleo")
 ```
 
-### Distrito exclusivo vs ingreso 
+### Distrito exclusivo vs ingreso
 ```{r}
 ggplot(aes(y = distrito, x = ingreso), data = df_5) +
     geom_boxplot() +
@@ -977,7 +982,7 @@ title("Del 0 al 5, ¿Cuánto cambió tus salidas?")
 
 Para esta pregunta, utilizaremos la gráfica 17 para tratar de darle respuesta. Como ya se analizó previamente, esta gráfica exhibe que tres de los cincos distritos exclusivos de Lima tienen un ingreso entre 3000 y 8000 soles. Sin embargo en distritos como Ate Vitarte, Cieneguilla, El Augustino, Independencia, Lurín, entre otros, el nivel de ingresos es desde 1000 a 2000 soles. En base a estos datos, podríamos predecir que las personas con mayores ingresos son las que menos horas salen de casa, mientras que las personas que no tienen una buena solvencia económica requerirían y se verían en la obligación de salir de casa para poder conseguir dinero, ya sea vendiendo productos de primera necesidad, ropa, accesorios, etc.
 
-## ¿Es posible predecir su nivel de ingresos conociendo únicamente su tipo de empleo? 
+## ¿Es posible predecir su nivel de ingresos conociendo únicamente su tipo de empleo?
 
 Después de realizar una investigación, se pudo encontrar que las personas con un empleo informal ganan en promedio S/. 715. La ministra de Trabajo, Sylvia Cáceres mencionó que en contraste con la población en el sector formal perciben un salario promedio de más de S/. 2000. Es necesario destacar que la variabilidad dependerá del tipo de trabajo. También la ministra mencionó que la brecha es de un 64%. Para el gráfico 18, una mayor población se encuentra trabajando en un sector formal, por lo que sus ingresos oscilarían entre S/.2000 a más. Por otro lado, el sector informal es el que menos población presenta, menor a quince personas aproximadamente. Esta población, según lo citado, tendrá un salario tres veces menor al del sector formal.
 
@@ -1020,19 +1025,19 @@ df_form2$acceleration %>%
 
 # Discusión de resultados
 
-## Patrones: 
+## Patrones:
 
-1. Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un cambio no significativo entre antes y después de haber tomado cada medida. 
+1. Pudimos notar que la curva de casos totales muestra un crecimiento continuo en el tiempo, evidenciándose un cambio no significativo entre antes y después de haber tomado cada medida.
 
 2. En cuanto a los nuevos casos por día pudimos notar que todas las gráficas muestran una variación considerable en la cantidad de casos diarios pocos días después de que se aplicara cada medida. Estas variaciones se ven como datos atípicos en las gráficas.
 
 3. En las gráficas de movilización social si se puede ver claramente el efecto de las medidas respectivas en ellas. El estado de emergencia hizo que la movilización social disminuyera en gran medida y la norma de salir días específicos de la semana también tuvo un impacto en la movilización ciertos días de la semana.
 
-4. Asimismo, otro patrón encontrado es que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y este siendo de un determinado distrito presenta un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000. 
+4. Asimismo, otro patrón encontrado es que para las poblaciones de un estatus social solvente (ingresos mayores a 4000) y este siendo de un determinado distrito presenta un menor número de contagiados. Esto se cumple para Barranco, Surquillo y Santiago de Surco. No obstante, si nos dirigimos a analizar determinadas poblaciones donde el número de infectados es elevado y nos fijamos en el ingreso promedio podemos dar cuenta que la mayor parte oscila entre cero a mil soles mensuales. Basta para ilustrar, Comas, distrito que tiene un ingreso de cero a mil y cuyo número de casos asciende a casi 9000.
 
-5. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal. 
+5. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal.
 
-# Hipótesis, relación movilidad social-> casos covid-19: 
+# Hipótesis, relación movilidad social-> casos covid-19:
 
 * H0: Mayores casos durante la medida de inmovilización social no implica necesariamente un aumento de la movilización social.
 H1: Mayores casos durante la medida de inmovilización social supone un aumento de la cantidad de personas que se movilizan
@@ -1045,7 +1050,7 @@ H1: Mayores movilizaciones durante la medida Aprobación del Padrón de Hogares 
 * H0: Las personas con menores frecuencias de salida no supone necesariamente que tengan más ingresos mensuales
 H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
 
-## Parámetros de estudio 
+## Parámetros de estudio
 A partir de los datos obtenidos de las encuesta, se establecen parámetros de interés que permiten cuantificar la confiabilidad del estudio realizado:
 
 |Población | Tamaño de la muestra  (personas entrevistadas) | Significancia (α) | Nivel de confianza (1-α) |
@@ -1056,7 +1061,7 @@ El tamaño de la muestra adecuado para el nivel de confianza esperado se obtiene
 
 $$P(|Xn-u|<E)>=1-α$$
 
-# Valores de interés 
+# Valores de interés
 
 |Variables cuantitativas | Rango | Media | Intervalo de confianza |
 |---|----------|------|
@@ -1074,7 +1079,7 @@ Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media
 H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
 
 
-Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más alto que el promedio mensual en Lima. 
+Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más alto que el promedio mensual en Lima.
 
 ```{r}
 summary(df_form2$edad)
@@ -1159,8 +1164,12 @@ summary(cases_mov_lm )
 plot(cases_mov_lm )
 ```
 
+```{r}
+cor(x = as.numeric(df_mov_tmp$date) , y = df_mov_tmp$mov, method = "pearson")
+```
 
-# Tipo de trabajo -> Frecuencia de salida a la semana 
+
+# Tipo de trabajo -> Frecuencia de salida a la semana
 
 ## Variable independiente: Tipo de trabajo
 ## Variable dependiente: Frecuencia de salida a la semana
@@ -1184,7 +1193,7 @@ H1: Existe correlación entre la frecuencia de salida y el tipo de trabajo.
 
 
 
-$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
+$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$
 
 ```{r}
 df_trabajo_informal<-df_trabajo%>%filter(Variable_dicotomizada==0) # trabajadores informales
@@ -1193,7 +1202,7 @@ X1barra<-mean(as.numeric(as.character(df_trabajo_formal$salidas))) #X1barra=prom
 Xbarra<-mean(as.numeric(as.character(df_trabajo$salidas)))# Xbarra=promedio de la frecuencia de salida promedio del total de personas encuestadas
 SX<-sd(as.numeric(as.character(df_trabajo$salidas))) # SX=desv.estándar de la frecuencia de salida promeido del total de personas encuestadas
 p=length(df_trabajo_formal$Variable_dicotomizada)/length(df_trabajo$Variable_dicotomizada)  #p= proporción de trabajadores formales en la muestra
-  
+
 q=length(df_trabajo_informal$Variable_dicotomizada)/length(df_trabajo$Variable_dicotomizada) #q=proporción de trabajadores informales en la muestra
 
 
@@ -1201,7 +1210,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  # rbp=coeficiente de correlación biserial
 rbp
 
 ```
-El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayor frecuencia de salida promedio y un trabajo de tipo de informal. 
+El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayor frecuencia de salida promedio y un trabajo de tipo de informal.
 
 # Medida de Inmovilización social
 
@@ -1224,7 +1233,7 @@ df_inmovilizacion
 
 Determinación del coeficiente de correlación biserial puntual
 
-$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
+$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$
 
 
 ```{r}
@@ -1235,15 +1244,15 @@ Xbarra<-mean(as.numeric(as.character(df_inmovilizacion$social.05)))
 SX<-sd(as.numeric(as.character(df_inmovilizacion$social.05)))
 
 p=length(df_movilidad2$Variable_dicotomizada)/length(df_inmovilizacion$Variable_dicotomizada)
-  
- 
+
+
 q=length(df_movilidad1$Variable_dicotomizada)/length(df_inmovilizacion$Variable_dicotomizada)
 
-rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
-El coeficiente para la medida de Inmovilización social indica una correlación muy baja entre las variables. Esto significa que mayores disminuciones en la frecuencia de salida  se correlacionan muy bajo con las personas de trabajo formal. 
+El coeficiente para la medida de Inmovilización social indica una correlación muy baja entre las variables. Esto significa que mayores disminuciones en la frecuencia de salida  se correlacionan muy bajo con las personas de trabajo formal.
 
 # Medida: Retiro 2000 soles de fondos AFP de trabajadores afiliados
 
@@ -1264,7 +1273,7 @@ df_retiro
 * H1: Existe correlación  entre la disminución en la frecuencia de salida y el tipo de trabajo.
 
 Determinación del coeficiente de correlación biserial puntual
-$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
+$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$
 
 ```{r}
 
@@ -1275,18 +1284,18 @@ Xbarra<-mean(as.numeric(as.character(df_retiro$afp1.05)))
 SX<-sd(as.numeric(as.character(df_retiro$afp1.05)))
 
 p=length(df_retiro2$Variable_dicotomizada)/length(df_retiro$Variable_dicotomizada)
-  
- 
+
+
 q=length(df_retiro1$Variable_dicotomizada)/length(df_retiro$Variable_dicotomizada)
 
-rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
 El coeficiente de correlación para la medida del retiro AFP es negativo y bajo. El signo negativo significa que el comportamiento positivo corresponde a los trabajadores informales. Por lo  que mayores  disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
 
 
-# Género -> Frecuencia de salida a la semana 
+# Género -> Frecuencia de salida a la semana
 ## Variable independiente: Género
 ## Variable dependiente: Frecuencia de salida a la semana
 
@@ -1304,7 +1313,7 @@ df_genero
 
 
 Determinación del coeficiente de correlación biserial puntual
-$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
+$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$
 
 
 ```{r}
@@ -1314,11 +1323,11 @@ X1barra<-mean(as.numeric(as.character(df_masculino$salidas)))
 Xbarra<-mean(as.numeric(as.character(df_genero$salidas)))
 SX<-sd(as.numeric(as.character(df_genero$salidas)))
 p=length(df_masculino$Variable_dicotomizada)/length(df_genero$Variable_dicotomizada)
-  
- 
+
+
 q=length(df_femenino$Variable_dicotomizada)/length(df_genero$Variable_dicotomizada)
 
-rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  
+rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
@@ -1327,7 +1336,7 @@ El coeficiente es negativo para las personas de género masculino, esto signific
 
 # Medida: Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
-# Género -> Disminución de Frecuencia de salida a la semana 
+# Género -> Disminución de Frecuencia de salida a la semana
 
 ## Variable independiente:Genero
 ## Variable dependiente: Disminución de Frecuencia de salida a la semana
@@ -1346,7 +1355,7 @@ df_medida_genero
 
 
 Determinación del coeficiente biserial:
-$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$ 
+$$rbp=(X1barra-Xbarra)/SX*sqrt(p/q) $$
 
 
 
@@ -1357,8 +1366,8 @@ X1barra<-mean(as.numeric(as.character(df_med_masculino$noday.05)))
 Xbarra<-mean(as.numeric(as.character(df_medida_genero$noday.05)))
 SX<-sd(as.numeric(as.character(df_medida_genero$noday.05)))
 p=length(df_med_masculino$Variable_dicotomizada)/length(df_medida_genero$Variable_dicotomizada)
-  
- 
+
+
 q=length(df_med_femenino$Variable_dicotomizada)/length(df_medida_genero$Variable_dicotomizada)
 
 
@@ -1392,7 +1401,7 @@ cor(x = df_form2$edad , y =(datos.n), method = "pearson")
 El coeficiente en esta situación es muy bajo, por lo que no se puede detectar una relación entre las variables de edad y frecuencia de salida.
 
 #Analisis de residuos
-```{r} 
+```{r}
 plot(edad_frec_lm)
 summary(edad_frec_lm)
 ```
