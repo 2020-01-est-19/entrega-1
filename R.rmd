@@ -1445,9 +1445,7 @@ plot(ingresos_frec)
 
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
-* La regresión nuevos casos -> movilización no es muy buena.
-Su coeficiente de determinación es muy pequeño.
-Además hay en la gráfica de los residuos hay áreas con varios puntos.
+* La regresión nuevos casos -> movilización no es muy buena. Su coeficiente de determinación es muy pequeño. Además hay en la gráfica de los residuos hay áreas con varios puntos.
 
 
 
