@@ -1439,13 +1439,15 @@ plot(ingresos_frec)
 
 # Resultados generales
 
-- Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares. Estos fueron los resultados adquiridos al llevar a cabo el procedimiento de prueba de hipótesis para cada una de las medidas.
+- Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares.A partir de las pruebas de hipótesis, se rechazaron las hipótesis nulas, por lo que existen diferencia significativas, es decir, se frenó la expansión de la enfermedad.
+
+- Por otro lado, la medida de "Salida alternada por género"
 
 - Además, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
 
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
-* La regresión nuevos casos -> movilización no es muy buena. Su coeficiente de determinación es muy pequeño. Además hay en la gráfica de los residuos hay áreas con varios puntos.
+- La regresión nuevos casos -> movilización no es muy buena. Su coeficiente de determinación es muy pequeño. Además hay en la gráfica de los residuos hay áreas con varios puntos.
 
 
 
