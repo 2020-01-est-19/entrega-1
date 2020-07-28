@@ -218,8 +218,7 @@ de qué manera afectan la curva de aumento de infectados por coronavirus en Per�
 ## Objetivos específicos
 * Establecer las medidas a estudiar y que estas se encuentren alineadas a
 la inmovilización social.
-* Analizar la situación de la ciudad de Lima en el caso hipotético de
-“Declaración de emergencia fuera de tiempo”.
+* Desarrollar habilidades de comunicación haciendo uso del programa R-Studio y el lenguaje de R. 
 * Establecer los factores que determinan la prestación de servicios públicos y
 su relación con la propagación del virus.
 * Establecer una relación entre el bono subsidio y
@@ -694,7 +693,7 @@ Utilizando un test-t para medias en ambas secciones de la gráfica, podemos dete
 |t Critical two - tail  |2.306004| |
 |---|----------|------|
 
-Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo
+Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo la movilizacion recreacional.
 
 ## Salida alternada por género
 
@@ -1437,6 +1436,29 @@ La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumenta
 summary(ingresos_frec)
 plot(ingresos_frec)
 ```
+# Resultados generales
+
+- Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares. Estos fueron los resultados adquiridos al llevar a cabo el procedimiento de prueba de hipótesis para cada una de las medidas.
+
+- Además, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima. 
+
+- También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
+
+
+
+
+
+# Conclusiones
+
+- Pudimos relacionar diferentes medidas tomadas por el gobierno peruano con la propagacion del COVID-19 de manera satisfactoria y averiguar a través de un procedimiento estadístico si la relación de estas medidas con la inmovilización social era significativa o no. 
+
+- Fuimos capaces de hallar la relación entre diferentes variables relacionadas a las medidas escogidas, las entrevistas llevadas a cabo y la información adquirida en la web y descubrimos cuáles de estas variables eran las que más se relacionaban.
+
+- Aprendimos a utilizar Github como un medio de comunicación que nos ayuda a juntar toda la información de manera rápida y sencilla. Esto permitió que la comunicación entre los integrantes del grupo sea más fluida y sus avances se integren de manera lógica y entendible en el informe.
+
+- Finalmente, logramos aprender todo lo necesario en R-studio para llevar a cabo la investigación de manera satisfactoria y desarrollar descriptores gráficos que ayudan a comprender de mejor manera todo el trabajo. 
+
+
 
 # Bibliografía
 
