@@ -1463,14 +1463,13 @@ plot(ingresos_frec)
 
 # Conclusiones
 
-- Pudimos relacionar diferentes medidas tomadas por el gobierno peruano con la propagacion del COVID-19 de manera satisfactoria y averiguar a través de un procedimiento estadístico si la relación de estas medidas con la inmovilización social era significativa o no.
+- Pudimos relacionar diferentes medidas tomadas por el gobierno peruano con la propagacion del COVID-19 de manera satisfactoria y averiguar a través de un procedimiento estadístico si la relación de estas medidas con la inmovilización social era significativa o no. También pudimos relacionar las medidas con otros factores como la cantidad de casos por día e información adquirida a traves de entrevistas y datos sacados de fuentes confiables.
 
-- Fuimos capaces de hallar la relación entre diferentes variables relacionadas a las medidas escogidas, las entrevistas llevadas a cabo y la información adquirida en la web y descubrimos cuáles de estas variables eran las que más se relacionaban.
+- Como ya se menciono anteriormente, fuimos capaces de hallar la relación entre diferentes variables relacionadas a las medidas escogidas, las entrevistas llevadas a cabo y la información adquirida en la web y descubrimos cuáles de estas variables son las que tienen más semejanzas.
 
 - Aprendimos a utilizar Github como un medio de comunicación que nos ayuda a juntar toda la información de manera rápida y sencilla. Esto permitió que la comunicación entre los integrantes del grupo sea más fluida y sus avances se integren de manera lógica y entendible en el informe.
 
 - Finalmente, logramos aprender todo lo necesario en R-studio para llevar a cabo la investigación de manera satisfactoria y desarrollar descriptores gráficos que ayudan a comprender de mejor manera todo el trabajo.
-
 
 
 # Bibliografía
