@@ -1451,6 +1451,10 @@ plot(ingresos_frec)
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
+- Se encontró una tendencia entre la variable empleo e ingresos. En el distrito de Barranco hubo mayor concentración de personas que trabajan informalmente y estos tienen un ingreso que oscila entre tres mil y cuatro mil soles, mientras que, los que tienen un empleo formal como San Borja, San Isidro y Santiago de Surco entre ocho mil y nueve mil soles, cuatro mil y cinco mil soles y seís mil y siete mil soles respectivamente.
+
+-
+
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
 - La regresión nuevos casos -> movilización no es muy buena. Su coeficiente de determinación es muy pequeño. Además hay en la gráfica de los residuos hay áreas con varios puntos.
