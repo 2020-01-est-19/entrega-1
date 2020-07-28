@@ -1443,7 +1443,13 @@ plot(ingresos_frec)
 
 - Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa. 
 
-- Además, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
+- Pocos días anteriores a la implementación de la medida "Permiso de adquisición de bienes y servicios básicos" en consideración, los nuevos casos empezaron a incrementar después de haberse mantenido relativamente constantes por un tiempo. El incremento de estos nuevos casos al parecer fue controlado por unos dias posteriores de ser tomada la medida. Para comprobar la significancia de esta diferencia, se planteó un f-test. Este demostró que no se podría rechazar la hipótesis nula, dado que no se encontraron diferencias en el ratio de aprición de nuevos casos.
+
+- En suma, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
+
+-Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización. 
+
+- Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
