@@ -1441,7 +1441,7 @@ plot(ingresos_frec)
 
 - Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares.A partir de las pruebas de hipótesis, se rechazaron las hipótesis nulas, por lo que existen diferencia significativas, es decir, se frenó la expansión de la enfermedad.
 
-- Por otro lado, la medida de "Salida alternada por género"
+- Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa. 
 
 - Además, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
 
