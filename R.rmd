@@ -1,4 +1,4 @@
-s---
+---
 title: "Efecto de las medidas tomadas por el gobierno peruano frente al COVID-19"
 output:
   html_notebook:
@@ -29,7 +29,24 @@ readLines(tmp) %>%
 ## ---- movilization
 tmp <- tempfile()
 curl_download("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", tmp)
-read_csv(tmp, col_types = "cccccdDdddddd") %>%
+read_csv(tmp,
+    # Esta parte dejaba de funcionar cada vez que había una cambio en las variables
+    col_types = cols(
+        country_region_code = col_character(),
+        country_region = col_character(),
+        sub_region_1 = col_character(),
+        sub_region_2 = col_character(),
+        metro_area = col_character(),
+        iso_3166_2_code = col_character(),
+        census_fips_code = col_character(),
+        date = col_date(),
+        retail_and_recreation_percent_change_from_baseline = col_double(),
+        grocery_and_pharmacy_percent_change_from_baseline = col_double(),
+        parks_percent_change_from_baseline = col_double(),
+        transit_stations_percent_change_from_baseline = col_double(),
+        workplaces_percent_change_from_baseline = col_double(),
+        residential_percent_change_from_baseline = col_double()
+    )) %>%
     filter(country_region_code == "PE") -> df_mov
 
 ## ---- infec
@@ -169,7 +186,7 @@ repeat_plots <- function(day, range, main_title = "") {
 * Ricardo Atsuhiko Yamamoto Yamamoto
 
 # Líder
-* Esteban Villacorta García
+* Alberto Oporto Ames
 
 # Introducción
 El COVID-19 ha tenido un gran impacto alrededor del mundo y hoy en dia es fácilmente
@@ -404,12 +421,12 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 ## Frecuencia de salida promedio a la semana
 
-* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida y variable de interés 
+* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida y variable de interés
 
 * Moda (valor): permitirá saber la frecuencia de salida mayoritaria de los ciudadanos de Lima encuestados
 
 ## Tipo de trabajo
- 
+
 * Frecuencia de observaciones para cada tipo de trabajo en relación a su frecuencia de salida
 
 ## Edad
@@ -567,6 +584,8 @@ Para esta primera pregunta se han procesado los datos web. Se presentarán dos g
 
 # Declaración del Estado de Emergencia
 
+En esta gráfica podemos visualizar que la cantidad de infectados por día bajó en algunos días inmediatamente después de que se declarará el estado de emergencia. Se puede apreciar en la gráfica que se lleva a cabo cada 2 o 3 días durante la semana siguiente a la implementación del Estado de Emergencia. Esto se podría deber a factores como la cantidad de pruebas tomadas por día, frecuencia de salida de las personas y el cumplimiento de las leyes y medidas tomadas.
+
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-15"), 10, "Gráfico 6. Declaración del estado de Emergencia", plot_new_cases, "Nuevos casos")
 ```
@@ -578,15 +597,15 @@ ln(y) ~ At+B. Tomando a L1 como regresión de control sin variable independiente
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 1.30103 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |0.779146| 1.644595|
-|Variance  |0.158901| 0.022317|
-|Observations |9| 8|
-|df  |8| 7|
-|F  |7.120148| |
-|P (F <= f) one-tail  |0.008916| |
-|F crítico one-tail  |3.725725| |
+|Mean  |1.55950355| 3.603577946|
+|Variance  |1.30751423| 0.201678854|
+|Observations |10| 9|
+|df  |9| 8|
+|F  |6.48314984| |
+|P (F <= f) one-tail  |0.00746629| |
+|F crítico one-tail  |3.38813023| |
 |---|----------|------|
 
 Dado que la varianza 1 > varianza 2, la elección del orden de las variables es correcta. Por tanto, dado F > F crítico, se encuentra evidencia para falsear Ho. Dado α > P(F<=f) una cola, se rechaza la hipótesis nula, por lo que existen diferencias significativas. Comparando las pendientes A1=0.337 y A2=0.0729 con A2 <A1, se puede asumir que se frenó la expansión de la enfermedad.
@@ -601,21 +620,19 @@ Para comprobar la significancia de esta diferencia, se realizó un test-t de med
 * Ho : No existe un efecto significativo de la medida por sobre las medias del Cambio de Movilización.
 * Ha : Existen diferencias significativas entre las medias de la variable Cambio de Movilización para antes y después de ejecutarse la medida.
 
-|t - Test: Paired Two Sample for Means |
+|t - Test Two Assuming Unequal Variances |
 |---|----------|------|
-| | 0| -37 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |2.7875| -73.125|
-|Variance  |18.06982| 10.125|
-|Observations |8| 8|
-|Pearson Correlation  |-0.09835| |
-|Hypothesized Mean Difference  |60| |
-|df (F <= f) one-tail  |7| |
-|t Stat  |8.102459| |
-|P(T <= t) one - tail  |4.2E-0.5| |
-|t Critical one - tail |1.894579| |
-|P(T <= t) two - tail  |8.4E-0.5| |
-|t Critical two - tail  |2.364624| |
+|Mean  |-3.363636364| -71.1818182|
+|Variance  |15.65454545| 113.363636|
+|Observations |11| 11|
+|df  |13| |
+|t Stat  |19.8023634| |
+|P (T <= t) one-tail  |2.15261E-11| |
+|t crítical one-tail  |1.770933396| |
+|P (T <= t) two-tail  |4.30521E-11| |
+|t crítical two-tail  |2.160368656| |
 |---|----------|------|
 
 Dado que el valor |t| > t-crítico dos colas, se puede encontrar evidencia para rechazar la hipótesis nula Ho. Dado α =0.05 > P(T<=t) dos colas, existe significancia suficiente para ello. Por tanto, se rechaza Ho, existiendo por tanto diferencias significativas entre antes de ejecutarse la declaración de Estado de Emergencia y después sobre la movilización de las personas. Debido a que el coeficiente de correlación es menor a 0, se puede afirmar que el cambio además redujo la movilización.
@@ -634,13 +651,13 @@ Se realizó un f-test sobre los inputs a la regresión lineal del logaritmo de l
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 3.27714 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |1.538879| 3.218122|
 |Variance  |0.949329| 0.148907|
-|Observations |9| 9|
-|df  |8| 8|
-|F  |6-.375321| |
+|Observations |10| 10|
+|df  |9| 9|
+|F  |6.375321| |
 |P (F <= f) one-tail  |0.008398| |
 |F crítico one-tail  |3.438101| |
 |---|----------|------|
@@ -657,21 +674,20 @@ Utilizando un test-t para medias en ambas secciones de la gráfica, podemos dete
 * Ho : No  existen diferencias significativas entre ambas secciones de la gráfica.
 * Ha : Existen diferencias significativas entre ambas secciones de la gráfica.
 
-|t - Test: Paired Two Sample for Means |
+|t - Test Two Sample Assuming Unequal Variances |
 |---|----------|------|
-| | 2| -69 |
+| | Variable 1| Variable 2|
 |---|----------|------|
-|Mean  |-16.8889| -72.111|
-|Variance  |446.1111| 1.861111|
-|Observations |9| 9|
-|Pearson Correlation  |-0.73266| |
-|Hypothesized Mean Difference  |8| |
-|df |8| |
-|t Stat  |6.398578| |
-|P(T <= t) one - tail  |0.000105| |
-|t Critical one - tail |1.859548| |
-|P(T <= t) two - tail  |0.000209| |
-|t Critical two - tail  |2.306004| |
+|Mean  |-9.33333333| -74.5|
+|Variance  |135|5.388888889|
+|Observations |9| 10|
+|Hypothesized Mean Difference  |0| |
+|df |9| |
+|t Stat  |16.53162428| |
+|P(T <= t) one - tail  |2.41781E-08| |
+|t Critical one - tail |1.833112933| |
+|P(T <= t) two - tail  |4.83563E-08| |
+|t Critical two - tail  |2.262157163| |
 |---|----------|------|
 
 Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo la movilizacion recreacional.
@@ -690,12 +706,12 @@ Para comprobar estadísticamente si es que la medida fue efectiva o no, se reali
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 4.15888| 6.71296 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |4.820939| 6.666542|
 |Variance  |0.366808| 0.140169|
-|Observations |10| 6|
-|df  |9| 5|
+|Observations |10| 10|
+|df  |9| 9|
 |F  |2.616901| |
 |P (F <= f) one-tail  |0.150944|
 |F crítico one-tail  |4.772466| |
@@ -751,15 +767,15 @@ Para comprobar la significancia de esta diferencia, se plantea un test-f. Asumie
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 0.68434 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |0.162215| 0.865875|
 |Variance  |0.079739| 0.076307|
-|Observations |9| 9|
-|df  |8| 8|
+|Observations |10| 10|
+|df  |9| 9|
 |F  |1.044967| |
 |P (F <= f) one-tail  |0.475961|
-|F crítico one-tail  |3.438101| |
+|F crítico one-tail  |1.739606726| |
 |---|----------|------|
 
 
@@ -775,21 +791,20 @@ En esta gráfica podemos ver que la medida de permiso de adquisición de bienes 
 * Ha = Existen diferencias significativas en la movilización entre el periodo previo a la declaración  y el posterior.
 
 
-|t - Test: Paired Two Sample for Means |
+|t - Test: Two-Sample Assuming Unequal Variances |
 |---|----------|------|
-| | -69| -93 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |-76.7381| -78.9556|
-|Variance  |44.18367| 58.21778|
-|Observations |9| 9|
-|Pooled  |51.20073| |
-|Hypothesized Mean Difference  |8| |
-|df |8| |
-|t Stat  |-1.7143| |
-|P(T <= t) one - tail  |0.052888| |
-|t Critical one - tail |1.745884| |
-|P(T <= t) two - tail  |0.105775| |
-|t Critical two - tail  |2.119905| |
+|Mean  |-80.4| -76.6|
+|Variance  |68.21111111| 37.82222222|
+|Observations |10| 10|
+|Hypothesized Mean Difference  |0| |
+|df |17| |
+|t Stat  |-1.166977249| |
+|P(T <= t) one - tail  |0.129664399| |
+|t Critical one - tail |1.739606726| |
+|P(T <= t) two - tail  |0.259328799| |
+|t Critical two - tail  |2.109815578| |
 |---|----------|------|
 
 
@@ -1063,7 +1078,7 @@ df_form2$acceleration %>%
 
 7. Se observó que la mediana de las edades no cambió mucho a medida que aumentaban las frecuencias de salida. Las distribuciones de las edades para cada frecuencia de salida no resultaron muy diferentes. Sin embargo, parecía que personas con menor edad a 25 años tenían menores frecuencias de salida.
 
-8. Se observó que la cantidad de observaciones por género, tipo de trabajo resultan dispersas para cada aumento en la frecuencia de salida. Sin embargo, los hombres parecían ser favorecidos a tener una mayor incidencia en la frecuencia de salida, no se muestra un comportamiento definido. 
+8. Se observó que la cantidad de observaciones por género, tipo de trabajo resultan dispersas para cada aumento en la frecuencia de salida. Sin embargo, los hombres parecían ser favorecidos a tener una mayor incidencia en la frecuencia de salida, no se muestra un comportamiento definido.
 
 # Hipótesis, relación movilidad social-> casos covid-19:
 
@@ -1072,15 +1087,15 @@ H1: Mayores casos durante la medida de inmovilización social supone un aumento 
 
 * 2) H0: Menores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
 H1: Mayores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
- 
+
 ## Hipótesis, en relación a las encuestas:
 
 * 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
       HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.
-      
-* 2) H0: las personas con menor edad de 25 años no necesariamente tienen menores frecuencias de       salida 
-     HI: las personas con menor edad de 25 años tienen menores frecuencias de salida 
- 
+
+* 2) H0: las personas con menor edad de 25 años no necesariamente tienen menores frecuencias de       salida
+     HI: las personas con menor edad de 25 años tienen menores frecuencias de salida
+
 * 3) H0: las personas de genero masculino no necesariamente tienen mayores frecuencias de salida
      HI: las persoanas de genero masuculino tienen mayores frecuencias de salida
 
@@ -1095,7 +1110,8 @@ A partir de los datos obtenidos de las encuesta, se establecen parámetros de in
 
 ```{r}
 # Intervalos de confianza para la media de la variable Frecuencia_salida_por_Semana
-n=length(df_form2$salidas_)yn=mean(df_form2$salidas_)
+n=length(df_form2$salidas_)
+yn=mean(df_form2$salidas_)
 
 esn=sd(df_form2$salidas_)/sqrt(n)
 alfa=0.05
@@ -1163,7 +1179,7 @@ Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media
 # Pruebas de Hipótesis:
 ## Hipótesis, en relación a las encuestas:
 * 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
-      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.  
+      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.
 
 
 Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 1000 soles.
@@ -1204,13 +1220,13 @@ p_valor
 p_significancia
 ```
 
-De acuerdo a lo calculado el p-valor es menor a la significancia 0.05 especificada. Por lo que  se rechaza H0 , una menor frecuencia de salida  es influenciada por tener  ingreso mayor a 1000 soles. 
+De acuerdo a lo calculado el p-valor es menor a la significancia 0.05 especificada. Por lo que  se rechaza H0 , una menor frecuencia de salida  es influenciada por tener  ingreso mayor a 1000 soles.
 
-* 2) H0: las personas con menos edad de 25 años no necesariamente tienen menores frecuencias de salida 
-     HI: las personas con menos edad de 25 años tienen menores frecuencias de salida 
+* 2) H0: las personas con menos edad de 25 años no necesariamente tienen menores frecuencias de salida
+     HI: las personas con menos edad de 25 años tienen menores frecuencias de salida
 
 Se determina la media de salidas para  las personas cuya edad es menor de 25 años.
-     
+
 ```{r}
 df_form2 %>%filter(edad<25) %>% summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
     summarise(mean = mean(mean)) %>%
@@ -1228,7 +1244,7 @@ z_observado=(xbarra-mu_evaluar)/desvbarra # estadístico de prueba
 p_valor=pnorm(z_observado)  # cola derecha
 
 p_significancia=1-nivel_confianza
- 
+
 p_valor
 
 p_significancia
@@ -1559,19 +1575,19 @@ A partir de la evidencia estadística, se afirma que el modelo de regresión lin
 
 - Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares.A partir de las pruebas de hipótesis, se rechazaron las hipótesis nulas, por lo que existen diferencia significativas, es decir, se frenó la expansión de la enfermedad.
 
-- Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa. 
+- Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa.
 
 - Pocos días anteriores a la implementación de la medida "Permiso de adquisición de bienes y servicios básicos" en consideración, los nuevos casos empezaron a incrementar después de haberse mantenido relativamente constantes por un tiempo. El incremento de estos nuevos casos al parecer fue controlado por unos dias posteriores de ser tomada la medida. Para comprobar la significancia de esta diferencia, se planteó un f-test. Este demostró que no se podría rechazar la hipótesis nula, dado que no se encontraron diferencias en el ratio de aprición de nuevos casos.
 
 - En suma, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
 
--Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización. 
+- Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización.
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
 - Se encontró una tendencia entre la variable empleo e ingresos. En el distrito de Barranco hubo mayor concentración de personas que trabajan informalmente y estos tienen un ingreso que oscila entre tres mil y cuatro mil soles, mientras que, los que tienen un empleo formal como San Borja, San Isidro y Santiago de Surco entre ocho mil y nueve mil soles, cuatro mil y cinco mil soles y seís mil y siete mil soles respectivamente.
 
-- Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc. 
+- Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc.
 
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
