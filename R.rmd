@@ -1,4 +1,4 @@
----
+s---
 title: "Efecto de las medidas tomadas por el gobierno peruano frente al COVID-19"
 output:
   html_notebook:
@@ -375,6 +375,7 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 |Frecuencia de salida | 7,18,19| Cuantitativa discreta|
 |Lugar donde vive (distrito)| 4,17,18,20| Cualitativa nominal|
 |Cantidad de infectados por dia| 14,19| Cuantitativa discreta|
+|Tiempo antes y despues de las medidas|14,17,18| Cuantitativa continua|
 |Justificacion de salida| 9,15| Cualitativa nomilal|
 |Medidas aplicadas| 10,16,17,18,19| Cualitativa nominal|
 |Factores| 22,23| Cualitativa nominal|
@@ -401,32 +402,31 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 # Variables Encuestas
 
-## Frecuencia de salida promedio a la semana, antes y después de cada medida del gobierno
+## Frecuencia de salida promedio a la semana
 
-* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida
+* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida y variable de interés 
 
 * Moda (valor): permitirá saber la frecuencia de salida mayoritaria de los ciudadanos de Lima encuestados
 
 ## Tipo de trabajo
-
-* Variable dicotomizada Tipo de trabajo=0,1
-
-* Coeficiente de correlación biserial: indicará cuán relacionado está el tipo de trabajo con la frecuencia de salida
-
+ 
+* Frecuencia de observaciones para cada tipo de trabajo en relación a su frecuencia de salida
 
 ## Edad
 
-* Media: permitirá conocer la edad promedio para cada frecuencia de salida promedio y para cada medida
-
-* Coeficiente de correlación biserial: indicará cuán relacionado está la edad con la frecuencia de salida
+* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada frecuencia de salida, y cada medida
 
 ## Distrito
 
 * Moda(valor): permitirá conocer en qué distrito inciden más en las veces de salida de las personas
 
-## Clase social
+## Ingresos mensuales
 
 * Moda(valor): permitirá conocer el nivel de ingresos por cada distrito.
+
+
+## Género
+*Frecuencia de observaciones para cada género en relación a su frecuencia de salida
 
 # Descriptores gráficos
 
@@ -513,18 +513,6 @@ title("Gráfico 1. Edad")
 ```
 
 $$n = 310, sd = 12.619$$
-
-Podemos así determinar el intervalo de confianza calculando:
-
-$$desv/sqrt(n) = 12.619 /sqrt(310) =0.7167$$
-
-$$Zt(α/2) = ± 1.96$$
-
-$$U.Bound => 34.57 + 1.96 * 12.61/sqrt(n) = 35.97$$
-$$L.Bound   => 34.57 - 1.96 * 12.619/sqrt(n) = 33.17$$
-
-Se sabe por tanto que la media real se puede encontrar en [33.17, 35.99] con 95% de certeza.
-
 
 ### Género
 ```{r}
@@ -839,6 +827,45 @@ title("Gráfico 15. Salidas por semana")
 
 Este gráfico se relaciona mucho con el anterior, dado que exhibe las salidas por semana de la población muestra. La gráfica contiene un punto máximo en 2, además de otro máximo local en 5. La media y la mediana son 3.06 y 3 respectivamente, lo que provee un buen estimador de las salidas promedio de las personas encuestadas.
 
+## Frecuencia de salida VS Ingresos
+```{r}
+
+ggplot(aes(x =salidas_, y = ingreso, group=ingreso), data = df_form2) +
+    geom_boxplot() +
+    ggtitle("Salidas vs ingresos") +
+    theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+Para el rango más bajo de ingresos [0-1000] soles, de acuerdo a la caja de bigotes, se obtuvo una mediana de 2 en la frecuencia de salida. Esto evidencia que casi el 50% incide en salir menos de 2 veces y el otro 50% sale más de 2 veces. Para el rango más alto de ingresos [>10000] la mediana es 3. Ello representa que el 50% incide en salir más de 3 veces.  Los ingresos entre ambos rangos muestran una frecuencia  de salida menor, la cual favorece en mediana a salidas menores que 3 y 2. A medida que incrementan los ingresos no se evidencia un comportamiento definido para las frecuencias de salida, pero si un favorecimiento a menores salidas que el rango más bajo de ingresos. La única excepción se da para el rango más alto de ingresos.
+
+```{r}
+ggplot(aes(x=salidas_, y=ingreso, group=salidas_), data = df_form2) +geom_count()
+```
+Esta segunda gráfica muestra la cantidad de observaciones por ingreso y frecuencia de salida. Se observa que para 0 salidas , a medida que aumentan los ingresos menos personas inciden en esta. El mismo comportamiento se da para 1 salida, 5 salidas. Es similar el comportamiento para 2,3,6 salidas solo que existen variaciones más notorias. Asimismo, se muestra que los rangos más bajos de ingresos [0,1000],[1000,2000) presentan mayor cantidad de observaciones de 0 a 6 salidas.
+
+#Frecuencia de salida vs. Edad
+```{r}
+ggplot(aes(x = salidas_, y = edad, group = salidas_), data = df_form2) + geom_boxplot() +  ggtitle("Salidas vs edad") + theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+Esta gráfica muestra que las medianas de las edades cambian ligeramente con la frecuencia de salida. Para 0 salidas hay personas 18-32 años que abarcan 25% y 75% del total. Para 1 salida existen personas con más edad  de 25- 45 años que ocupan el rango intercuartílico. Para 2,3 salidas se mantiene ese rango de edades y la mediana cambia casi nada. Para 5,6 salidas la mediana no aumenta ni disminuye significativamente. Un aumento de la mediana a medida que aumenta la frecuencia de salida implicaria que en cada frecuencia de salida casi el 50% lo ocupen personas de más edad que la anterior frecuencia de salida. Dado que no sucede esto, se evidencian  distribuciones algo similares.
+
+```{r}
+ggplot(aes(y = salidas_, x = genero, group = genero), data = df_form2 ) + geom_count() +  ggtitle("Género vs salidas") + theme(plot.title = element_text(hjust = 0.5))
+
+```
+La gráfica muestra que las observaciones son mayores para el género masculino. Los hombres, entre 1-3 salidas inciden más, las mujeres de igual forma inciden más en 1-3 salidas. Para las mujeres, la cantidad de observaciones incrementa de 0-1 salida, entre 1-3 salidas la cantidad de observaciones es la misma , luego a medida que incrementan las salidas la cantidad de observaciones disminuye. Para los hombres, la cantidad de observaciones incrementa entre 0-2 salidas, luego a medida que aumentan las salidas, la cantidad disminuye y vuelve a aumentar. Existe mayor dispersión para más de 3 salidas.
+
+```{r}
+ggplot(aes(y = salidas_, x = empleo, group = empleo), data = df_form2 ) + geom_count() +  ggtitle("Tipo_trabajo vs salidas") + theme(plot.title = element_text(hjust = 0.5))
+```
+
+La cantidad de observaciones es mayor para las personas con un trabajo formal. Estas tienen mayor variación en la cantidad de observaciones a medida que aumentan las salidas. Para las personas con un trabajo informal, existe una menor variación en la cantidad de observaciones.
+
+
+
 ## ¿Cuáles han sido las medidas que han tenido mayor impacto en la población?
 
 ## Medidas
@@ -1039,18 +1066,30 @@ df_form2$acceleration %>%
 
 5. Un patrón muy interesante es que los distritos que presentan una empleabilidad formal tiene una mayor cantidad de ingresos. Basta para ilustrar, Barranco tiene un ingreso de alrededor de 4000 soles con una empleabilidad informal, mientras que los tres restantes tienen un ingreso mayor a 8000 soles con un tipo de empleo formal.
 
+6. Se observó que la mayoría de veces, los  ingresos mensuales más altos favorecían a menores frecuencias de salida que la mediana en salidas del rango más bajo de ingresos.
+
+7. Se observó que la mediana de las edades no cambió mucho a medida que aumentaban las frecuencias de salida. Las distribuciones de las edades para cada frecuencia de salida no resultaron muy diferentes. Sin embargo, parecía que personas con menor edad a 25 años tenían menores frecuencias de salida.
+
+8. Se observó que la cantidad de observaciones por género, tipo de trabajo resultan dispersas para cada aumento en la frecuencia de salida. Sin embargo, los hombres parecían ser favorecidos a tener una mayor incidencia en la frecuencia de salida, no se muestra un comportamiento definido. 
+
 # Hipótesis, relación movilidad social-> casos covid-19:
 
-* H0: Mayores casos durante la medida de inmovilización social no implica necesariamente un aumento de la movilización social.
+* 1) H0: Mayores casos durante la medida de inmovilización social no implica necesariamente un aumento de la movilización social.
 H1: Mayores casos durante la medida de inmovilización social supone un aumento de la cantidad de personas que se movilizan
 
-* H0: Menores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
+* 2) H0: Menores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
 H1: Mayores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
-
+ 
 ## Hipótesis, en relación a las encuestas:
 
-* H0: Las personas con menores frecuencias de salida no supone necesariamente que tengan más ingresos mensuales
-H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
+* 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
+      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.
+      
+* 2) H0: las personas con menor edad de 25 años no necesariamente tienen menores frecuencias de       salida 
+     HI: las personas con menor edad de 25 años tienen menores frecuencias de salida 
+ 
+* 3) H0: las personas de genero masculino no necesariamente tienen mayores frecuencias de salida
+     HI: las persoanas de genero masuculino tienen mayores frecuencias de salida
 
 ## Parámetros de estudio
 A partir de los datos obtenidos de las encuesta, se establecen parámetros de interés que permiten cuantificar la confiabilidad del estudio realizado:
@@ -1059,55 +1098,12 @@ A partir de los datos obtenidos de las encuesta, se establecen parámetros de in
 |---|----------|------|
 | 8000000 |360| 5%| 95%|
 
-El tamaño de la muestra adecuado para el nivel de confianza esperado se obtiene a partir de:
-
-$$P(|Xn-u|<E)>=1-α$$
-
-# Valores de interés
-
-|Variables cuantitativas | Rango | Media | Intervalo de confianza |
-|---|----------|------|
-| Edad |[0,75] | 39.8| u ± 1.47|
-| Frecuencia de salida por semana |[0,5]   | 2.5| u ± 0.18|
-
-Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
-Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
-
-
-# Pruebas de Hipótesis:
-
-* H0: Las personas con menores frecuencias de salida  necesariamente no supone que tengan más ingresos mensuales
-
-H1:Las personas con menores frecuencias de salida tienen mayores ingresos mensuales
-
-
-Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 2000 soles ya que representa un valor más alto que el promedio mensual en Lima.
-
-```{r}
-summary(df_form2$edad)
-
-summary(df_form2$salidas_)
-```
-
-```{r}
-#Prueba de hipotesis encuesta
-
-
-df_form2 %>%
-    group_by(ingreso) %>%
-    summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
-    summarise(mean = mean(mean)) %>%
-    as.numeric() -> promedio_total
-
-t.test(df_form2$salidas_,mu=promedio_total,alternative = "greater",conf.level=0.95)
-
-```
-
+#Intervalos de confianza para la media de variables cuantitativas de encuesta
 
 ```{r}
 # Intervalos de confianza para la media de la variable Frecuencia_salida_por_Semana
-n=360
-yn=mean(df_form2$salidas_)
+n=length(df_form2$salidas_)yn=mean(df_form2$salidas_)
+
 esn=sd(df_form2$salidas_)/sqrt(n)
 alfa=0.05
 parametro_estadistico=qnorm(alfa/2,lower.tail = FALSE)
@@ -1117,13 +1113,13 @@ round(lim_superior,2)
 round(lim_inferior,2)
 
 round(parametro_estadistico*esn,2)
-
-
 ```
+$$ l.superior , l.inferior=yn(+/-) parametro.estadistico*esn$$
+$$ l.superior= 2.67, l.inferior=2.32$$
 
 ```{r}
 # Intervalos de confianza para la media de la variable edad
-n=360
+n=length(df_form2$edad)
 alfa=0.05
 yn2=mean(df_form2$edad)
 esn2=sd(df_form2$edad)/sqrt(n)
@@ -1134,12 +1130,122 @@ round(lim_superior,2)
 round(lim_inferior,2)
 round(parametro_estadistico2*esn2,2)
 
+```
 
+$$ l.superior , l.inferior=yn2(+/-) parametro.estadistico2*esn2$$
+$$ l.superior= 34.77, l.inferior=32.03$$
+
+
+```{r}
+(1000 * (as.numeric(df_form2$ingreso) - 1)) -> ingresos
+
+# Intervalos de confianza para la media de la variable ingreso
+n=length(df_form2$ingreso)
+alfa=0.05
+yn3=mean(ingresos)
+esn3=sd(ingresos)/sqrt(n)
+parametro_estadistico3=qnorm(alfa/2,lower.tail = FALSE)
+lim_inferior=yn3-parametro_estadistico3*esn3
+lim_superior=yn3+parametro_estadistico3*esn3
+round(lim_superior,2)
+round(lim_inferior,2)
+round(parametro_estadistico3*esn3,2)
+```
+$$ l.superior , l.inferior=yn3(+/-) parametro.estadistico3*esn3$$
+$$ l.superior= 2674.45, l.inferior=2064.44$$
+
+
+# Valores de interés
+
+|Variables cuantitativas | Rango | Media | Intervalo de confianza |
+|---|----------|------|
+| Edad |[17,67] | 39.8| u ± 1.37|
+| Frecuencia de salida por semana |[0,6]   | 2.5| u ± 0.17|
+| Ingreso| [0,9000]| 2369| u ± 305.01|
+
+Conocer los intervalos de confianza  para la media de la edad, permite saber  con una confianza del 95% qué tan cerca están las edades en promedio con el valor esperado de la distribución normal.  Esto significa que el intervalo de edades en la muestra, entre 38-40 años representan el 95% de confianza para la media.
+Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media es muy pequeño indica que durante cada una de las medidas aplicadas la mayoría de personas entrevistadas salieron 2 veces a la semana.
+
+
+# Pruebas de Hipótesis:
+## Hipótesis, en relación a las encuestas:
+* 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
+      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.  
+
+
+Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 1000 soles.
+```{r}
+summary(df_form2$edad)
+
+summary(df_form2$salidas_)
+```
+
+```{r}
+#Prueba de hipotesis encuesta
+
+df_form2 %>%filter(ingreso=="[0-1000)") %>% group_by(ingreso) %>%
+    summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
+    summarise(mean = mean(mean)) %>%
+    as.numeric() -> promedio_mayor
+
+
+#t.test(df_form2$salidas_,mu=promedio_total,alternative = "greater",conf.level=0.95)
+promedio_mayor
 
 ```
 
+```{r}
+n=length(df_form2$salidas_)
+xbarra=mean(df_form2$salidas_)
+desv_estandarmuestra=sd(df_form2$salidas_)
+desvbarra=desv_estandarmuestra/sqrt(n) # desviacion estandar de poblacion
+nivel_confianza=0.95
+mu_evaluar=promedio_mayor
+z_observado=(xbarra-mu_evaluar)/desvbarra # estadístico de prueba
+p_valor=pnorm(z_observado)  # cola izquierda
 
-De acuerdo a lo calculado el p-value es mayor a la tolerancia de 0.05 especificada. Por lo que no se rechaza H0 , una mayor  frecuencia de salida no es influenciada por tener un mayor ingreso promedio. Ello significa que existe una cantidad de personas razonable  que pudo salir menos aún teniendo ingresos mensuales menores al promedio.
+p_significancia=1-nivel_confianza
+
+p_valor
+
+p_significancia
+```
+
+De acuerdo a lo calculado el p-valor es menor a la significancia 0.05 especificada. Por lo que  se rechaza H0 , una menor frecuencia de salida  es influenciada por tener  ingreso mayor a 1000 soles. 
+
+* 2) H0: las personas con menos edad de 25 años no necesariamente tienen menores frecuencias de salida 
+     HI: las personas con menos edad de 25 años tienen menores frecuencias de salida 
+
+Se determina la media de salidas para  las personas cuya edad es menor de 25 años.
+     
+```{r}
+df_form2 %>%filter(edad<25) %>% summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
+    summarise(mean = mean(mean)) %>%
+    as.numeric() -> edad_prom
+edad_prom
+```
+```{r}
+n=length(df_form2$salidas_)
+xbarra=mean(df_form2$salidas_)
+desv_estandarmuestra=sd(df_form2$salidas_)
+desvbarra=desv_estandarmuestra/sqrt(n) # desviacion estandar de poblacion
+nivel_confianza=0.95
+mu_evaluar=edad_prom
+z_observado=(xbarra-mu_evaluar)/desvbarra # estadístico de prueba
+p_valor=pnorm(z_observado)  # cola derecha
+
+p_significancia=1-nivel_confianza
+ 
+p_valor
+
+p_significancia
+```
+
+Dado que el p_valor es mayor a la significancia, no se rechaza la Ho, ya que hay personas que tienen mayor edad que 25 años y salen menos que el promedio de frecuencia de salida.
+
+Las hipótesis planteadas en relación al tipo de trabajo y genero, se corroborarán posteriormente.
+
+#Estadística inferencial
 
 # Nuevos casos -> cambio movilización
 
@@ -1169,6 +1275,8 @@ plot(cases_mov_lm )
 ```{r}
 cor(x = as.numeric(df_mov_tmp$date) , y = df_mov_tmp$mov, method = "pearson")
 ```
+
+
 
 
 # Tipo de trabajo -> Frecuencia de salida a la semana
