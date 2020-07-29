@@ -29,7 +29,24 @@ readLines(tmp) %>%
 ## ---- movilization
 tmp <- tempfile()
 curl_download("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", tmp)
-read_csv(tmp, col_types = "cccccdDdddddd") %>%
+read_csv(tmp,
+    # Esta parte dejaba de funcionar cada vez que había una cambio en las variables
+    col_types = cols(
+        country_region_code = col_character(),
+        contry_region = col_character(),
+        sub_region_1 = col_character(),
+        sub_region_2 = col_character(),
+        metro_area = col_character(),
+        iso_3166_2_code = col_character(),
+        census_fips_code = col_character(),
+        date = col_date(),
+        retail_and_recreation_percent_change_from_baseline = col_double(),
+        grocery_and_pharmacy_percent_change_from_baseline = col_double(),
+        parks_percent_change_from_baseline = col_double(),
+        transit_stations_percent_change_from_baseline = col_double(),
+        workplaces_percent_change_from_baseline = col_double(),
+        residential_percent_change_from_baseline = col_double()
+    )) %>%
     filter(country_region_code == "PE") -> df_mov
 
 ## ---- infec
@@ -404,12 +421,12 @@ complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
 ## Frecuencia de salida promedio a la semana
 
-* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida y variable de interés 
+* Mediana, cuartiles (valor): permitirá saber cuántas salidas a la semana representa 25%,50%,75% de los ciudadanos de Lima encuestados para cada medida y variable de interés
 
 * Moda (valor): permitirá saber la frecuencia de salida mayoritaria de los ciudadanos de Lima encuestados
 
 ## Tipo de trabajo
- 
+
 * Frecuencia de observaciones para cada tipo de trabajo en relación a su frecuencia de salida
 
 ## Edad
@@ -1070,7 +1087,7 @@ df_form2$acceleration %>%
 
 7. Se observó que la mediana de las edades no cambió mucho a medida que aumentaban las frecuencias de salida. Las distribuciones de las edades para cada frecuencia de salida no resultaron muy diferentes. Sin embargo, parecía que personas con menor edad a 25 años tenían menores frecuencias de salida.
 
-8. Se observó que la cantidad de observaciones por género, tipo de trabajo resultan dispersas para cada aumento en la frecuencia de salida. Sin embargo, los hombres parecían ser favorecidos a tener una mayor incidencia en la frecuencia de salida, no se muestra un comportamiento definido. 
+8. Se observó que la cantidad de observaciones por género, tipo de trabajo resultan dispersas para cada aumento en la frecuencia de salida. Sin embargo, los hombres parecían ser favorecidos a tener una mayor incidencia en la frecuencia de salida, no se muestra un comportamiento definido.
 
 # Hipótesis, relación movilidad social-> casos covid-19:
 
@@ -1079,15 +1096,15 @@ H1: Mayores casos durante la medida de inmovilización social supone un aumento 
 
 * 2) H0: Menores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
 H1: Mayores movilizaciones durante la medida Aprobación del Padrón de Hogares generó más infectados
- 
+
 ## Hipótesis, en relación a las encuestas:
 
 * 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
       HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.
-      
-* 2) H0: las personas con menor edad de 25 años no necesariamente tienen menores frecuencias de       salida 
-     HI: las personas con menor edad de 25 años tienen menores frecuencias de salida 
- 
+
+* 2) H0: las personas con menor edad de 25 años no necesariamente tienen menores frecuencias de       salida
+     HI: las personas con menor edad de 25 años tienen menores frecuencias de salida
+
 * 3) H0: las personas de genero masculino no necesariamente tienen mayores frecuencias de salida
      HI: las persoanas de genero masuculino tienen mayores frecuencias de salida
 
@@ -1102,7 +1119,8 @@ A partir de los datos obtenidos de las encuesta, se establecen parámetros de in
 
 ```{r}
 # Intervalos de confianza para la media de la variable Frecuencia_salida_por_Semana
-n=length(df_form2$salidas_)yn=mean(df_form2$salidas_)
+n=length(df_form2$salidas_)
+yn=mean(df_form2$salidas_)
 
 esn=sd(df_form2$salidas_)/sqrt(n)
 alfa=0.05
@@ -1170,7 +1188,7 @@ Respecto a la frecuencia de salida, ya que el intervalo de confianza de la media
 # Pruebas de Hipótesis:
 ## Hipótesis, en relación a las encuestas:
 * 1)  H0: Las personas con menores frecuencias de salida no necesariamente tienen ingresos             mensuales mayores a 1000 soles.
-      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.  
+      HI:Las personas con menores frecuencias de salida tienen ingresos mensuales mayores que          1000 soles.
 
 
 Para determinar cúal hipótesis corresponde a la confianza y tolerancia que esperamos obtener, determinamos las personas que tienen un ingreso mayor a 1000 soles.
@@ -1211,13 +1229,13 @@ p_valor
 p_significancia
 ```
 
-De acuerdo a lo calculado el p-valor es menor a la significancia 0.05 especificada. Por lo que  se rechaza H0 , una menor frecuencia de salida  es influenciada por tener  ingreso mayor a 1000 soles. 
+De acuerdo a lo calculado el p-valor es menor a la significancia 0.05 especificada. Por lo que  se rechaza H0 , una menor frecuencia de salida  es influenciada por tener  ingreso mayor a 1000 soles.
 
-* 2) H0: las personas con menos edad de 25 años no necesariamente tienen menores frecuencias de salida 
-     HI: las personas con menos edad de 25 años tienen menores frecuencias de salida 
+* 2) H0: las personas con menos edad de 25 años no necesariamente tienen menores frecuencias de salida
+     HI: las personas con menos edad de 25 años tienen menores frecuencias de salida
 
 Se determina la media de salidas para  las personas cuya edad es menor de 25 años.
-     
+
 ```{r}
 df_form2 %>%filter(edad<25) %>% summarise(mean = mean(salidas_, na.rm = TRUE)) %>%
     summarise(mean = mean(mean)) %>%
@@ -1235,7 +1253,7 @@ z_observado=(xbarra-mu_evaluar)/desvbarra # estadístico de prueba
 p_valor=pnorm(z_observado)  # cola derecha
 
 p_significancia=1-nivel_confianza
- 
+
 p_valor
 
 p_significancia
@@ -1549,19 +1567,19 @@ plot(ingresos_frec)
 
 - Al llevar a cabo el procedimiento explicado previamente, obtuvimos que las medidas que más afectaron a la inmovilización social fueron el estado de emergencia y la aprobación del padrón de hogares.A partir de las pruebas de hipótesis, se rechazaron las hipótesis nulas, por lo que existen diferencia significativas, es decir, se frenó la expansión de la enfermedad.
 
-- Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa. 
+- Por otro lado, en la medida de "Salida alternada por género" no existe diferencias significativas entre los dos sets de puntos. Dicho de otro modo, la medida no tuvo éxito en reducir los nuevos casos. Si bien es cierto esta medida funciona bien para disminuir la movilización, pero con el nivel de casos de Covid-19 sucede lo contrario, dado que estos aumentan de manera significativa.
 
 - Pocos días anteriores a la implementación de la medida "Permiso de adquisición de bienes y servicios básicos" en consideración, los nuevos casos empezaron a incrementar después de haberse mantenido relativamente constantes por un tiempo. El incremento de estos nuevos casos al parecer fue controlado por unos dias posteriores de ser tomada la medida. Para comprobar la significancia de esta diferencia, se planteó un f-test. Este demostró que no se podría rechazar la hipótesis nula, dado que no se encontraron diferencias en el ratio de aprición de nuevos casos.
 
 - En suma, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
 
-- Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización. 
+- Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización.
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
 - Se encontró una tendencia entre la variable empleo e ingresos. En el distrito de Barranco hubo mayor concentración de personas que trabajan informalmente y estos tienen un ingreso que oscila entre tres mil y cuatro mil soles, mientras que, los que tienen un empleo formal como San Borja, San Isidro y Santiago de Surco entre ocho mil y nueve mil soles, cuatro mil y cinco mil soles y seís mil y siete mil soles respectivamente.
 
-- Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc. 
+- Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc.
 
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
 
