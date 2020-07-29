@@ -839,7 +839,7 @@ Este gráfico se relaciona mucho con el anterior, dado que exhibe las salidas po
 ```{r}
 
 ggplot(aes(x =salidas_, y = ingreso, group=ingreso), data = df_form2) +
-    geom_boxplot() +
+    geom_count() +
     ggtitle("Salidas vs ingresos") +
     theme(plot.title = element_text(hjust = 0.5))
 
@@ -854,7 +854,7 @@ Esta segunda gráfica muestra la cantidad de observaciones por ingreso y frecuen
 
 #Frecuencia de salida vs. Edad
 ```{r}
-ggplot(aes(x = salidas_, y = edad, group = salidas_), data = df_form2) + geom_boxplot() +  ggtitle("Salidas vs edad") + theme(plot.title = element_text(hjust = 0.5))
+ggplot(aes(x = salidas_, y = edad, group = salidas_), data = df_form2) + geom_count() +  ggtitle("Salidas vs edad") + theme(plot.title = element_text(hjust = 0.5))
 
 ```
 
@@ -909,7 +909,7 @@ El gráfico 17 muestra la relación entre las variables clase social y distrito.
 ```{r, fig.width=12, fig.height=20}
 # No supe como hacerlo con vanilla R
 ggplot(aes(y = distrito, x = ingreso), data = df_form2) +
-    geom_boxplot() +
+    geom_count() +
     ggtitle("Gráfico 17. Distritos vs ingresos") +
     theme(plot.title = element_text(hjust = 0.5))
 ```
@@ -958,14 +958,14 @@ df_form2 %>%
                            "San Borja")
            ) -> df_5
 ggplot(aes(y = distrito, x = empleo), data = df_5) +
-    geom_boxplot() +
+    geom_count() +
     ggtitle("Gráfico 20. distritos vs tipo de empleo")
 ```
 
 ### Distrito exclusivo vs ingreso
 ```{r}
 ggplot(aes(y = distrito, x = ingreso), data = df_5) +
-    geom_boxplot() +
+    geom_count() +
     ggtitle("Gráfico 21. distritos vs ingresos") # Aún no ha respondido nadie de Miraflores.
 ```
 
@@ -1575,7 +1575,7 @@ A partir de la evidencia estadística, se afirma que el modelo de regresión lin
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
-- Otras tendencias que se encontraron fue entre frecuencia de salida y trabajo informal, dado que se encontró una correlación biserial puntual muy baja lo que explica una baja relación entre estas dos variables. 
+- Otras tendencias que se encontraron fue entre frecuencia de salida y trabajo informal, dado que se encontró una correlación biserial puntual muy baja lo que explica una baja relación entre estas dos variables.
 
 - El coeficiente para la medida del retiro AFP es negativo y bajo. Esto quiere decir que el comportamiento positivo corresponde a los trabajadores informales. A mayores disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
 
