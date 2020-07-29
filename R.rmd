@@ -587,6 +587,9 @@ df_form2$empleo %>%
 title("Gráfico 5. Tipo de trabajo")
 ```
 
+Esta gráfica es muy importante para el estudio, dado que a partir de ella se establecerán algunas relaciones con la variable ingresos y frecuencia de salida. Las relaciones se demostrarán con las pruebas de hipótesis y coeficientes de correlación más adelante.
+
+
 ### ¿Qué tanto varían las cifras de nuevos infectados durante los periodos de instauración previos-posteriores a la medida?
 
 Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
