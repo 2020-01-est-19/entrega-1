@@ -1310,7 +1310,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  # rbp=coeficiente de correlación biserial
 rbp
 
 ```
-El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayor frecuencia de salida promedio y un trabajo de tipo informal.
+El coeficiente de correlación biserial puntual es muy bajo y negativo. Dado que su v.a. esta debajo del nivel de confianza requerido, se concluye que no existe una correlación significativa entre ambas variables.
 
 # Medida de Inmovilización social
 
@@ -1352,7 +1352,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
-El coeficiente para la medida de Inmovilización social indica una correlación muy baja entre las variables. Esto significa que mayores disminuciones en la frecuencia de salida  se correlacionan muy bajo con las personas de trabajo formal.
+El coeficiente para la medida de Inmovilización social indica una correlación muy baja entre las variables. Por lo tanto, dado que este es menor a 0.95, esta correlación no se sustenta estadisticamente, por lo que no se encuentra una correlación significativa entre las variables de frecuencia de salida y tipo de trabajo.
 
 # Medida: Retiro 2000 soles de fondos AFP de trabajadores afiliados
 
@@ -1392,8 +1392,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
-El coeficiente de correlación para la medida del retiro AFP es negativo y bajo. El signo negativo significa que el comportamiento positivo corresponde a los trabajadores informales. Por lo  que mayores  disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
-
+El coeficiente de correlación para la medida del retiro AFP es negativo y bajo. Dado que este no supera el nivel de confianza requerido para considerarse significativo, se concluye que no existe una correlación significativa entre las variables de frecuencia de salida y tipo de trabajo para nuestros datos.
 
 # Género -> Frecuencia de salida a la semana
 ## Variable independiente: Género
@@ -1431,8 +1430,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)
 rbp
 
 ```
-El coeficiente es negativo para las personas de género masculino, esto significa que la correlación es positiva para las personas de género femenino. Dado que el coeficiente es pequeño, mayores frecuencias de salida se correlacionan bajo con las personas de género femenino.
-
+Dado que el coeficiente de correlación biserial no supera el nivel de confianza requerido, el modelo es impreciso. Por tanto, se concluye directamente que no existe una correlción significativa entre la frecuencia de salida a la semana y el género femenino.
 
 # Medida: Disposición salida de hombres y mujeres en días complementarios (lunes-miércoles-viernes / martes-jueves-sábados)
 
@@ -1478,8 +1476,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  #p=informal/muestra , q=formal/muestra
 rbp
 
 ```
-
-El coeficiente es muy bajo por lo que existe una correlación muy baja entre mayores disminuciones de frecuencias de salida a la semana y personas de genero masculino.
+El coeficiente es extremadamente bajo y no supera el nivel de confianza que se requiere, por lo que no se encuentra una correlación significativa entre las variables de frecuencia de salida y el género femenino para la medida.
 
 # Edad -> Frecuencia de salida
 
@@ -1504,15 +1501,14 @@ cor(x = df_form2$edad , y =(datos.n), method = "pearson")
 ```
 La gráfica del modelo muestra que el comportamiento de la variable dependiente es casi constante a lo largo de la edad, es decir, no hay cambios signifcativos en la frecuencia de salida tras un aumento o disminución de la edad. Respecto a la nube de puntos, existen muchos puntos alejados al ajuste de regresión lineal y se dispersan variablemente a medida que aumenta la edad.
 
-El coeficiente de correlación de pearson para estas variables es muy bajo y positivo. Una mayor edad es 0.012 asociada a una mayor frecuencia de salida, es decir, presentan un grado de asociación  muy debil. Esto significa que una mayor edad no implica una mayor frecuencia de salida. Para corroborar ello se analiza los coeficientes del modelo, se describe y analizan los residuos del modelo.
-
+El coeficiente de correlación de pearson para estas variables es extremadamente bajo, siendo muy cercano a 0. Esto implica que no se encuentra una correlación significativa entre las variables del estudio, por lo que se mantiene H0.
 
 ```{r}
 summary(edad_frec_lm)
 ```
 Se obtuvo un modelo con pendiente muy baja, con un p-valor mayor a la significancia establecida, por lo que no se rechaza la hipótesis nula de que este valor sea 0, es cercano a 0. Respecto al intercepto, cuando la edad es 0,  el p_valor es mucho menor a la significancia establecida, por lo que se rechaza la hipótesis nula que sea 0, es 2.437 veces de salida. El coeficiente de determinación indica que el 0.000153 % de variación de las frecuencias de salida se puede explicar por la edad. Es muy bajo y por tanto coincide con el bajo grado de asociación de las variables.
 
-#Analisis de residuos
+# Analisis de residuos
 ```{r}
 plot(edad_frec_lm)
 ```
@@ -1551,14 +1547,14 @@ cor(x, y, method="pearson")
 ```
 La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. Se observa que existen de más a menos puntos alejados del ajuste  lineal a medida que incrementan los ingresos mensuales. Del mismo modo, existe una dispersión variable de la nube de puntos a medida que incrementan los ingresos mensuales.
 
-El coeficiente de correlación de pearson es negativo y bajo, esto significa que el grado de asociación de las variables es bajo. Es decir, menores frecuencias de salida se asocia un -0.05150849  a mayores ingresos mensuales.  Para corroborar ello se analiza los coeficientes del modelo, se describe y analizan los residuos del modelo.
+El coeficiente de correlación de pearson es negativo y su v.a. se encuentra debajo del nivel de confianza requerido, por lo que no se encuentra una correlación significativa entre las variables. Para corroborar ello se analiza los coeficientes del modelo, se describe y analizan los residuos del modelo.
 
 
 ```{r}
 summary(ingresos_frec)
 
 ```
-Se obtuvo una pendiente muy baja y negativa de -2.95 *10^(-5). El signo negativo indica que la variable dependiente en este caso , la frecuencia de salida tiende a ser menor a medida que incrementan los ingresos mensuales. La pendiente del modelo se obtuvo con p_valor mayor a la significancia establecida, por lo que no se puede rechazar la hipótesis nula de que esta es 0, ya que es muy próximo a 0. Respecto al intercepto , cuando los ingresos son  nulos  es 2.562 veces de salida, este valor se obtuvo con un p_valor menor a la significancia establecida, por lo que se rechaza la hipótesis nula de que esta sea 0.  El coeficiente de determinación del modelo indica que el 0.002653% de variación de la frecuencia de salida se puede explicar por los ingresos mensuales. El grado de exlicación establecido para las variables es muy bajo, por tanto coincide con la baja asociación de estas determinado anteriormente mediante el coeficiente de pearson.
+Los residuos muestran que la predicción obtenida no se mantienen de acuerdo con los resultados reales por un margen muy significativo, lo que confirma el hecho que la correlación no es estadisticamente significativa.
 
 ```{r}
 plot(ingresos_frec)
@@ -1571,7 +1567,6 @@ En la segunda gráfica de los residuos estandarizados Vs. cuantiles teóricos. S
 
 
 A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida  mediante los ingresos mensuales no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones se encuentran conectadas a la parte descriptiva que se realizó para cada intervalo de ingresos, en los cuales se mostró que la distribución de las frecuencias de salida a medida que aumentaban los intervalos, resultaban  menores en mediana que el intervalo o rango de [0,1000] soles, por lo que parecía favorecerse que menores frecuencias de salida estaban relacionadas con mayores ingresos. Esto se comprobó mediante una prueba de hipótesis comparando las medias entre las frecuencias de salida de aquellos con un intervalo de ingreso menor a 1000 soles y de la muestra, en esta se rechazo la hipótesis nula de que las personas con menores frecuencias de salida no necesariamente tienen ingresos    mensuales mayores a 1000 soles dado que el p_valor resultó menor que la significancia establecida. Esto no daba certeza de que las personas con mayores ingresos a 1000 soles tenían menores frecuencias de salida, pero evidencia cierta  tendencia a favorecer ello.  Sin embargo, se observaba que existían personas que aún teniendo mayores ingreso salían más, y lo mismo sucedía con las personas que tenían menores ingresos , salían menos algunos. Esta alta variabilidad (dispersión) para las personas con ingresos mayores a 1000 soles explica porque el modelo de regresión lineal no ajusta correctamente los datos recolectados. Apesar de esto, se justifica claramente que la pendiente negativa del modelo se debe a que  menores frecuencias se explican por mayores ingresos, pero que no resulta imponente ante la dispersión de los datos.
-
 
 
 # Resultados generales
@@ -1588,23 +1583,18 @@ A partir de la evidencia estadística, se afirma que el modelo de regresión lin
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
-- Otras tendencias que se encontraron fue entre frecuencia de salida y trabajo informal, dado que se encontró una correlación biserial puntual muy baja lo que explica una baja relación entre estas dos variables.
-
-- El coeficiente para la medida del retiro AFP es negativo y bajo. Esto quiere decir que el comportamiento positivo corresponde a los trabajadores informales. A mayores disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
-
 - Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc.
 
+- Para el caso de las variables de la encuesta, se encontró que muchos resultados van en contra del comportamiento esperado, puesto que muchas de estas no se correlacionan en absoluto. Esto podria deberse a la naturaleza discreta de los datos del estudio.
+
 - También pudimos hallar algunas inconsistencias en la información adquirida. Estas inconsistencias podrían provenir de algunos factores que no se tomaron en cuenta. Por ejemplo, todas las medidas que no se consideraron tuvieron un efecto aunque sea mínimo en las variables analizadas.
-
-- La regresión nuevos casos -> movilización no es muy buena. Su coeficiente de determinación es muy pequeño. Además hay en la gráfica de los residuos hay áreas con varios puntos.
-
 
 
 # Conclusiones
 
 - Pudimos relacionar diferentes medidas tomadas por el gobierno peruano con la propagacion del COVID-19 de manera satisfactoria y averiguar a través de un procedimiento estadístico si la relación de estas medidas con la inmovilización social era significativa o no. También pudimos relacionar las medidas con otros factores como la cantidad de casos por día e información adquirida a traves de entrevistas y datos sacados de fuentes confiables.
 
-- Como ya se menciono anteriormente, fuimos capaces de hallar la relación entre diferentes variables relacionadas a las medidas escogidas, las entrevistas llevadas a cabo y la información adquirida en la web y descubrimos cuáles de estas variables son las que tienen más semejanzas.
+- Fuimos capaces de hallar la relación entre diferentes variables relacionadas a las medidas escogidas, las entrevistas llevadas a cabo y la información adquirida en la web y descubrimos cuáles de estas variables son las que tienen más semejanzas. Se encontraron tambien diversos resultados que van en contra de las predicciones.
 
 - Aprendimos a utilizar Github como un medio de comunicación que nos ayuda a juntar toda la información de manera rápida y sencilla. Esto permitió que la comunicación entre los integrantes del grupo sea más fluida y sus avances se integren de manera lógica y entendible en el informe.
 
