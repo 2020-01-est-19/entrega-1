@@ -1254,14 +1254,9 @@ Dado que el p_valor es mayor a la significancia, no se rechaza la Ho, ya que hay
 
 Las hipótesis planteadas en relación al tipo de trabajo y genero, se corroborarán posteriormente.
 
-#Estadística inferencial
+# Estadística inferencial
 
 Para conocer en que medida se ajustan o asocian las variables que relacionamos y observamos como patrones, se determinará  su grado  de correlación, prinicipalmente por regresión lineal.
-
-
-
-
-
 
 # Tipo de trabajo -> Frecuencia de salida a la semana
 
@@ -1274,8 +1269,6 @@ Para establecer si existe una relación entre ambas variables, se requiere de un
 df_trabajo<-df_form2%>%group_by(empleo)%>%filter(empleo!="No trabajo")%>%mutate(Variable_dicotomizada = as.numeric(empleo == "Formal"))%>%select(empleo,salidas,Variable_dicotomizada)%>%filter(salidas!="Mayor 5")
 df_trabajo
 ```
-
-
 
 Para saber si una mayor frecuencia de salida esta asociada a un empleo de tipo formal. Se determina el coeficiente de correlación biserial puntual.
 
@@ -1304,7 +1297,7 @@ rbp<-((X1barra-Xbarra)/SX)*sqrt(p/q)  # rbp=coeficiente de correlación biserial
 rbp
 
 ```
-El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayor frecuencia de salida promedio y un trabajo de tipo de informal.
+El coeficiente de correlación biserial puntual es muy bajo y negativo, la tendencia explica que es baja la correlación entre mayor frecuencia de salida promedio y un trabajo de tipo informal.
 
 # Medida de Inmovilización social
 
@@ -1517,7 +1510,7 @@ En la primera gráfica de los residuos Vs. los valores ajustados , se observa qu
 En la segunda gráfica residuos estandarizados Vs. cuantiles teóricos, se observa que a medida que incrementan los quantiles teóricos, existen muchos residuos que inciden en el mismo valor y alguno de estos se alinean a la recta de los cuantiles teóricos.  Esto se debe a que la variable dependiente del modelo, algunas veces se repite para cada edad. Llega un momento en el que los errores estandarizados se desalinean completamente de la recta. Esto se debe a que existen saltos en el valor de la variable dependiente que el error estandarizado no ajusta porque los datos no siguen el comportamiento de una regresión lineal. La idea de explicar una mayor frecuencia de salida con  una mayor edad no es correctamente ajustada ya que existe evidencia que los datos no siguen esta tendencia.
 
 
-A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida mediante la edad no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones están directamente relacionadas al comportamiento de los datos recolectados. Durante la descripción  de la edad en base a las frecuencias de salida se observó que las distribuciones de las edades no eran muy diferentes, algunas coincidían cada vez que incrementaba la frecuencia de salida. Se debe a que los encuestados con más edad aveces salían más que menos, de igual forma sucedía con los de menos edad, no se evidenciaba claramente una tendencia definida. Se comprobó esta afirmación también,  mediante prueba de hipótesis de la media de la muestra, en el cual no se rechazo  la hipótesis nula de que las personas menores de 25 años no necesariamente tenían menores salidas, debido a que la media de ellos era mayor que la media de la muestra y el p_valor resultaba mayor que la significancia, lo cual implicaba que habían personas menores de 25 años que salían más que el promedio de la muestra.
+A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida mediante la edad no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones están directamente relacionadas al comportamiento de los datos recolectados. Durante la descripción  de la edad en base a las frecuencias de salida se observó que las distribuciones de las edades no eran muy diferentes, algunas coincidían cada vez que incrementaba la frecuencia de salida. Se debe a que los encuestados con más edad a veces salían más que menos, de igual forma sucedía con los de menos edad, no se evidenciaba claramente una tendencia definida. Se comprobó esta afirmación también,  mediante prueba de hipótesis de la media de la muestra, en el cual no se rechazo  la hipótesis nula de que las personas menores de 25 años no necesariamente tenían menores salidas, debido a que la media de ellos era mayor que la media de la muestra y el p_valor resultaba mayor que la significancia, lo cual implicaba que habían personas menores de 25 años que salían más que el promedio de la muestra.
 
 # Ingresos -> frecuencia de salida
 
@@ -1552,22 +1545,19 @@ El coeficiente de correlación de pearson es negativo y bajo, esto significa que
 summary(ingresos_frec)
 
 ```
-Se obtuvo una pendiente muy baja y negativa de -2.95 *10^(-5). El signo negativo indica que la variable dependiente en este caso , la frecuencia de salida tiende a ser menor a medida que incrementan los ingresos mensuales. La pendiente del modelo se obtuvo con p_valor mayor a la significancia establecida, por lo que no se puede rechazar la hipótesis nula de que esta es 0, ya que es muy próximo a 0. Respecto al intercepto , cuando los ingresos son  nulos  es 2.562 veces de salida, este valor se obtuvo con un p_valor menor a la signifcancia establecida, por lo que se rechaza la hipótesis nula de que esta sea 0.  El coeficiente de determinación del modelo indica que el 0.002653 % de variación de la frecuencia de salida se puede explicar por los ingresos mensuales. El grado de exlicación establecido para las variables es muy bajo, por tanto coincide con la baja asociación de estas determinado anteriormente mediante el coeficiente de pearson.
+Se obtuvo una pendiente muy baja y negativa de -2.95 *10^(-5). El signo negativo indica que la variable dependiente en este caso , la frecuencia de salida tiende a ser menor a medida que incrementan los ingresos mensuales. La pendiente del modelo se obtuvo con p_valor mayor a la significancia establecida, por lo que no se puede rechazar la hipótesis nula de que esta es 0, ya que es muy próximo a 0. Respecto al intercepto , cuando los ingresos son  nulos  es 2.562 veces de salida, este valor se obtuvo con un p_valor menor a la significancia establecida, por lo que se rechaza la hipótesis nula de que esta sea 0.  El coeficiente de determinación del modelo indica que el 0.002653% de variación de la frecuencia de salida se puede explicar por los ingresos mensuales. El grado de exlicación establecido para las variables es muy bajo, por tanto coincide con la baja asociación de estas determinado anteriormente mediante el coeficiente de pearson.
 
 ```{r}
 plot(ingresos_frec)
 ```
 
-En la primera gráfica de los residuos Vs. valores ajustados se muestra que la media de los errores se desvía de 0, ya que existe un mayor grado de dispersión debajo de 0 a medida que aumentan los valores ajustados. De la misma manera se observa que al inicio existen mayores residuos debajo de 0 que encima de 0, en el medio también se da este comportamiento, al parecer al final los residuos son distribuidos simétricamente. Dado que la dispersión no es fija y simétrica para todos los errores a media que se avanza en el ajuste del modelo, se puede decir que los residuos no siguen una distribución normal. Las variaciones en los residuos explican que la variable dependiente,  no crece o decrece con una tendencia definida. Debido a que no siguen una distribución normal, el ajuste como regresión lineal para explicar la frecuencia de salida a partir de los ingresos no resultaría  una buena aproximación.
+En la primera gráfica de los residuos Vs. valores ajustados se muestra que la media de los errores se desvía de 0, ya que existe un mayor grado de dispersión debajo de 0 a medida que aumentan los valores ajustados. De la misma manera, se observa que al inicio existen mayores residuos debajo de 0 que encima de 0, en el medio también se da este comportamiento, al parecer al final los residuos son distribuidos simétricamente. Dado que la dispersión no es fija y simétrica para todos los errores a medida que se avanza en el ajuste del modelo, se puede decir que los residuos no siguen una distribución normal. Las variaciones en los residuos explican que la variable dependiente,  no crece o decrece con una tendencia definida. Debido a que no siguen una distribución normal, el ajuste como regresión lineal para explicar la frecuencia de salida a partir de los ingresos no resultaría  una buena aproximación.
 
 
 En la segunda gráfica de los residuos estandarizados Vs. cuantiles teóricos. Se observa que inciden varios residuos estandarizados en un mismo valor, debido a que el valor de la  variable dependiente algunas veces se repite. Algunos de estos residuos estandarizados se alinean a la recta de los cuartiles téoricos, algunos estan cerca, pero llega un punto en el que el  alejamiento de la recta es significativo, tal que a pesar de estar estandarizado el error no ajusta el comportamiento de la regresión lineal. El valor de la variable dependiente varía de tal manera que resulta díficil ajustarlo, es por ello que los datos  no siguen esta tendencia.
 
 
-A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida  mediante los ingresos mensuales no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones se encuentran conectadas a la parte descriptiva que se realizó para cada intervalo de ingresos, en los cuales se mostró que la distribución de las frecuencias de salida a medida que aumentaban los intervalos, resultaban  menores en mediana que el intervalo o rango de [0,1000] soles, por lo que parecía favorecerse que menores frecuencias de salida estaban relacionadas con mayores ingresos. Esto se comprobó mediante prueba de hipótesis comparando las medias entre las frecuencias de salida de aquellos con un intervalo de ingreso menor a 1000 soles y de la muestra, en esta se rechazo la hipótesis nula de que las personas con menores frecuencias de salida no necesariamente tienen ingresos    mensuales mayores a 1000 soles dado que el p_valor resulto menor que la significancia establecida. Esto no daba certeza de que las personas con mayores ingresos a 1000 soles tenían menores frecuencias de salida , pero evidencia cierta  tendencia a favorecer ello.  Sin embargo, se observaba que existían personas que aún teniendo mayores ingreso salían más, y lo mismo sucedía con las personas que tenían menores ingresos , salían menos algunos. Esta alta variabilidad (dispersión) para las personas con ingresos mayores a 1000 soles explica porque el modelo de regresión lineal no ajusta correctamente los datos recolectados. Apesar de esto, se justifica claramente que la pendiente negativa del modelo se debe a que  menores frecuencias se explican por mayores ingresos , pero que no resulta imponente ante la dispersión de los datos.
-
-
-
+A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida  mediante los ingresos mensuales no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones se encuentran conectadas a la parte descriptiva que se realizó para cada intervalo de ingresos, en los cuales se mostró que la distribución de las frecuencias de salida a medida que aumentaban los intervalos, resultaban  menores en mediana que el intervalo o rango de [0,1000] soles, por lo que parecía favorecerse que menores frecuencias de salida estaban relacionadas con mayores ingresos. Esto se comprobó mediante una prueba de hipótesis comparando las medias entre las frecuencias de salida de aquellos con un intervalo de ingreso menor a 1000 soles y de la muestra, en esta se rechazo la hipótesis nula de que las personas con menores frecuencias de salida no necesariamente tienen ingresos    mensuales mayores a 1000 soles dado que el p_valor resultó menor que la significancia establecida. Esto no daba certeza de que las personas con mayores ingresos a 1000 soles tenían menores frecuencias de salida, pero evidencia cierta  tendencia a favorecer ello.  Sin embargo, se observaba que existían personas que aún teniendo mayores ingreso salían más, y lo mismo sucedía con las personas que tenían menores ingresos , salían menos algunos. Esta alta variabilidad (dispersión) para las personas con ingresos mayores a 1000 soles explica porque el modelo de regresión lineal no ajusta correctamente los datos recolectados. Apesar de esto, se justifica claramente que la pendiente negativa del modelo se debe a que  menores frecuencias se explican por mayores ingresos, pero que no resulta imponente ante la dispersión de los datos.
 
 
 
@@ -1585,7 +1575,9 @@ A partir de la evidencia estadística, se afirma que el modelo de regresión lin
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
-- Se encontró una tendencia entre la variable empleo e ingresos. En el distrito de Barranco hubo mayor concentración de personas que trabajan informalmente y estos tienen un ingreso que oscila entre tres mil y cuatro mil soles, mientras que, los que tienen un empleo formal como San Borja, San Isidro y Santiago de Surco entre ocho mil y nueve mil soles, cuatro mil y cinco mil soles y seís mil y siete mil soles respectivamente.
+- Otras tendencias que se encontraron fue entre frecuencia de salida y trabajo informal, dado que se encontró una correlación biserial puntual muy baja lo que explica una baja relación entre estas dos variables. 
+
+- El coeficiente para la medida del retiro AFP es negativo y bajo. Esto quiere decir que el comportamiento positivo corresponde a los trabajadores informales. A mayores disminuciones de frecuencia de salida se correlacionan bajo con las personas de trabajo informal.
 
 - Entre los factores que la población determinó son los que desaceleran la propagación del covid - 19 destacan el toque de queda, medidas preventivas sanitarias, inmovilización, entre otros. Del mismo modo, los factores que aceleeran son la aglomeración de personas, falta de educación, informalidad, sistema de salud, etc.
 
