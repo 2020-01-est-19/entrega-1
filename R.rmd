@@ -713,12 +713,12 @@ Para comprobar estadísticamente si es que la medida fue efectiva o no, se reali
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 4.15888| 6.71296 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |4.820939| 6.666542|
 |Variance  |0.366808| 0.140169|
-|Observations |10| 6|
-|df  |9| 5|
+|Observations |10| 10|
+|df  |9| 9|
 |F  |2.616901| |
 |P (F <= f) one-tail  |0.150944|
 |F crítico one-tail  |4.772466| |
@@ -774,15 +774,15 @@ Para comprobar la significancia de esta diferencia, se plantea un test-f. Asumie
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 0.68434 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |0.162215| 0.865875|
 |Variance  |0.079739| 0.076307|
-|Observations |9| 9|
-|df  |8| 8|
+|Observations |10| 10|
+|df  |9| 9|
 |F  |1.044967| |
 |P (F <= f) one-tail  |0.475961|
-|F crítico one-tail  |3.438101| |
+|F crítico one-tail  |1.739606726| |
 |---|----------|------|
 
 
@@ -798,21 +798,20 @@ En esta gráfica podemos ver que la medida de permiso de adquisición de bienes 
 * Ha = Existen diferencias significativas en la movilización entre el periodo previo a la declaración  y el posterior.
 
 
-|t - Test: Paired Two Sample for Means |
+|t - Test: Two-Sample Assuming Unequal Variances |
 |---|----------|------|
-| | -69| -93 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |-76.7381| -78.9556|
-|Variance  |44.18367| 58.21778|
-|Observations |9| 9|
-|Pooled  |51.20073| |
-|Hypothesized Mean Difference  |8| |
-|df |8| |
-|t Stat  |-1.7143| |
-|P(T <= t) one - tail  |0.052888| |
-|t Critical one - tail |1.745884| |
-|P(T <= t) two - tail  |0.105775| |
-|t Critical two - tail  |2.119905| |
+|Mean  |-80.4| -76.6|
+|Variance  |68.21111111| 37.82222222|
+|Observations |10| 10|
+|Hypothesized Mean Difference  |0| |
+|df |17| |
+|t Stat  |-1.166977249| |
+|P(T <= t) one - tail  |0.129664399| |
+|t Critical one - tail |1.739606726| |
+|P(T <= t) two - tail  |0.259328799| |
+|t Critical two - tail  |2.109815578| |
 |---|----------|------|
 
 
