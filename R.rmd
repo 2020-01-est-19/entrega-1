@@ -610,21 +610,19 @@ Para comprobar la significancia de esta diferencia, se realizó un test-t de med
 * Ho : No existe un efecto significativo de la medida por sobre las medias del Cambio de Movilización.
 * Ha : Existen diferencias significativas entre las medias de la variable Cambio de Movilización para antes y después de ejecutarse la medida.
 
-|t - Test: Paired Two Sample for Means |
+|t - Test Two Assuming Unequal Variances |
 |---|----------|------|
-| | 0| -37 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |2.7875| -73.125|
-|Variance  |18.06982| 10.125|
-|Observations |8| 8|
-|Pearson Correlation  |-0.09835| |
-|Hypothesized Mean Difference  |60| |
-|df (F <= f) one-tail  |7| |
-|t Stat  |8.102459| |
-|P(T <= t) one - tail  |4.2E-0.5| |
-|t Critical one - tail |1.894579| |
-|P(T <= t) two - tail  |8.4E-0.5| |
-|t Critical two - tail  |2.364624| |
+|Mean  |-3.363636364| -71.1818182|
+|Variance  |15.65454545| 113.363636|
+|Observations |11| 11|
+|df  |13| |
+|t Stat  |19.8023634| |
+|P (T <= t) one-tail  |2.15261E-11| |
+|t crítical one-tail  |1.770933396| |
+|P (T <= t) two-tail  |4.30521E-11| |
+|t crítical two-tail  |2.160368656| |
 |---|----------|------|
 
 Dado que el valor |t| > t-crítico dos colas, se puede encontrar evidencia para rechazar la hipótesis nula Ho. Dado α =0.05 > P(T<=t) dos colas, existe significancia suficiente para ello. Por tanto, se rechaza Ho, existiendo por tanto diferencias significativas entre antes de ejecutarse la declaración de Estado de Emergencia y después sobre la movilización de las personas. Debido a que el coeficiente de correlación es menor a 0, se puede afirmar que el cambio además redujo la movilización.
