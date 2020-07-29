@@ -33,7 +33,7 @@ read_csv(tmp,
     # Esta parte dejaba de funcionar cada vez que había una cambio en las variables
     col_types = cols(
         country_region_code = col_character(),
-        contry_region = col_character(),
+        country_region = col_character(),
         sub_region_1 = col_character(),
         sub_region_2 = col_character(),
         metro_area = col_character(),
