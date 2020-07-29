@@ -1,4 +1,4 @@
-s---
+---
 title: "Efecto de las medidas tomadas por el gobierno peruano frente al COVID-19"
 output:
   html_notebook:
