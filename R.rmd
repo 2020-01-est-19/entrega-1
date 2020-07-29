@@ -169,7 +169,7 @@ repeat_plots <- function(day, range, main_title = "") {
 * Ricardo Atsuhiko Yamamoto Yamamoto
 
 # Líder
-* Esteban Villacorta García
+* Alberto Oporto Ames
 
 # Introducción
 El COVID-19 ha tenido un gran impacto alrededor del mundo y hoy en dia es fácilmente
@@ -1555,7 +1555,7 @@ plot(ingresos_frec)
 
 - En suma, al realizar la prueba de hipótesis para cada medida y la cantidad de casos por día pudimos hallar que en general, las medidas analizadas funcionaron de manera satisfactoria. Esto se debe a que a pesar de que no todas influyeron en la movilización recreacional, sí redujeron la cantidad de infectados por dia en Lima.
 
--Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización. 
+- Tras realizar las encuestas, se encontró que la frecuencia de salida oscila entre dos y tres veces a la semana. La medida que tuvo mayor aprobación fue la inmovilización. 
 
 - Por otra parte, existen algunas tendencias cuando se analizaron algunos de los gráficos en base a las respuestas de los encuestados. Tal es el caso, que se presenta un comportamiento entre la variable ingreso y casos infectados. Tal es el caso que las poblaciones con menores ingresos, como San Juan de Lurigancho con un ingreso de 0 a 1000 es el que presenta más de catorce mil infectados. No obstante, en comparación con los distritos más pudientes como Barranco con ingresos mayores a 4000, presenta menos de dos mil casos.
 
