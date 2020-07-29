@@ -574,6 +574,8 @@ ggplot(aes(x = salidas_, y = ingreso), data = df_form2) +
 
 # Declaración del Estado de Emergencia
 
+En esta gráfica podemos visualizar que la cantidad de infectados por día bajó en algunos días inmediatamente después de que se declarará el estado de emergencia. Se puede apreciar en la gráfica que se lleva a cabo cada 2 o 3 días durante la semana siguiente a la implementación del Estado de Emergencia. Esto se podría deber a factores como la cantidad de pruebas tomadas por día, frecuencia de salida de las personas y el cumplimiento de las leyes y medidas tomadas.
+
 ```{r,echo=FALSE,message=FALSE,results="asis"}
 cat_plot(lubridate::ymd("2020-03-15"), 10, "Gráfico 6. Declaración del estado de Emergencia", plot_new_cases, "Nuevos casos")
 ```
@@ -585,15 +587,15 @@ ln(y) ~ At+B. Tomando a L1 como regresión de control sin variable independiente
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 1.30103 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |0.779146| 1.644595|
-|Variance  |0.158901| 0.022317|
-|Observations |9| 8|
-|df  |8| 7|
-|F  |7.120148| |
-|P (F <= f) one-tail  |0.008916| |
-|F crítico one-tail  |3.725725| |
+|Mean  |1.55950355| 3.603577946|
+|Variance  |1.30751423| 0.201678854|
+|Observations |10| 9|
+|df  |9| 8|
+|F  |6.48314984| |
+|P (F <= f) one-tail  |0.00746629| |
+|F crítico one-tail  |3.38813023| |
 |---|----------|------|
 
 Dado que la varianza 1 > varianza 2, la elección del orden de las variables es correcta. Por tanto, dado F > F crítico, se encuentra evidencia para falsear Ho. Dado α > P(F<=f) una cola, se rechaza la hipótesis nula, por lo que existen diferencias significativas. Comparando las pendientes A1=0.337 y A2=0.0729 con A2 <A1, se puede asumir que se frenó la expansión de la enfermedad.
