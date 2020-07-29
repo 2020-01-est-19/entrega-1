@@ -658,13 +658,13 @@ Se realizó un f-test sobre los inputs a la regresión lineal del logaritmo de l
 
 |F - Test Two - Sample for Variances |
 |---|----------|------|
-| | 0| 3.27714 |
+| | Variable 1| Variable 2 |
 |---|----------|------|
 |Mean  |1.538879| 3.218122|
 |Variance  |0.949329| 0.148907|
-|Observations |9| 9|
-|df  |8| 8|
-|F  |6-.375321| |
+|Observations |10| 10|
+|df  |9| 9|
+|F  |6.375321| |
 |P (F <= f) one-tail  |0.008398| |
 |F crítico one-tail  |3.438101| |
 |---|----------|------|
@@ -681,21 +681,20 @@ Utilizando un test-t para medias en ambas secciones de la gráfica, podemos dete
 * Ho : No  existen diferencias significativas entre ambas secciones de la gráfica.
 * Ha : Existen diferencias significativas entre ambas secciones de la gráfica.
 
-|t - Test: Paired Two Sample for Means |
+|t - Test Two Sample Assuming Unequal Variances |
 |---|----------|------|
-| | 2| -69 |
+| | Variable 1| Variable 2|
 |---|----------|------|
-|Mean  |-16.8889| -72.111|
-|Variance  |446.1111| 1.861111|
-|Observations |9| 9|
-|Pearson Correlation  |-0.73266| |
-|Hypothesized Mean Difference  |8| |
-|df |8| |
-|t Stat  |6.398578| |
-|P(T <= t) one - tail  |0.000105| |
-|t Critical one - tail |1.859548| |
-|P(T <= t) two - tail  |0.000209| |
-|t Critical two - tail  |2.306004| |
+|Mean  |-9.33333333| -74.5|
+|Variance  |135|5.388888889|
+|Observations |9| 10|
+|Hypothesized Mean Difference  |0| |
+|df |9| |
+|t Stat  |16.53162428| |
+|P(T <= t) one - tail  |2.41781E-08| |
+|t Critical one - tail |1.833112933| |
+|P(T <= t) two - tail  |4.83563E-08| |
+|t Critical two - tail  |2.262157163| |
 |---|----------|------|
 
 Dado que el estadístico |t| > t-crítico dos colas, se encuentra evidencia para falsear la hipótesis nula. Dado que P(T<=t) < α, la elección es justificable, por lo que se rechaza la hipótesis nula, concluyendo por tanto que existe una diferencia significativa entre ambas secciones de la gráfica. Debido a que la correlación es negativa, se concluye que la medida redujo la movilizacion recreacional.
