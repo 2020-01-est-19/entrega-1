@@ -585,19 +585,17 @@ ln(y) ~ At+B. Tomando a L1 como regresión de control sin variable independiente
 * Ho : No existen diferencias significativas entre ambos modelos.
 * Ha : Existen diferencias significativas entre el modelo anterior a la medida y el actual.
 
-|t - Test Two Assuming Unequal Variances |
+|F - Test Two - Sample for Variances |
 |---|----------|------|
 | | Variable 1| Variable 2 |
 |---|----------|------|
-|Mean  |-3.363636364| -71.1818182|
-|Variance  |15.65454545| 113.363636|
-|Observations |11| 11|
-|df  |13| |
-|t Stat  |19.8023634| |
-|P (T <= t) one-tail  |2.15261E-11| |
-|t crítical one-tail  |1.770933396| |
-|P (T <= t) two-tail  |4.30521E-11| |
-|t crítical two-tail  |2.160368656| |
+|Mean  |1.55950355| 3.603577946|
+|Variance  |1.30751423| 0.201678854|
+|Observations |10| 9|
+|df  |9| 8|
+|F  |6.48314984| |
+|P (F <= f) one-tail  |0.00746629| |
+|F crítico one-tail  |3.38813023| |
 |---|----------|------|
 
 Dado que la varianza 1 > varianza 2, la elección del orden de las variables es correcta. Por tanto, dado F > F crítico, se encuentra evidencia para falsear Ho. Dado α > P(F<=f) una cola, se rechaza la hipótesis nula, por lo que existen diferencias significativas. Comparando las pendientes A1=0.337 y A2=0.0729 con A2 <A1, se puede asumir que se frenó la expansión de la enfermedad.
