@@ -531,6 +531,10 @@ title("Gráfico 1. Edad")
 
 $$n = 310, sd = 12.619$$
 
+
+Según el INEI (2015), al realizar una investigación exhaustiva, se encontró que en Lima la estructura de la población proyectada muestra mayores cambios acentuados en la edad, así el grupo de 0-14 años de edad redujó su participación de un 29.3% a 22.0%, mientras que el grupo de 15-64 años incrementó su participación de 65.8% a 69.4% desde 1995 hasta el 2015. A partir de la gráfica se puede observar que la población pertenece al segundo grupo por encontrarse entre 17 y 67 años de edad confirmando de este modo que el crecimiento demográfico ha seguido la misma línea después del periodo de estimación. Esto se verifica con el censo del INEI, el cual manifesto que el 61.7% tiene de 15 a 19 años de edad. Más aún, el CPI (2019), exhibe que la mayor población se encuentra entre 18 a 56 años respaldando lo condensando hasta aquí. 
+
+
 ### Género
 ```{r}
 df_form2 %>%
@@ -540,6 +544,8 @@ df_form2 %>%
 
 title("Gráfico 2. Género")
 ```
+
+El Instituto Nacional de Estadística e Informático (INEI) dio a conocer que en el año 2017 la población del Perú ascendió a 31 millones 237 mil 385 habitantes. Lima tenía cerca de 9 millones y medio de habitantes. El porcentaje de hombres fue superior a las mujeres en 8 departamentos. Particularmente en Lima, la proporción de hombres era 50.2% y el de mujeres 49.8%. Investigaciones recientes indican que para el 2021 el Perú tendrá más de 33 millones de habitantes con un promedio de edad de 30 años, con mayor cantidad de mujeres sumado con un acelerado proceso de envejecimiento.
 
 ### Ingreso promedio
 
