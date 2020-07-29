@@ -564,13 +564,6 @@ title("Gráfico 5. Tipo de trabajo")
 
 Para esta primera pregunta se han procesado los datos web. Se presentarán dos gráficos por cada una de las cuatro medidas que se analizarán. El primero de ellos será de los nuevos casos y el segundo de la movilización recreacional (cambios en la movilización). Los descriptores que se están utilizando para describir mejor los datos obtenidos es la media y mediana. Es necesario destacar que se ha optado por graficar los datos diez días antes de que se decrete la medida y diez días después de haberse promulgado.
 
-### Frecuencia de salidas VS ingresos
-```{r}
-ggplot(aes(x = salidas_, y = ingreso), data = df_form2) +
-    geom_boxplot() +
-    ggtitle("Salidas vs ingresos") +
-    theme(plot.title = element_text(hjust = 0.5))
-```
 
 # Declaración del Estado de Emergencia
 
@@ -1241,40 +1234,15 @@ p_valor
 p_significancia
 ```
 
-Dado que el p_valor es mayor a la significancia, no se rechaza la Ho, ya que hay personas que tienen mayor edad que 25 años y salen menos que el promedio de frecuencia de salida.
+Dado que el p_valor es mayor a la significancia, no se rechaza la Ho, ya que hay personas que tienen menor edad que 25 años y salen más que el promedio de frecuencia de salida.
 
 Las hipótesis planteadas en relación al tipo de trabajo y genero, se corroborarán posteriormente.
 
 #Estadística inferencial
 
-# Nuevos casos -> cambio movilización
+Para conocer en que medida se ajustan o asocian las variables que relacionamos y observamos como patrones, se determinará  su grado  de correlación, prinicipalmente por regresión lineal.
 
-```{r}
-df_infec %>% rename(date = FECHA_RESULTADO) -> df_infec_tmp
-df_mov %>%
-    group_by(date) %>%
-    summarise(mov = mean(grocery_and_pharmacy_percent_change_from_baseline, na.rm=TRUE)) ->
-    df_mov_tmp
 
-df_case_mov <- merge(df_infec_tmp, df_mov_tmp)
-
-plot(mov~N, data = df_case_mov, xlab="Nuevos casos", ylab="Movilización por víveres")
-cases_mov_lm <- lm(mov~N, data = df_case_mov)
-
-residuos <- rstandard(cases_mov_lm)
-va <- fitted(cases_mov_lm)
-
-abline(cases_mov_lm)
-```
-
-```{r}
-summary(cases_mov_lm )
-plot(cases_mov_lm )
-```
-
-```{r}
-cor(x = as.numeric(df_mov_tmp$date) , y = df_mov_tmp$mov, method = "pearson")
-```
 
 
 
@@ -1457,7 +1425,10 @@ df_medida_genero<-df_form2%>%group_by(genero)%>%mutate(Variable_dicotomizada = a
 
 df_medida_genero
 ```
+
 ## Pruebas de Hipótesis:
+
+En relación a las hipótesis que se plantearon y no se rechazaron 
 
 * H0: No existe una correlación entre la disminución de frecuencia de salida a la semana y personas del género femenino.
 
@@ -1491,6 +1462,7 @@ El coeficiente es muy bajo por lo que existe una correlación muy baja entre may
 # Edad -> Frecuencia de salida
 
 ## Pruebas de Hipótesis:
+* Significancia: 0.05
 
 * H0: No existe una correlación lineal entre la edad y la frecuencia de salida.
 
@@ -1508,17 +1480,34 @@ abline(edad_frec_lm)
 
 cor(x = df_form2$edad , y =(datos.n), method = "pearson")
 ```
-El coeficiente en esta situación es muy bajo, por lo que no se puede detectar una relación entre las variables de edad y frecuencia de salida.
+La gráfica del modelo muestra que el comportamiento de la variable dependiente es casi constante a lo largo de la edad, es decir, no hay cambios signifcativos en la frecuencia de salida tras un aumento o disminución de la edad. Respecto a la nube de puntos, existen muchos puntos alejados al ajuste de regresión lineal y se dispersan variablemente a medida que aumenta la edad.
+
+El coeficiente de correlación de pearson para estas variables es muy bajo y positivo. Una mayor edad es 0.012 asociada a una mayor frecuencia de salida, es decir, presentan un grado de asociación  muy debil. Esto significa que una mayor edad no implica una mayor frecuencia de salida. Para corroborar ello se analiza los coeficientes del modelo, se describe y analizan los residuos del modelo.
+
+
+```{r}
+summary(edad_frec_lm)
+```
+Se obtuvo un modelo con pendiente muy baja, con un p-valor mayor a la significancia establecida, por lo que no se rechaza la hipótesis nula de que este valor sea 0, es cercano a 0. Respecto al intercepto, cuando la edad es 0,  el p_valor es mucho menor a la significancia establecida, por lo que se rechaza la hipótesis nula que sea 0, es 2.437 veces de salida. El coeficiente de determinación indica que el 0.000153 % de variación de las frecuencias de salida se puede explicar por la edad. Es muy bajo y por tanto coincide con el bajo grado de asociación de las variables.
 
 #Analisis de residuos
 ```{r}
 plot(edad_frec_lm)
-summary(edad_frec_lm)
 ```
+
+En la primera gráfica de los residuos Vs. los valores ajustados , se observa que la media de los residuos se desvía de 0 a lo largo de los valores ajustados. De la misma manera, se observa una dispersión variable a lo largo de los valores ajustados, es decir, no hay homocedasticidad. Al inicio, se observa que los residuos debajo de 0 son mayores que los que se encuentran encima de 0, la distribución de los puntos no es simétrica. En el medio, existe mayor dispersión encima de 0, al final es aún más notaria esa dispersión. Ello indica que los residuos del modelo se están dispersando de tal forma que no se distribuyen como una variable normal. Dado que los errores no siguen una distribución normal, se puede afirmar que el ajuste como regresión lineal  no es buena aproximación para explicar como cambia la frecuencia a partir de la edad. 
+
+
+En la segunda gráfica residuos estandarizados Vs. cuantiles teóricos, se observa que a medida que incrementan los quantiles teóricos, existen muchos residuos que inciden en el mismo valor y alguno de estos se alinean a la recta de los cuantiles teóricos.  Esto se debe a que la variable dependiente del modelo, algunas veces se repite para cada edad. Llega un momento en el que los errores estandarizados se desalinean completamente de la recta. Esto se debe a que existen saltos en el valor de la variable dependiente que el error estandarizado no ajusta porque los datos no siguen el comportamiento de una regresión lineal. La idea de explicar una mayor frecuencia de salida con  una mayor edad no es correctamente ajustada ya que existe evidencia que los datos no siguen esta tendencia.
+
+
+A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida mediante la edad no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones están directamente relacionadas al comportamiento de los datos recolectados. Durante la descripción  de la edad en base a las frecuencias de salida se observó que las distribuciones de las edades no eran muy diferentes, algunas coincidían cada vez que incrementaba la frecuencia de salida. Se debe a que los encuestados con más edad aveces salían más que menos, de igual forma sucedía con los de menos edad, no se evidenciaba claramente una tendencia definida. Se comprobó esta afirmación también,  mediante prueba de hipótesis de la media de la muestra, en el cual no se rechazo  la hipótesis nula de que las personas menores de 25 años no necesariamente tenían menores salidas, debido a que la media de ellos era mayor que la media de la muestra y el p_valor resultaba mayor que la significancia, lo cual implicaba que habían personas menores de 25 años que salían más que el promedio de la muestra. 
 
 # Ingresos -> frecuencia de salida
 
 ## Pruebas de Hipótesis:
+
+* Significancia: 0.05
 
 * H0: No existe correlación lineal entre  ingresos mensuales y  la frecuencia de salida a la semana.
 
@@ -1538,12 +1527,33 @@ abline(ingresos_frec)
 cor(x, y, method="pearson")
 
 ```
-La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. El coeficiente de correlación de pearson es negativo y bajo, por lo que solo existe, con una muy baja significancia, una correlaciÓn negativa de la frecuencia de salida respecto a los ingresos. Debido a que el v.absoluto del coeficiente es menor a 1 - \alpha, no se puede decidir la veracidad de esta tendencia.
+La tendencia muestra un leve decrecimiento en la frecuencia de salida al aumentar los ingresos. Se observa que existen de más a menos puntos alejados del ajuste  lineal a medida que incrementan los ingresos mensuales. Del mismo modo, existe una dispersión variable de la nube de puntos a medida que incrementan los ingresos mensuales.
+
+El coeficiente de correlación de pearson es negativo y bajo, esto significa que el grado de asociación de las variables es bajo. Es decir, menores frecuencias de salida se asocia un -0.05150849  a mayores ingresos mensuales.  Para corroborar ello se analiza los coeficientes del modelo, se describe y analizan los residuos del modelo.
+
 
 ```{r}
 summary(ingresos_frec)
+
+```
+Se obtuvo una pendiente muy baja y negativa de -2.95 *10^(-5). El signo negativo indica que la variable dependiente en este caso , la frecuencia de salida tiende a ser menor a medida que incrementan los ingresos mensuales. La pendiente del modelo se obtuvo con p_valor mayor a la significancia establecida, por lo que no se puede rechazar la hipótesis nula de que esta es 0, ya que es muy próximo a 0. Respecto al intercepto , cuando los ingresos son  nulos  es 2.562 veces de salida, este valor se obtuvo con un p_valor menor a la signifcancia establecida, por lo que se rechaza la hipótesis nula de que esta sea 0.  El coeficiente de determinación del modelo indica que el 0.002653 % de variación de la frecuencia de salida se puede explicar por los ingresos mensuales. El grado de exlicación establecido para las variables es muy bajo, por tanto coincide con la baja asociación de estas determinado anteriormente mediante el coeficiente de pearson.
+
+```{r}
 plot(ingresos_frec)
 ```
+
+En la primera gráfica de los residuos Vs. valores ajustados se muestra que la media de los errores se desvía de 0, ya que existe un mayor grado de dispersión debajo de 0 a medida que aumentan los valores ajustados. De la misma manera se observa que al inicio existen mayores residuos debajo de 0 que encima de 0, en el medio también se da este comportamiento, al parecer al final los residuos son distribuidos simétricamente. Dado que la dispersión no es fija y simétrica para todos los errores a media que se avanza en el ajuste del modelo, se puede decir que los residuos no siguen una distribución normal. Las variaciones en los residuos explican que la variable dependiente,  no crece o decrece con una tendencia definida. Debido a que no siguen una distribución normal, el ajuste como regresión lineal para explicar la frecuencia de salida a partir de los ingresos no resultaría  una buena aproximación.
+
+
+En la segunda gráfica de los residuos estandarizados Vs. cuantiles teóricos. Se observa que inciden varios residuos estandarizados en un mismo valor, debido a que el valor de la  variable dependiente algunas veces se repite. Algunos de estos residuos estandarizados se alinean a la recta de los cuartiles téoricos, algunos estan cerca, pero llega un punto en el que el  alejamiento de la recta es significativo, tal que a pesar de estar estandarizado el error no ajusta el comportamiento de la regresión lineal. El valor de la variable dependiente varía de tal manera que resulta díficil ajustarlo, es por ello que los datos  no siguen esta tendencia.
+
+
+A partir de la evidencia estadística, se afirma que el modelo de regresión lineal que buscaba explicar la frecuencia de salida  mediante los ingresos mensuales no resulta una buena aproximación. Por lo tanto se rechaza la H0. Las razones se encuentran conectadas a la parte descriptiva que se realizó para cada intervalo de ingresos, en los cuales se mostró que la distribución de las frecuencias de salida a medida que aumentaban los intervalos, resultaban  menores en mediana que el intervalo o rango de [0,1000] soles, por lo que parecía favorecerse que menores frecuencias de salida estaban relacionadas con mayores ingresos. Esto se comprobó mediante prueba de hipótesis comparando las medias entre las frecuencias de salida de aquellos con un intervalo de ingreso menor a 1000 soles y de la muestra, en esta se rechazo la hipótesis nula de que las personas con menores frecuencias de salida no necesariamente tienen ingresos    mensuales mayores a 1000 soles dado que el p_valor resulto menor que la significancia establecida. Esto no daba certeza de que las personas con mayores ingresos a 1000 soles tenían menores frecuencias de salida , pero evidencia cierta  tendencia a favorecer ello.  Sin embargo, se observaba que existían personas que aún teniendo mayores ingreso salían más, y lo mismo sucedía con las personas que tenían menores ingresos , salían menos algunos. Esta alta variabilidad (dispersión) para las personas con ingresos mayores a 1000 soles explica porque el modelo de regresión lineal no ajusta correctamente los datos recolectados. Apesar de esto, se justifica claramente que la pendiente negativa del modelo se debe a que  menores frecuencias se explican por mayores ingresos , pero que no resulta imponente ante la dispersión de los datos.
+
+
+
+
+
 
 # Resultados generales
 
