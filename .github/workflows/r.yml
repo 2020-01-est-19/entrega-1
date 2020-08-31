@@ -25,7 +25,10 @@ jobs:
           ${{ runner.os }}-renv-
 
     - name: deps
-      run: sudo apt-get install r-base pandoc libcurl4-gnutls-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install r-base pandoc libcurl4-gnutls-dev
 
     - name: Makevars
       run: |
